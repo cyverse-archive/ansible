@@ -1,3 +1,0 @@
----
-docker_tag: "{{ docker.tag | default(dev) }}"
-app_beta_tagger_repo: "discoenv/apps-beta-tagger"
