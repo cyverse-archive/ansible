@@ -50,6 +50,7 @@ agave:
   client_secret:
 
 amqp_de_exchange:
+amqp_de_exchange_vhost: /de
 amqp_de_exchange_durable: true
 amqp_de_exchange_auto_delete: false
 amqp_irods_exchange: irods
