@@ -1,5 +1,10 @@
 amqp:
-  uri: amqp://{{ amqp_broker.user }}:{{ amqp_broker.password }}@{{ amqp_broker.host }}:{{ amqp_broker.port }}/
+  uri: amqp://{{amqp_broker.user}}:{{amqp_broker.password}}@{{amqp_broker.host}}:{{amqp_broker.port}}/{{amqp_de_exchange_vhost}}
+  exchange:
+    name: {{amqp_de_exchange}}
+    type: {{amqp_de_exchange_type}}
+  queue:
+    name: "templeton.periodic"
 
 elasticsearch:
   base: http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}
