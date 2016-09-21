@@ -3,8 +3,6 @@ amqp:
   exchange:
     name: {{amqp_de_exchange}}
     type: {{amqp_de_exchange_type}}
-  queue:
-    name: "templeton.periodic"
 
 elasticsearch:
   base: http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}
