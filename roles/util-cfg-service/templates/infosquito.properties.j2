@@ -21,7 +21,7 @@ infosquito.amqp.user                 = {{ amqp_broker.user }}
 infosquito.amqp.password             = {{ amqp_broker.password }}
 infosquito.amqp.reindex-queue        = infosquito.reindex
 infosquito.amqp.exchange.name        = {{ amqp_de_exchange }}
-infosquito.amqp.exchange.vhost       = {{ amqp_de_exchange_vhost }}
+infosquito.amqp.exchange.vhost       = /{{ amqp_de_exchange_vhost }}
 infosquito.amqp.exchange.durable     = {{ amqp_de_exchange_durable }}
 infosquito.amqp.exchange.auto-delete = {{ amqp_de_exchange_auto_delete }}
 

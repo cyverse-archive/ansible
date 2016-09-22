@@ -9,7 +9,7 @@ monkey.amqp.password = {{ amqp_broker.password }}
 monkey.amqp.queue    = monkey
 
 monkey.amqp.exchange.name        = {{ amqp_de_exchange }}
-monkey.amqp.exchange.vhost       = {{ amqp_de_exchange_vhost }}
+monkey.amqp.exchange.vhost       = /{{ amqp_de_exchange_vhost }}
 monkey.amqp.exchange.durable     = {{ amqp_de_exchange_durable }}
 monkey.amqp.exchange.auto-delete = {{ amqp_de_exchange_auto_delete }}
 
