@@ -1,14 +1,14 @@
 ---
 - name: create the vhost
   rabbitmq_vhost: 
-      name: "{{ amqp_de_exchange_vhost }}" 
+      name: "/{{ amqp_de_exchange_vhost }}" 
       state: present
 
 - name: set up the user
   rabbitmq_user:
     user: "{{ amqp_broker.user }}"
     password: "{{ amqp_broker.password }}"
-    vhost: "{{ amqp_de_exchange_vhost }}"
+    vhost: "/{{ amqp_de_exchange_vhost }}"
     state: present
     configure_priv: .*
     read_priv: .*
