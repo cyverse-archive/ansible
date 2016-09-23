@@ -49,11 +49,6 @@ agave:
   client_key:
   client_secret:
 
-amqp_de_exchange:
-amqp_de_exchange_vhost: /de
-amqp_de_exchange_durable: true
-amqp_de_exchange_type: topic
-amqp_de_exchange_auto_delete: false
 amqp_irods_exchange: irods
 amqp_irods_exchange_type: topic
 amqp_irods_exchange_durable: true
@@ -83,10 +78,6 @@ amqp:
 amqp_de_uri: "{{amqp.de.scheme}}://{{amqp.de.user}}:{{amqp.de.password}}@{{amqp.de.host}}:{{amqp.de.port}}/{{amqp.de.vhost_encoded}}"
 
 amqp_broker:
-  host: "{{ groups['amqp-brokers'][0] }}"
-  port: 5672
-  user: guest
-  password: guest
   condor_events:
     exchange: condor_events
     exchange_type: fanout

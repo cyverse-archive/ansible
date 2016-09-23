@@ -1,8 +1,8 @@
 amqp:
-  uri: amqp://{{amqp_broker.user}}:{{amqp_broker.password}}@{{amqp_broker.host}}:{{amqp_broker.port}}/{{amqp_de_exchange_vhost}}
+  uri: {{amqp_de_uri}}
   exchange:
-    name: {{amqp_de_exchange}}
-    type: {{amqp_de_exchange_type}}
+    name: {{amqp.de.name}}
+    type: {{amqp.de.type}}
 
 elasticsearch:
   base: http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}
