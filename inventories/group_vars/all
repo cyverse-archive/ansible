@@ -59,6 +59,29 @@ amqp_irods_exchange_type: topic
 amqp_irods_exchange_durable: true
 amqp_irods_exchange_auto_delete: false
 
+# The children of `amqp` are considered exchanges
+amqp:
+  de:
+    name:
+    auto_delete: false
+    durable: true
+    type:
+
+    ## Connection parameters
+    scheme: amqp
+    user: guest
+    password: guest
+    host: "{{ groups['amqp-brokers'][0] }}"
+    port: 5672
+    vhost: /
+    # For vhosts containing `/`, use `%2f` instead (e.g. `/my_vhost` => `%2fmy_vhost`
+    vhost_encoded:
+    mgmt_port:
+  irods:
+    name: "TODO:"
+
+amqp_de_uri: "{{amqp.de.scheme}}://{{amqp.de.user}}:{{amqp.de.password}}@{{amqp.de.host}}:{{amqp.de.port}}/{{amqp.de.vhost_encoded}}"
+
 amqp_broker:
   host: "{{ groups['amqp-brokers'][0] }}"
   port: 5672
