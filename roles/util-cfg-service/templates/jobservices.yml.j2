@@ -1,5 +1,8 @@
 amqp:
-  uri: amqp://{{amqp_broker.user}}:{{amqp_broker.password}}@{{amqp_broker.host}}:{{amqp_broker.port}}/de-{{environment_name}}
+  uri: {{amqp_de_uri}}
+  exchange:
+    name: {{amqp.de.name}}
+    type: {{amqp.de.type}}
 
 apps:
   callbacks_uri: "{{apps.base}}/callbacks/de-job"
