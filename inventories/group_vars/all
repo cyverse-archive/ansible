@@ -77,15 +77,6 @@ amqp:
 
 amqp_de_uri: "{{amqp.de.scheme}}://{{amqp.de.user}}:{{amqp.de.password}}@{{amqp.de.host}}:{{amqp.de.port}}/{{amqp.de.vhost_encoded}}"
 
-amqp_broker:
-  condor_events:
-    exchange: condor_events
-    exchange_type: fanout
-    exchange_durable: true
-    exchange_routing_key:
-    queue_name:
-    exchange_auto_delete: false
-
 anon_files:
   host: "{% if use_overlay %}anon-files{% else %}{{ groups['anon-files'][0] }}{% endif %}"
   port:

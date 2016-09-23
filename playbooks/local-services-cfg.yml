@@ -48,12 +48,6 @@
         - clockwork
 
     - role: util-cfg-service
-      service_name_short: "{{condor_log_monitor.service_name_short}}"
-      tags:
-        - service_config
-        - condor-log-monitor
-
-    - role: util-cfg-service
       service_name_short: "{{data_info.service_name_short}}"
       tags:
         - service_config
@@ -94,12 +88,6 @@
       tags:
         - service_config
         - iplant-groups
-
-    - role: util-cfg-service
-      service_name_short: "{{jexevents.service_name_short}}"
-      tags:
-        - service_config
-        - jexevents
 
     - role: util-cfg-service
       service_name_short: "{{kifshare.service_name_short}}"
