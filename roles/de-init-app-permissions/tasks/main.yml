@@ -3,19 +3,16 @@
   pip: name="docker-py" state="latest"
 
 - name: pull the app registration docker image
-  docker_image: name="{{ app_registration_repo }}" tag="{{ docker_tag }}"
+  shell: docker pull {{app_registration_repo}}:{{docker_tag}}
 
 - name: pull the configuration docker image
-  docker_image: name="{{ config_repo }}" tag="{{ docker_tag }}"
+  shell: docker pull {{config_repo}}:{{docker_tag}}
 
 - name: delete the configuration container if it exists
-  docker_container: name="app-registration-configs" state="absent"
+  shell: docker rm app-registration-configs || echo "nothing to see here, move along"
 
 - name: create the configuration container
-  docker_container:
-    name: "app-registration-configs"
-    image: "{{ config_repo }}:{{ docker_tag }}"
-    state: "present"
+  shell: docker create --name app-registration-configs {{config_repo}}:{{docker_tag}}
 
 - name: register existing DE apps
   shell: >-
@@ -23,4 +20,4 @@
     --config={{ config_path }} --de-database-name={{ de_database_name }}
 
 - name: remove the app registration config container
-  docker_container: name="app-registration-configs" state="absent"
+  shell: docker rm app-registration-configs
