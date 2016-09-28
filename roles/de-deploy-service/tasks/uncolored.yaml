@@ -20,7 +20,7 @@
       check_service_name: "config_{{service_name}}"
 
   - when: check_service_name not in available_services and
-          iplant_data_|default(true)
+          has_iplant_data|default(false)
     name: verify that {{check_service_name}} exists in the docker-compose file
     fail: msg="{{check_service_name}} is not available on this host"
     vars:
