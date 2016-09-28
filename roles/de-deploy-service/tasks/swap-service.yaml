@@ -26,12 +26,27 @@
   register: color_switch
   failed_when: color_switch.content != "true"
 
-- include: stop.yaml
-  vars:
-    stop_service_name: "{{service_name}}_{{current_color}}"
+- block:
+  - name: stop the {{stop_service_name}} container
+    shell: "docker-compose -f {{docker_compose_path}} stop {{stop_service_name}}"
+    register: docker_up_v
+    changed_when: docker_up_v.stdout.find('Image is up to date') == -1
+    tags:
+      - docker_stop
+    vars:
+      stop_service_name: "{{service_name}}_{{current_color}}"
 
-- include: rm.yaml
-  vars:
-    rm_service_name: "{{service_name}}_{{current_color}} {% if has_configs|default(true) %}config_{{service_name}}_{{current_color}}{% endif %} {% if has_iplant_data|default(false) %}iplant_data_{{service_name}}_{{current_color}}{% endif %}"
-  tags:
-    - docker_rm_service
+  - name: remove the {{rm_service_name}} container (s)
+    shell: "docker-compose -f {{docker_compose_path}} rm -f -v {{rm_service_name}}"
+    register: docker_pull_v
+    changed_when: true
+    ignore_errors: yes
+    tags:
+      - docker_rm
+      - docker_rm_service
+    vars:
+      rm_service_name: "{{service_name}}_{{current_color}} {% if has_configs|default(true) %}config_{{service_name}}_{{current_color}}{% endif %} {% if has_iplant_data|default(false) %}iplant_data_{{service_name}}_{{current_color}}{% endif %}"
+  environment:
+    DE_TAG: "{{docker.tag}}"
+    DE_ENV: "{{environment_name}}"
+    HOSTNAME: "{{ hostname_i.stdout_lines[0] }}"
