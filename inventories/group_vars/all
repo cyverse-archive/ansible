@@ -66,7 +66,7 @@ amqp:
     ## Connection parameters
     scheme: amqp
     user: guest
-    password: guestPW
+    password: guest
     host: "{{ groups['amqp-brokers'][0] }}"
     port: 5672
     vhost: /
@@ -82,13 +82,12 @@ amqp:
     ## Connection parameters
     scheme: amqp
     user: guest
-    password: guestPW
+    password: guest
     host: "{{ groups['irods-amqp-brokers'][0] if groups['irods-amqp-brokers']|count else ''}}"
     port: 5672
     vhost: /
-    vhost: /
     # For vhosts containing `/`, use `%2f` instead (e.g. `/my_vhost` => `%2fmy_vhost`
-    vhost_encoded:
+    vhost_encoded: 
     mgmt_port:
 
 amqp_de_uri: "{{amqp.de.scheme}}://{{amqp.de.user}}:{{amqp.de.password}}@{{amqp.de.host}}:{{amqp.de.port}}/{{amqp.de.vhost_encoded}}"
@@ -415,12 +414,6 @@ irods:
   admins: rodsadmin
   data_curators_group: data-curators
   bad_chars: \u0060\u0027\u000A\u0009
-#  amqp_broker:
-#    host: "{{ groups['irods-amqp-brokers'][0] if groups['irods-amqp-brokers']|count else ''}}"
-#    port: 5672
-#    user: guest
-#    password: guest
-
 
 # Jex does not actually have a container. The container name is how most syslog entries
 # are identified. See rsyslog-config role.
