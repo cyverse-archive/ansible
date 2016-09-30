@@ -55,11 +55,11 @@
     pip: name="python-consul" state="latest"
   - name: update pyhcl
     pip: name="pyhcl" state="latest"
-  when: consul_token
+  when: consul_token != ""
 
 - block:
   - name: Allocate a consul ACL token
-    when: consul_token
+    when: consul_token != ""
     consul_acl:
       mgmt_token: "{{ consul_token }}"
       host: "localhost"
@@ -71,9 +71,10 @@
         - key: "{{environment_name}}/{{service_name_short}}/color"
           policy: read
     register: consul_deployment_token
+    ignore_errors: True
 
   - name: Determine color of {{service_name_short}}
-    shell: "curl -f 'http://localhost:{{consul_port}}/v1/kv/{{environment_name}}/{{service_name_short}}/color?raw{% if consul_token %}&token={{ consul_deployment_token.token }}{% endif %}' || printf 'green'"
+    shell: "curl -f 'http://localhost:{{consul_port}}/v1/kv/{{environment_name}}/{{service_name_short}}/color?raw{% if consul_deployment_token and 'token' in consul_deployment_token %}&token={{ consul_deployment_token.token }}{% endif %}' || printf 'green'"
     args:
       warn: no
     register: service_color_check
@@ -84,7 +85,8 @@
         host: "localhost"
         token: "{{consul_deployment_token.token}}"
         state: absent
-      when: consul_token
+      when: consul_deployment_token and 'token' in consul_deployment_token
+      ignore_errors: True
 
 - debug: msg="Color of {{service_name}} is {{service_color_check.stdout_lines[0]}}"
 

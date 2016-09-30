@@ -12,7 +12,7 @@
 
 - block:
   - name: Allocate a consul ACL token
-    when: consul_token
+    when: consul_token != ""
     consul_acl:
       mgmt_token: "{{ consul_token }}"
       host: "localhost"
@@ -28,6 +28,7 @@
         - service: '{{service_name_short}}'
           policy: read
     register: consul_deployment_token
+    ignore_errors: True
 
   # We'll give it two whole minutes to come up. If that's not enough something's probably wrong anyway.
   - name: wait for {{other_color}} server to be up
@@ -51,7 +52,8 @@
         host: "localhost"
         token: "{{consul_deployment_token.token}}"
         state: absent
-      when: consul_token
+      when: consul_deployment_token and 'token' in consul_deployment_token
+      ignore_errors: True
 
 - block:
   - name: stop the {{stop_service_name}} container
