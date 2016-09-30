@@ -10,21 +10,48 @@
   vars:
     restart_service_name: "{{service_name}}_{{other_color}}"
 
-# We'll give it two whole minutes to come up. If that's not enough something's probably wrong anyway.
-- name: wait for {{other_color}} server to be up
-  uri: url="http://localhost:{{consul_port}}/v1/health/service/{{service_name_short}}?passing&tag={{environment_name}}-{{other_color}}{% if consul_token %}&token={{consul_token}}{% endif %}" method=GET return_content=yes
-  register: health_check
-  until: health_check.content != "[]"
-  retries: 60
-  delay: 2
+- block:
+  - name: Allocate a consul ACL token
+    when: consul_token
+    consul_acl:
+      mgmt_token: "{{ consul_token }}"
+      host: "localhost"
+      port: "{{consul_port}}"
+      name: "Temporary {{service_name_short}} deployment token ({{current_color}} -> {{other_color}})"
+      rules:
+        - key: ''
+          policy: deny
+        - key: "{{environment_name}}/{{service_name_short}}/color"
+          policy: write
+        - service: ''
+          policy: deny
+        - service: '{{service_name_short}}'
+          policy: read
+    register: consul_deployment_token
 
-- fail: msg="The server did not come up"
-  when: health_check.content == "[]"
+  # We'll give it two whole minutes to come up. If that's not enough something's probably wrong anyway.
+  - name: wait for {{other_color}} server to be up
+    uri: url="http://localhost:{{consul_port}}/v1/health/service/{{service_name_short}}?passing&tag={{environment_name}}-{{other_color}}{% if consul_deployment_token and 'token' in consul_deployment_token %}&token={{consul_deployment_token.token}}{% endif %}" method=GET return_content=yes
+    register: health_check
+    until: health_check.content != "[]"
+    retries: 60
+    delay: 2
 
-- name: switch color to {{other_color}}
-  uri: url="http://localhost:{{consul_port}}/v1/kv/{{environment_name}}/{{service_name_short}}/color{% if consul_token %}?token={{consul_token}}{% endif %}" method=PUT body="{{other_color}}" return_content=yes
-  register: color_switch
-  failed_when: color_switch.content != "true"
+  - fail: msg="The server did not come up"
+    when: health_check.content == "[]"
+
+  - name: switch color to {{other_color}}
+    uri: url="http://localhost:{{consul_port}}/v1/kv/{{environment_name}}/{{service_name_short}}/color{% if consul_deployment_token and 'token' in consul_deployment_token %}?token={{consul_deployment_token.token}}{% endif %}" method=PUT body="{{other_color}}" return_content=yes
+    register: color_switch
+    failed_when: color_switch.content != "true"
+  always:
+    - name: "Remove consul ACL token"
+      consul_acl:
+        mgmt_token: "{{ consul_token }}"
+        host: "localhost"
+        token: "{{consul_deployment_token.token}}"
+        state: absent
+      when: consul_token
 
 - block:
   - name: stop the {{stop_service_name}} container
