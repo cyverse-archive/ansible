@@ -68,7 +68,7 @@
         icon: ":facepalm:"
         msg: ":warning: Updating permissions database"
 
-      - { role: de-update-database-permissions, tags: ["permissions"] }
+      - { role: de-update-database-permissions, tags: ["permissions-db"] }
 
       - role: util-notify-chat
         username: "DB Updater"
