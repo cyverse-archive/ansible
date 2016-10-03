@@ -59,7 +59,7 @@
 - name: Update permissions database
   hosts: db-proxy:&systems
   tags:
-      - permissions
+      - permissions-db
       - databases
   become: False
   roles:
