@@ -54,6 +54,8 @@
         state: absent
       when: consul_deployment_token and 'token' in consul_deployment_token
       ignore_errors: True
+    - fail: msg="The server did not come up"
+      when: health_check.content == "[]"
 
 - block:
   - name: stop the {{stop_service_name}} container
