@@ -16,13 +16,12 @@ info-typer.irods.retry-sleep = 1000
 info-typer.irods.use-trash   = true
 
 # AMQP settings
-info-typer.amqp.host                 = {{ irods.amqp_broker.host }}
-info-typer.amqp.port                 = {{ irods.amqp_broker.port }}
-info-typer.amqp.user                 = {{ irods.amqp_broker.user }}
-info-typer.amqp.pass                 = {{ irods.amqp_broker.password }}
+info-typer.amqp.uri                  = amqp://{{ irods.amqp_broker.user }}:{{ irods.amqp_broker.password }}@{{ irods.amqp_broker.host }}:{{ irods.amqp_broker.port }}/%2F
 info-typer.amqp.retry-sleep          = 10000
 info-typer.amqp.exchange             = {{ amqp_irods_exchange }}
 info-typer.amqp.exchange.type        = {{ amqp_irods_exchange_type }}
 info-typer.amqp.exchange.durable     = {{ amqp_irods_exchange_durable }}
 info-typer.amqp.exchange.auto-delete = {{ amqp_irods_exchange_auto_delete }}
 info-typer.amqp.qos                  = 100
+
+info-typer.events.amqp.uri = {{ amqp_de_uri }}
