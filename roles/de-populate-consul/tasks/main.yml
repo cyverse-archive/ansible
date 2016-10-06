@@ -1,0 +1,41 @@
+---
+
+- fail: msg="The kv variable is required by de-populate-consul."
+  when: kv is not defined or kv is not iterable
+
+- block:
+  - name: update python-consul
+    pip: name="python-consul" state="latest"
+  - name: update pyhcl
+    pip: name="pyhcl" state="latest"
+  when: consul_token is not none and consul_token != ""
+
+- block:
+  - name: Allocate a consul ACL token
+    when: consul_token is not none and consul_token != ""
+    consul_acl:
+      mgmt_token: "{{ consul_token }}"
+      host: "localhost"
+      port: "{{consul_port}}"
+      name: "Temporary key-population token"
+      rules: "{{ kv|map('combine', {'policy': 'write'})|list }}"
+    register: consul_update_token
+    ignore_errors: True
+
+  - name: "Add or update {{key}}"
+    consul_kv:
+      key: "{{item.key}}"
+      value: "{{item.value}}"
+      port: "{{consul_port}}"
+      token: "{% if consul_update_token and 'token' in consul_update_token %}{{consul_update_token.token}}{% else %}{{ none }}{% endif %}"
+    with_items: "{{kv}}"
+
+  always:
+    - name: "Remove consul ACL token"
+      consul_acl:
+        mgmt_token: "{{ consul_token }}"
+        host: "localhost"
+        token: "{{consul_update_token.token}}"
+        state: absent
+      when: consul_update_token and 'token' in consul_update_token
+      ignore_errors: True
