@@ -1,0 +1,14 @@
+# Use this with single-role.yaml and pass an appropriate key and value.
+---
+
+- name: "Update {{key}} in consul"
+  hosts: consul
+  run_once: true
+  become: true
+  gather_facts: false
+  tags:
+    - consul-kv
+  roles:
+    - role: de-populate-consul
+      kv:
+        - {key: "{{key}}", value: "{{value}}"}

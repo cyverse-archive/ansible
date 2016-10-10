@@ -1,0 +1,27 @@
+---
+
+- name: "Update keys in consul"
+  hosts: consul
+  run_once: true
+  become: true
+  gather_facts: false
+  tags:
+    - consul-kv
+  roles:
+    - role: de-populate-consul
+      cleanup: True
+      kv:
+        - {key: "configs/{{environment_name}}/amqp/uri", value: "{{amqp_de_uri}}"}
+        - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}
+        - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
+        - {key: "configs/{{environment_name}}/apps/de-callback-uri", value: "{{apps.base}}/callbacks/de-job"}
+        - {key: "configs/{{environment_name}}/de-db/uri", value: "postgresql://{{db_user}}:{{db_password}}@{{db_host}}:{{db_port}}/{{db_name}}?sslmode=disable"}
+        - {key: "configs/{{environment_name}}/irods/user", value: "{{irods.user}}"}
+        - {key: "configs/{{environment_name}}/irods/pass", value: "{{irods.password}}"}
+        - {key: "configs/{{environment_name}}/irods/host", value: "{{irods.host}}"}
+        - {key: "configs/{{environment_name}}/irods/port", value: "{{irods.port}}"}
+        - {key: "configs/{{environment_name}}/irods/base", value: "{{irods.home}}"}
+        - {key: "configs/{{environment_name}}/irods/resc", value: "{{irods.default_resource}}"}
+        - {key: "configs/{{environment_name}}/irods/zone", value: "{{irods.zone}}"}
+        - {key: "configs/{{environment_name}}/porklock/image", value: "discoenv/porklock"}
+        - {key: "configs/{{environment_name}}/porklock/tag", value: "{{docker.tag}}"}

@@ -1,0 +1,3 @@
+---
+consul_port: 8500
+consul_token: "{% if consul is mapping and 'master_token' in consul %}{{ consul.master_token }}{% endif %}"
