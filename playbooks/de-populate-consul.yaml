@@ -9,6 +9,7 @@
     - consul-kv
   roles:
     - role: de-populate-consul
+      cleanup: True
       kv:
         - {key: "configs/{{environment_name}}/amqp/uri", value: "{{amqp_de_uri}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}

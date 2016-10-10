@@ -18,9 +18,18 @@
       host: "localhost"
       port: "{{consul_port}}"
       name: "Temporary key-population token"
-      rules: "{{ kv|map('combine', {'policy': 'write'})|list }}"
+      rules: "{{ kv|map('combine', {'policy': 'write'})|list + [{'key': 'configs/' + environment_name, 'policy': 'write'}] }}"
     register: consul_update_token
     ignore_errors: True
+
+  # using URI because consul_kv doesn't do the right thing recursively deleting
+  - name: "Clear out consul k/v store"
+    uri: url="http://localhost:{{consul_port}}/v1/kv/configs/{{environment_name}}?recurse&{% if consul_update_token and 'token' in consul_update_token %}&token={{consul_update_token.token}}{% endif %}" method=DELETE return_content=yes
+    register: cleanup_return
+    changed_when: cleanup_return.content == "true"
+    when: cleanup
+    tags:
+      - cleanup
 
   - name: "Add or update {{key}}"
     consul_kv:
