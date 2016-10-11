@@ -185,6 +185,7 @@
       msg: "Deploying saved-searches"
     - role: de-deploy-service
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{saved_searches.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying saved-searches"
@@ -220,6 +221,7 @@
       msg: "Deploying tree-urls"
     - role: de-deploy-service
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{tree_urls.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying tree-urls"
@@ -237,6 +239,7 @@
       msg: "Deploying user-preferences"
     - role: de-deploy-service
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{user_preferences.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying user-preferences"
@@ -254,6 +257,7 @@
       msg: "Deploying user-sessions"
     - role: de-deploy-service
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{user_sessions.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying user-sessions"
@@ -389,6 +393,7 @@
       msg: "Deploying job-status-to-apps-adapter"
     - role: de-deploy-service
       deploy_use_color: false
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: job_status_to_apps_adapter
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying job-status-to-apps-adapter"
@@ -406,6 +411,7 @@
       msg: "Deploying job-status-recorder"
     - role: de-deploy-service
       deploy_use_color: false
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: job_status_recorder
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying job-status-recorder"
