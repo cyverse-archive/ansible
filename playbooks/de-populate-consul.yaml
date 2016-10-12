@@ -15,6 +15,7 @@
         - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
         - {key: "configs/{{environment_name}}/de-db/uri", value: "postgresql://{{db_user}}:{{db_password}}@{{db_host}}:{{db_port}}/{{db_name}}?sslmode=disable"}
+        - {key: "configs/{{environment_name}}/metadata-db/uri", value: "postgresql://{{metadata_db_user}}:{{metadata_db_password}}@{{metadata_db_host}}:{{metadata_db_port}}/{{metadata_db_name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/irods/user", value: "{{irods.user}}"}
         - {key: "configs/{{environment_name}}/irods/pass", value: "{{irods.password}}"}
         - {key: "configs/{{environment_name}}/irods/host", value: "{{irods.host}}"}
@@ -22,6 +23,8 @@
         - {key: "configs/{{environment_name}}/irods/base", value: "{{irods.home}}"}
         - {key: "configs/{{environment_name}}/irods/resc", value: "{{irods.default_resource}}"}
         - {key: "configs/{{environment_name}}/irods/zone", value: "{{irods.zone}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/base", value: "http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ data_store.elasticsearch.data_index }}"}
         - {key: "configs/{{environment_name}}/porklock/image", value: "discoenv/porklock"}
         - {key: "configs/{{environment_name}}/porklock/tag", value: "{{docker.tag}}"}
         - {key: "configs/{{environment_name}}/apps/base", value: "{{apps.base}}"}
