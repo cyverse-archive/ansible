@@ -451,6 +451,7 @@
       msg: "Deploying templeton-periodic"
     - role: de-deploy-service
       deploy_use_color: false
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       when: not parasitic
       service_name: "{{templeton_periodic.compose_service}}"
     - role: util-notify-chat
@@ -472,6 +473,7 @@
       msg: "Deploying templeton-incremental"
     - role: de-deploy-service
       deploy_use_color: false
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       when: not parasitic
       service_name: "{{templeton_incremental.compose_service}}"
     - role: util-notify-chat
