@@ -16,6 +16,8 @@
         - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
         - {key: "configs/{{environment_name}}/de-db/uri", value: "postgresql://{{db_user}}:{{db_password}}@{{db_host}}:{{db_port}}/{{db_name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/metadata-db/uri", value: "postgresql://{{metadata_db_user}}:{{metadata_db_password}}@{{metadata_db_host}}:{{metadata_db_port}}/{{metadata_db_name}}?sslmode=disable"}
+        - {key: "configs/{{environment_name}}/permissions-db/uri", value: "postgresql://{{permissions_db_user}}:{{permissions_db_password}}@{{permissions_db_host}}:{{permissions_db_port}}/{{permissions_db_name}}?sslmode=disable"}
+        - {key: "configs/{{environment_name}}/grouper-db/uri", value: "postgresql://{{grouper.db.user}}:{{grouper.db.pass}}@{{grouper.db.host}}:{{grouper.db.port}}/{{grouper.db.name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/irods/user", value: "{{irods.user}}"}
         - {key: "configs/{{environment_name}}/irods/pass", value: "{{irods.password}}"}
         - {key: "configs/{{environment_name}}/irods/host", value: "{{irods.host}}"}
