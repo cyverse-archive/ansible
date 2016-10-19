@@ -65,6 +65,7 @@
       msg: "Deploying iplant-email"
     - role: de-deploy-service
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{iplant_email.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying iplant-email"
