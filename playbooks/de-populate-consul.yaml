@@ -29,6 +29,8 @@
         - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ data_store.elasticsearch.data_index }}"}
         - {key: "configs/{{environment_name}}/porklock/image", value: "discoenv/porklock"}
         - {key: "configs/{{environment_name}}/porklock/tag", value: "{{docker.tag}}"}
+        - {key: "configs/{{environment_name}}/smtp/host", value: "local-exim"}
+        - {key: "configs/{{environment_name}}/smtp/from-address", value: "{{ email_smtp_from_address }}"}
         - {key: "configs/{{environment_name}}/apps/base", value: "{{apps.base}}"}
         - {key: "configs/{{environment_name}}/apps/de-callback-uri", value: "{{apps.base}}/callbacks/de-job"}
         - {key: "configs/{{environment_name}}/email/base", value: "{{iplant_email.base}}"}
