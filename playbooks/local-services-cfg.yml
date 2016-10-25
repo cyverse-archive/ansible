@@ -60,12 +60,6 @@
         - dewey
 
     - role: util-cfg-service
-      service_name_short: "{{exim.service_name_short}}"
-      tags:
-        - service_config
-        - exim
-
-    - role: util-cfg-service
       service_name_short: "{{info_typer.service_name_short}}"
       tags:
         - service_config
@@ -114,34 +108,10 @@
         - notificationagent
 
     - role: util-cfg-service
-      service_name_short: "{{saved_searches.service_name_short}}"
-      tags:
-        - service_config
-        - saved-searches
-
-    - role: util-cfg-service
       service_name_short: "{{terrain.service_name_short}}"
       tags:
         - service_config
         - terrain
-
-    - role: util-cfg-service
-      service_name_short: "{{tree_urls.service_name_short}}"
-      tags:
-        - service_config
-        - tree-urls
-
-    - role: util-cfg-service
-      service_name_short: "{{user_preferences.service_name_short}}"
-      tags:
-        - service_config
-        - user-preferences
-
-    - role: util-cfg-service
-      service_name_short: "{{user_sessions.service_name_short}}"
-      tags:
-        - service_config
-        - user-sessions
 
     - role: util-cfg-service
       service_name_short: "{{templeton_periodic.service_name_short}}"
