@@ -50,11 +50,6 @@ agave:
   client_key:
   client_secret:
 
-amqp_irods_exchange: irods
-amqp_irods_exchange_type: topic
-amqp_irods_exchange_durable: true
-amqp_irods_exchange_auto_delete: false
-
 # The children of `amqp` are considered exchanges
 amqp:
   de:
