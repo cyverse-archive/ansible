@@ -1,16 +1,38 @@
 ---
-- name: create the vhost
-  rabbitmq_vhost: 
-      name: "{{ amqp.de.vhost }}"
+- block: 
+  - name: Create the DE vhost
+    rabbitmq_vhost: 
+        name: "{{ amqp.de.vhost }}"
+        state: present
+  
+  - name: set up the user
+    rabbitmq_user:
+      user: "{{ amqp.de.user }}"
+      password: "{{ amqp.de.password }}"
+      vhost: "{{ amqp.de.vhost }}"
       state: present
+      configure_priv: .*
+      read_priv: .*
+      write_priv: .*
+      tags: administrator
+  tags: 
+    - amqp_de
 
-- name: set up the user
-  rabbitmq_user:
-    user: "{{ amqp.de.user }}"
-    password: "{{ amqp.de.password }}"
-    vhost: "{{ amqp.de.vhost }}"
-    state: present
-    configure_priv: .*
-    read_priv: .*
-    write_priv: .*
-    tags: administrator
+- block: 
+  - name: Create the iRODS vhost
+    rabbitmq_vhost: 
+        name: "{{ amqp.irods.vhost }}"
+        state: present
+  
+  - name: set up the user
+    rabbitmq_user:
+      user: "{{ amqp.irods.user }}"
+      password: "{{ amqp.irods.password }}"
+      vhost: "{{ amqp.irods.vhost }}"
+      state: present
+      configure_priv: .*
+      read_priv: .*
+      write_priv: .*
+      tags: administrator
+  tags: 
+    - amqp_irods
