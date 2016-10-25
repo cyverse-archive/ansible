@@ -27,6 +27,10 @@
         - {key: "configs/{{environment_name}}/irods/zone", value: "{{irods.zone}}"}
         - {key: "configs/{{environment_name}}/elasticsearch/base", value: "http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ data_store.elasticsearch.data_index }}"}
+        - {key: "configs/{{environment_name}}/grouper/base", value: "{{ grouper.ws.base_url }}"}
+        - {key: "configs/{{environment_name}}/grouper/api-version", value: "{{ iplant_groups.grouper.api_version }}"}
+        - {key: "configs/{{environment_name}}/grouper/user", value: "{{ grouper.admin.user }}"}
+        - {key: "configs/{{environment_name}}/grouper/pass", value: "{{ grouper.admin.pass }}"}
         - {key: "configs/{{environment_name}}/porklock/image", value: "discoenv/porklock"}
         - {key: "configs/{{environment_name}}/porklock/tag", value: "{{docker.tag}}"}
         - {key: "configs/{{environment_name}}/smtp/host", value: "local-exim"}
