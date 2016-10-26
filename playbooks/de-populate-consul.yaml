@@ -14,6 +14,8 @@
         - {key: "configs/{{environment_name}}/amqp/uri", value: "{{amqp_de_uri}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
+        - {key: "configs/{{environment_name}}/irods-amqp/uri", value: "{{amqp_irods_uri}}"}
+        - {key: "configs/{{environment_name}}/irods-amqp/exchange/name", value: "{{amqp.irods.name}}"}
         - {key: "configs/{{environment_name}}/de-db/uri", value: "postgresql://{{db_user}}:{{db_password}}@{{db_host}}:{{db_port}}/{{db_name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/metadata-db/uri", value: "postgresql://{{metadata_db_user}}:{{metadata_db_password}}@{{metadata_db_host}}:{{metadata_db_port}}/{{metadata_db_name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/metadata-db/host", value: "{{ metadata_db_host }}"}
@@ -31,6 +33,8 @@
         - {key: "configs/{{environment_name}}/irods/resc", value: "{{irods.default_resource}}"}
         - {key: "configs/{{environment_name}}/irods/zone", value: "{{irods.zone}}"}
         - {key: "configs/{{environment_name}}/elasticsearch/base", value: "http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/host", value: "{{ data_store.elasticsearch.host }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/port", value: "{{ data_store.elasticsearch.port }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ data_store.elasticsearch.data_index }}"}
         - {key: "configs/{{environment_name}}/grouper/base", value: "{{ grouper.ws.base_url }}"}
         - {key: "configs/{{environment_name}}/grouper/api-version", value: "{{ iplant_groups.grouper.api_version }}"}
@@ -46,3 +50,4 @@
         - {key: "configs/{{environment_name}}/groups/base", value: "{{iplant_groups.base_url}}"}
         - {key: "configs/{{environment_name}}/notifications/base", value: "{{notificationagent.base}}"}
         - {key: "configs/{{environment_name}}/terrain/base", value: "{{terrain.base}}"}
+        - {key: "configs/{{environment_name}}/dewey/qos", value: "100"}
