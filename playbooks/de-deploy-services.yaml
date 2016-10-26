@@ -84,6 +84,7 @@
       msg: "Deploying iplant-groups"
     - role: de-deploy-service
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{iplant_groups.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying iplant-groups"
@@ -136,6 +137,7 @@
       msg: "Deploying metadata"
     - role: de-deploy-service
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{metadata.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying metadata"
