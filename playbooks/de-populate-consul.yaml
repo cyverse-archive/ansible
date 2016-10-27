@@ -23,6 +23,12 @@
         - {key: "configs/{{environment_name}}/metadata-db/name", value: "{{ metadata_db_name }}"}
         - {key: "configs/{{environment_name}}/metadata-db/user", value: "{{ metadata_db_user }}"}
         - {key: "configs/{{environment_name}}/metadata-db/pass", value: "{{ metadata_db_password }}"}
+        - {key: "configs/{{environment_name}}/notification-db/uri", value: "postgresql://{{notification_db_user}}:{{notification_db_password}}@{{notification_db_host}}:{{notification_db_port}}/{{notification_db_name}}?sslmode=disable"}
+        - {key: "configs/{{environment_name}}/notification-db/host", value: "{{ notification_db_host }}"}
+        - {key: "configs/{{environment_name}}/notification-db/port", value: "{{ notification_db_port }}"}
+        - {key: "configs/{{environment_name}}/notification-db/name", value: "{{ notification_db_name }}"}
+        - {key: "configs/{{environment_name}}/notification-db/user", value: "{{ notification_db_user }}"}
+        - {key: "configs/{{environment_name}}/notification-db/pass", value: "{{ notification_db_password }}"}
         - {key: "configs/{{environment_name}}/permissions-db/uri", value: "postgresql://{{permissions_db_user}}:{{permissions_db_password}}@{{permissions_db_host}}:{{permissions_db_port}}/{{permissions_db_name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/grouper-db/uri", value: "postgresql://{{grouper.db.user}}:{{grouper.db.pass}}@{{grouper.db.host}}:{{grouper.db.port}}/{{grouper.db.name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/irods/user", value: "{{irods.user}}"}
