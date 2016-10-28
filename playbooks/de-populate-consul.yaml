@@ -42,6 +42,9 @@
         - {key: "configs/{{environment_name}}/elasticsearch/host", value: "{{ data_store.elasticsearch.host }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/port", value: "{{ data_store.elasticsearch.port }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ data_store.elasticsearch.data_index }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/data-alias", value: "data"}
+        - {key: "configs/{{environment_name}}/elasticsearch/scroll-size", value: "1000"}
+        - {key: "configs/{{environment_name}}/elasticsearch/batch-size", value: "1000"}
         - {key: "configs/{{environment_name}}/grouper/base", value: "{{ grouper.ws.base_url }}"}
         - {key: "configs/{{environment_name}}/grouper/api-version", value: "{{ iplant_groups.grouper.api_version }}"}
         - {key: "configs/{{environment_name}}/grouper/user", value: "{{ grouper.admin.user }}"}
@@ -57,3 +60,4 @@
         - {key: "configs/{{environment_name}}/notifications/base", value: "{{notificationagent.base}}"}
         - {key: "configs/{{environment_name}}/terrain/base", value: "{{terrain.base}}"}
         - {key: "configs/{{environment_name}}/dewey/qos", value: "100"}
+        - {key: "configs/{{environment_name}}/monkey/log-progress/enabled", value: "true"}
