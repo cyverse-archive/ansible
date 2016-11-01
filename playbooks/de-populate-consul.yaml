@@ -60,4 +60,5 @@
         - {key: "configs/{{environment_name}}/notifications/base", value: "{{notificationagent.base}}"}
         - {key: "configs/{{environment_name}}/terrain/base", value: "{{terrain.base}}"}
         - {key: "configs/{{environment_name}}/dewey/qos", value: "100"}
+        - {key: "configs/{{environment_name}}/info-typer/qos", value: "100"}
         - {key: "configs/{{environment_name}}/monkey/log-progress/enabled", value: "true"}
