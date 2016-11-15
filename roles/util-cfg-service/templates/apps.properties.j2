@@ -56,7 +56,7 @@ apps.agave.read-timeout         = {{ agave.read_timeout }}
 apps.agave.page-length          = {{ agave.page_length }}
 
 # Agave callback settings.
-apps.agave.callback-base = {{ de.base }}/agave-cb
+apps.agave.callback-base = {{ agave.job_status_callback }}
 
 # PGP Settings
 apps.pgp.keyring-path = {{ pgp_keyring_path }}
