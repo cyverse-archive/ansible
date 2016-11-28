@@ -260,6 +260,16 @@ terrain:
   log_file: terrain-docker.log
   max_heap: "{{ max_heap.high }}"
 
+image_janitor:
+  host: "{% if use_overlay %}image-janitor{% else %}{{ groups['image-janitor'][0] }}{% endif %}"
+  port:
+  base: "http://{% if use_overlay %}image-janitor{% else %}{{ groups['image-janitor'][0] }}{% endif %}"
+  compose_service: image_janitor
+  image_name: image-janitor
+  container_name: image-janitor
+  properties_file: jobservices.yml
+  log_file: image-janitor-docker.log
+
 email_smtp_host: 127.0.0.1
 email_smtp_from_address:
 iplant_email:
