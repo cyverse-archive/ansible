@@ -1,4 +1,4 @@
-- hosts: services:ui:condor
+- hosts: services:ui
   become: true
   gather_facts: false
   serial: 1
