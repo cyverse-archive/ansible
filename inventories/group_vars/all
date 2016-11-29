@@ -261,9 +261,6 @@ terrain:
   max_heap: "{{ max_heap.high }}"
 
 image_janitor:
-  host: "{% if use_overlay %}image-janitor{% else %}{{ groups['image-janitor'][0] }}{% endif %}"
-  port:
-  base: "http://{% if use_overlay %}image-janitor{% else %}{{ groups['image-janitor'][0] }}{% endif %}"
   compose_service: image_janitor
   image_name: image-janitor
   container_name: image-janitor
