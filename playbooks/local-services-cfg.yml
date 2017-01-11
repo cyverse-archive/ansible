@@ -27,6 +27,7 @@
       file: path={{de_config_dir}}/nginx state=directory
       tags:
         - service_config
+        - nginx
 
   roles:
     - role: util-cfg-service
@@ -152,6 +153,7 @@
       tags:
         - service_config
         - ui
+        - nginx
 
     - role: util-cfg-service
       src: "ui/nginx.conf.tmpl.j2"
@@ -160,6 +162,7 @@
       tags:
         - service_config
         - ui
+        - nginx
 
     - role: util-cfg-service
       src: "docker-cleanup/docker-gc-exclude-containers.j2"

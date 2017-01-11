@@ -301,6 +301,9 @@ exim:
   container_name: exim
   log_file: exim-docker.log
 
+features:
+  agave: true
+
 fs_max_paths_in_request: 1000
 
 gpg_home_dir:
