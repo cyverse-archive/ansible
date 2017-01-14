@@ -81,6 +81,20 @@ Grouper's subject resolver configuration
       <param-name>SECURITY_AUTHENTICATION</param-name>
       <param-value>{{ grouper.subject_source.auth_type }}</param-value>
     </init-param>
+{% if grouper.subject_source.url.startswith("ldaps://") %}
+    <init-param>
+        <param-name>pemCaFile</param-name>
+        <param-value>{{ grouper.subject_source.ca_file }}</param-value>
+    </init-param>
+    <init-param>
+        <param-name>pemCertFile</param-name>
+        <param-value>{{ grouper.subject_source.cert_file }}</param-value>
+    </init-param>
+    <init-param>
+        <param-name>pemKeyFile</param-name>
+        <param-value>{{ grouper.subject_source.key_file }}</param-value>
+    </init-param>
+{% endif %}
 {% if grouper.subject_source.auth_type != 'None' %}
     <init-param>
       <param-name>SECURITY_PRINCIPAL</param-name>
