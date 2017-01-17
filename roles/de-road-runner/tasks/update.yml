@@ -3,7 +3,7 @@
   shell: docker pull discoenv/road-runner:{{docker.tag}}
 
 - name: pull config image
-  shell: docker pull gims.iplantcollaborative.org:5000/de-configs-{{environment_name}}:{{docker.tag}}
+  shell: docker pull {{ docker.registry.base }}/de-configs-{{environment_name}}:{{docker.tag}}
 
 - name: install road-runner
   shell: docker run --rm -v /usr/local/bin:/road-runner --entrypoint "cp" discoenv/road-runner:{{docker.tag}} /go/bin/road-runner /road-runner/road-runner
@@ -13,7 +13,7 @@
   ignore_errors: true
 
 - name: create config container
-  shell: docker run --name road-runner-configs gims.iplantcollaborative.org:5000/de-configs-{{environment_name}}:{{docker.tag}}
+  shell: docker run --name road-runner-configs {{ docker.registry.base }}/de-configs-{{environment_name}}:{{docker.tag}}
 
 - name: copy config to system
   shell: docker run --rm -v /etc:/configs --volumes-from road-runner-configs alpine:3.2 cp /etc/iplant/de/jobservices.yml /configs/jobservices.yml
