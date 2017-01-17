@@ -25,7 +25,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{anon_files.compose_service}}_nginx"
@@ -40,7 +40,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{apps.compose_service}}_nginx"
@@ -55,7 +55,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{data_info.compose_service}}_nginx"
@@ -70,7 +70,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{iplant_email.compose_service}}_nginx"
@@ -85,7 +85,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{iplant_groups.compose_service}}_nginx"
@@ -100,7 +100,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: jex_adapter_nginx
@@ -115,7 +115,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{kifshare.compose_service}}_nginx"
@@ -130,7 +130,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{metadata.compose_service}}_nginx"
@@ -145,7 +145,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{notificationagent.compose_service}}_nginx"
@@ -160,7 +160,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{permissions.compose_service}}_nginx"
@@ -175,7 +175,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{saved_searches.compose_service}}_nginx"
@@ -190,7 +190,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{terrain.compose_service}}_nginx"
@@ -205,7 +205,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{tree_urls.compose_service}}_nginx"
@@ -220,7 +220,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{user_preferences.compose_service}}_nginx"
@@ -235,7 +235,7 @@
   roles:
     - role: de-deploy-service
       has_configs: false
-      has_iplant_data: false
+      has_data_container: false
       deploy_use_color: false
       force_recreate: false
       service_name: "{{user_sessions.compose_service}}_nginx"
@@ -249,7 +249,7 @@
     - de-ui-nginx
   roles:
     - role: de-deploy-service
-      has_iplant_data: true
+      has_data_container: true
       deploy_use_color: false
       service_name: "{{de.http_server.compose_service}}"
 

@@ -17,7 +17,7 @@ Role Variables
 | consul_token           |    no    |                                                |                | A consul management token, for use allocating temporary tokens for this role to use. Uses no token (i.e. anonymous) if left out |
 | deploy_use_color       |    no    | false                                          | false/true     | Whether or not to deploy using a zero-downtime blue-green strategy to deploy. Given a group_var for "use_color" which designates that the inventory is set up for this, services set up for it would be called with something like 'use_color|default(false)' for this, where services which do not support zero-downtime deployment at all could use the default or explicitly pass false. |
 | has_configs            |    no    | true                                           | false/true     | whether this service uses a configuration image |
-| has_iplant_data        |    no    | false                                          | false/true     | whether this service uses an iplant_data container |
+| has_data_container     |    no    | false                                          | false/true     | whether this service uses a data container |
 | force_recreate         |    no    | true                                           | false/true     | whether to pass the --force-recreate flag to docker-compose up |
 | docker_compose_path    |    no    | docker.compose_path from group_vars            |                | the docker-compose file path to use. Generally just /etc/docker-compose.yml |
 
@@ -30,7 +30,7 @@ Example Playbook
       roles:
          - role: de-deploy-service
            service_name: my_service
-           has_iplant_data: true
+           has_data_container: true
            deploy_use_color: {{use_color|default(false)}}
 
 License

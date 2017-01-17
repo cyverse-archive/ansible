@@ -32,19 +32,19 @@
     vars:
       check_service_name: "config_{{service_name}}_blue"
 
-  - when: has_iplant_data|default(false) and
+  - when: has_data_container|default(false) and
           check_service_name not in available_services
     name: verify that {{check_service_name}} exists in the docker-compose file
     fail: msg="{{check_service_name}} is not available on this host"
     vars:
-      check_service_name: "iplant_data_{{service_name}}_green"
+      check_service_name: "{{data_container_name}}_{{service_name}}_green"
 
-  - when: has_iplant_data|default(false) and
+  - when: has_data_container|default(false) and
           check_service_name not in available_services
     name: verify that {{check_service_name}} exists in the docker-compose file
     fail: msg="{{check_service_name}} is not available on this host"
     vars:
-      check_service_name: "iplant_data_{{service_name}}_blue"
+      check_service_name: "{{data_container_name}}_{{service_name}}_blue"
   vars:
     available_services: "{{service_list.stdout_lines}}"
   tags:
