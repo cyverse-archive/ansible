@@ -170,7 +170,7 @@ chat_room_url:
 condor_submission_ip_range:
 condor_allow_write: "*.example.org,{{ condor_submission_ip_range }}"
 condor:
-  host:
+  host: "{{ groups['condor-master'][0] }}"
   admin: grid@example.org
   collector_name: "{{ environment_name }} pool"
   flock_to:
