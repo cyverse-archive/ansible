@@ -164,9 +164,9 @@ org.iplantc.discoveryenvironment.workspace.apps.cardUrlOptions          = ?d=ide
 org.iplantc.discoveryenvironment.contextMenu.enabled = {{ de.context_menu_enabled }}
 
 # Default directories
-org.iplantc.communitydata.path = /iplant/home/shared
+org.iplantc.communitydata.path = /{{ irods.zone }}/{{ irods.community_data_path }}
 org.iplantc.irodshome.path     = {{ irods.home }}
-org.iplantc.basetrash.path     = /iplant/trash/home/{{ irods.user }}
+org.iplantc.basetrash.path     = /{{ irods.zone }}/{{ irods.trash_path }}/{{ irods.user }}
 
 ###############################################################################
 # Maintenance Settings
