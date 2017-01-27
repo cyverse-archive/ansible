@@ -81,7 +81,7 @@
       - docker_rm
       - docker_rm_service
     vars:
-      rm_service_name: "{{service_name}}_{{current_color}} {% if has_configs|default(true) %}config_{{service_name}}_{{current_color}}{% endif %} {% if has_data_container|default(false) %}{{data_container_name}}_{{service_name}}_{{current_color}}{% endif %}"
+      rm_service_name: "{{service_name}}_{{current_color}} {% if has_configs|default(true) %}config_{{service_name}}_{{current_color}}{% endif %} {% if has_data_container|default(false) %}{{data_container_service_name}}_{{service_name}}_{{current_color}}{% endif %}"
   environment:
     DE_TAG: "{{docker.tag}}"
     DE_ENV: "{{environment_name}}"

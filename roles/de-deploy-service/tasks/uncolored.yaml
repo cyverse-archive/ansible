@@ -24,7 +24,7 @@
     name: verify that {{check_service_name}} exists in the docker-compose file
     fail: msg="{{check_service_name}} is not available on this host"
     vars:
-      check_service_name: "{{data_container_name}}_{{service_name}}"
+      check_service_name: "{{data_container_service_name}}_{{service_name}}"
   vars:
     available_services: "{{service_list.stdout_lines}}"
   tags:
