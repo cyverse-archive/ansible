@@ -5,9 +5,9 @@
 
 - block:
   - name: update python-consul
-    pip: name="python-consul" state="latest"
+    pip: name="python-consul" state="present"
   - name: update pyhcl
-    pip: name="pyhcl" state="latest"
+    pip: name="pyhcl" state="present"
   when: consul_token is not none and consul_token != ""
 
 - block:

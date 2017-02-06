@@ -1,6 +1,6 @@
 ---
 - name: update docker-py
-  pip: name="docker-py" state="latest"
+  pip: name="docker-py" state="present"
 
 - name: pull the app registration docker image
   shell: docker pull {{app_registration_repo}}:{{docker_tag}}
