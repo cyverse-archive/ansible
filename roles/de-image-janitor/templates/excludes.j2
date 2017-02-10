@@ -1,7 +1,7 @@
-gims.iplantcollaborative.org:5000/backwards-compat:latest
-gims.iplantcollaborative.org:5000/backwards-compat:{{docker.tag}}
+{{ docker.registry.base }}/backwards-compat:latest
+{{ docker.registry.base }}/backwards-compat:{{docker.tag}}
 discoenv/porklock:{{docker.tag}}
 discoenv/porklock:latest
-gims.iplantcollaborative.org:5000/iplant_data:latest
+{{ docker.registry.base }}/iplant_data:latest
 gliderlabs/consul-server:latest
-gims.iplantcollaborative.org:5000/de-configs-{{environment_name}}:{{docker.tag}}
+{{ docker.registry.base }}/de-configs-{{environment_name}}:{{docker.tag}}

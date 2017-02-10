@@ -86,8 +86,8 @@ amqp:
     vhost_encoded:
     mgmt_port:
 
-amqp_de_uri: "{{amqp.de.scheme}}://{{amqp.de.user}}:{{amqp.de.password}}@{{amqp.de.host}}:{{amqp.de.port}}/{{amqp.de.vhost_encoded}}"
-amqp_irods_uri: "{{amqp.irods.scheme}}://{{amqp.irods.user}}:{{amqp.irods.password}}@{{amqp.irods.host}}:{{amqp.irods.port}}/{{amqp.irods.vhost_encoded}}"
+amqp_de_uri: "{{amqp.de.scheme}}://{{amqp.de.user}}:{{amqp.de.password|urlencode}}@{{amqp.de.host}}:{{amqp.de.port}}/{{amqp.de.vhost_encoded}}"
+amqp_irods_uri: "{{amqp.irods.scheme}}://{{amqp.irods.user}}:{{amqp.irods.password|urlencode}}@{{amqp.irods.host}}:{{amqp.irods.port}}/{{amqp.irods.vhost_encoded}}"
 
 anon_files:
   host: "{% if use_overlay %}anon-files{% else %}{{ groups['anon-files'][0] }}{% endif %}"
@@ -408,6 +408,7 @@ iplant_groups:
     base_url: "{{ grouper.ws.base_url }}"
   max_heap: "{{ max_heap.low }}"
 
+# Both the community data path and the trash path are relative to the iRODS zone.
 irods_admin_users: "{{ irods.user }},{{ irods.admins }}"
 irods:
   host: "{{ groups['irods'][0] }}"
@@ -420,6 +421,8 @@ irods:
   admins: rodsadmin
   data_curators_group: data-curators
   bad_chars: \u0060\u0027\u000A\u0009
+  community_data_path: home/shared
+  trash_path: trash/home
 
 # Jex does not actually have a container. The container name is how most syslog entries
 # are identified. See rsyslog-config role.

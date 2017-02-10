@@ -30,7 +30,7 @@
     - role: util-notify-chat
       msg: "Deploying apps"
     - role: de-deploy-service
-      has_iplant_data: true
+      has_data_container: true
       deploy_use_color: "{{use_color|default(false)}}"
       service_name: "{{apps.compose_service}}"
     - role: util-notify-chat
@@ -208,7 +208,7 @@
     - role: util-notify-chat
       msg: "Deploying terrain"
     - role: de-deploy-service
-      has_iplant_data: true
+      has_data_container: true
       deploy_use_color: "{{use_color|default(false)}}"
       service_name: "{{terrain.compose_service}}"
     - role: util-notify-chat
@@ -279,7 +279,7 @@
     - role: util-notify-chat
       msg: "Deploying UI"
     - role: de-deploy-service
-      has_iplant_data: true
+      has_data_container: true
       deploy_use_color: "{{use_color|default(false)}}"
       service_name: "{{de.compose_service}}"
       service_name_short: "de"

@@ -20,11 +20,11 @@
       check_service_name: "config_{{service_name}}"
 
   - when: check_service_name not in available_services and
-          has_iplant_data|default(false)
+          has_data_container|default(false)
     name: verify that {{check_service_name}} exists in the docker-compose file
     fail: msg="{{check_service_name}} is not available on this host"
     vars:
-      check_service_name: "iplant_data_{{service_name}}"
+      check_service_name: "{{data_container_service_name}}_{{service_name}}"
   vars:
     available_services: "{{service_list.stdout_lines}}"
   tags:
@@ -33,3 +33,7 @@
 - include: restart-service.yaml
   vars:
     restart_service_name: "{{service_name}}"
+  environment:
+    DE_TAG: "{{docker.tag}}"
+    DE_ENV: "{{environment_name}}"
+    HOSTNAME: "{{ hostname_i.stdout_lines[0] }}"

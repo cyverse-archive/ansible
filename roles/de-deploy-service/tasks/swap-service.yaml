@@ -9,6 +9,11 @@
 - include: restart-service.yaml
   vars:
     restart_service_name: "{{service_name}}_{{other_color}}"
+  environment:
+    DE_TAG: "{{docker.tag}}"
+    DE_ENV: "{{environment_name}}"
+    HOSTNAME: "{{ hostname_i.stdout_lines[0] }}"
+    CONSUL_TOKEN: "{{(inventory_hostname+environment_name+consul.get('salt', 'consul_salt')) | to_uuid}}"
 
 - block:
   - name: Allocate a consul ACL token
@@ -76,7 +81,7 @@
       - docker_rm
       - docker_rm_service
     vars:
-      rm_service_name: "{{service_name}}_{{current_color}} {% if has_configs|default(true) %}config_{{service_name}}_{{current_color}}{% endif %} {% if has_iplant_data|default(false) %}iplant_data_{{service_name}}_{{current_color}}{% endif %}"
+      rm_service_name: "{{service_name}}_{{current_color}} {% if has_configs|default(true) %}config_{{service_name}}_{{current_color}}{% endif %} {% if has_data_container|default(false) %}{{data_container_service_name}}_{{service_name}}_{{current_color}}{% endif %}"
   environment:
     DE_TAG: "{{docker.tag}}"
     DE_ENV: "{{environment_name}}"

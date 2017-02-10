@@ -1,49 +1,43 @@
-# Performs a basic deployment of a service: pulls it and dependent images like configs and iplant_data, stops and removes existing containers, then starts the service.
+# Performs a basic deployment of a service: pulls it and dependent images like configs and the data container,
+# stops and removes existing containers, then starts the service.
 ---
-- block:
-  - name: pull the {{pull_service_name}} image(s)
-    shell: "docker-compose -f {{docker_compose_path}} pull {{pull_service_name}}"
-    register: docker_pull_v
-    changed_when: true
-    tags:
-        - docker_pull
-        - docker_pull_service
-    vars:
-      pull_service_name: "{{restart_service_name}} {% if has_configs|default(true)   %}config_{{restart_service_name}}{% endif %} {% if has_iplant_data|default  (false) %}iplant_data_{{restart_service_name}}{% endif %}"
+- name: pull the {{pull_service_name}} image(s)
+  shell: "docker-compose -f {{docker_compose_path}} pull {{pull_service_name}}"
+  register: docker_pull_v
+  changed_when: true
+  tags:
+    - docker_pull
+    - docker_pull_service
+  vars:
+    pull_service_name: "{{restart_service_name}} {% if has_configs|default(true)   %}config_{{restart_service_name}}{% endif %} {% if has_data_container|default  (false) %}{{data_container_service_name}}_{{restart_service_name}}{% endif %}"
 
-  - name: stop the {{stop_service_name}} container
-    shell: "docker-compose -f {{docker_compose_path}} stop {{stop_service_name}}"
-    register: docker_up_v
-    changed_when: docker_up_v.stdout.find('Image is up to date') == -1
-    tags:
-      - docker_stop
-    vars:
-      stop_service_name: "{{restart_service_name}}"
-    when: has_configs|default(true) or has_iplant_data|default(false)
+- name: stop the {{stop_service_name}} container
+  shell: "docker-compose -f {{docker_compose_path}} stop {{stop_service_name}}"
+  register: docker_up_v
+  changed_when: docker_up_v.stdout.find('Image is up to date') == -1
+  tags:
+    - docker_stop
+  vars:
+    stop_service_name: "{{restart_service_name}}"
+  when: has_configs|default(true) or has_data_container|default(false)
 
-  - name: remove the {{rm_service_name}} container (s)
-    shell: "docker-compose -f {{docker_compose_path}} rm -f -v {{rm_service_name}}"
-    register: docker_pull_v
-    changed_when: true
-    ignore_errors: yes
-    tags:
-      - docker_rm
-      - docker_rm_service
-    vars:
-      rm_service_name: "{{restart_service_name}} {% if has_configs|default(true)   %}config_{{restart_service_name}}{% endif %} {% if has_iplant_data|default  (false) %}iplant_data_{{restart_service_name}}{% endif %}"
-    when: has_configs|default(true) or has_iplant_data|default(false)
+- name: remove the {{rm_service_name}} container (s)
+  shell: "docker-compose -f {{docker_compose_path}} rm -f -v {{rm_service_name}}"
+  register: docker_pull_v
+  changed_when: true
+  ignore_errors: yes
+  tags:
+    - docker_rm
+    - docker_rm_service
+  vars:
+    rm_service_name: "{{restart_service_name}} {% if has_configs|default(true)   %}config_{{restart_service_name}}{% endif %} {% if has_data_container|default  (false) %}{{data_container_service_name}}_{{restart_service_name}}{% endif %}"
+  when: has_configs|default(true) or has_data_container|default(false)
 
-  - name: start {{up_service_name}}
-    shell: "docker-compose -f {{docker_compose_path}} up -d {% if force_recreate|default(true) %}--force-recreate{% endif %} {{up_service_name}}"
-    register: docker_up_v
-    changed_when: docker_up_v.stdout.find('is up to date') == -1
-    tags:
-      - docker_up
-    vars:
-      up_service_name: "{{restart_service_name}}"
-
-  environment:
-    DE_TAG: "{{docker.tag}}"
-    DE_ENV: "{{environment_name}}"
-    HOSTNAME: "{{ hostname_i.stdout_lines[0] }}"
-    CONSUL_TOKEN: "{{(inventory_hostname+environment_name+consul.get('salt', 'consul_salt')) | to_uuid}}"
+- name: start {{up_service_name}}
+  shell: "docker-compose -f {{docker_compose_path}} up -d {% if force_recreate|default(true) %}--force-recreate{% endif %} {{up_service_name}}"
+  register: docker_up_v
+  changed_when: docker_up_v.stdout.find('is up to date') == -1
+  tags:
+    - docker_up
+  vars:
+    up_service_name: "{{restart_service_name}}"
