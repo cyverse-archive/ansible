@@ -51,6 +51,8 @@ http {
         ''      close;
     }
 
+    proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=ui_cache:10m max_size=5g inactive=60m use_temp_path=off;
+
     server {
         listen 443 ssl http2;
         server_name {{ de.http_server.ssl.server_name }};
@@ -144,6 +146,9 @@ http {
             proxy_set_header X-Forwarded-Proto $scheme;
 
             proxy_read_timeout 3600s;
+
+            proxy_cache ui_cache;
+            proxy_cache_revalidate on;
 
             proxy_pass http://de;
 {% endblock %}
