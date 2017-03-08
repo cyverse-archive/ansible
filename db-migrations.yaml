@@ -6,17 +6,7 @@
       - databases
   become: False
   roles:
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":warning: Updating de-db database"
-
       - { role: de-update-database-de, tags: ["de-db"] }
-
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":white_check_mark: Done updating de-db database"
 
 - name: Update notifications database
   hosts: db-proxy:&systems
@@ -25,17 +15,7 @@
       - databases
   become: False
   roles:
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":warning: Updating notifications database"
-
       - { role: de-update-database-notifications, tags: ["notification-db"] }
-
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":white_check_mark: Done updating notifications database"
 
 - name: Update metadata database
   hosts: db-proxy:&systems
@@ -44,17 +24,7 @@
       - databases
   become: False
   roles:
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":warning: Updating metadata database"
-
       - { role: de-update-database-metadata, tags: ["metadata-db"] }
-
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":white_check_mark: Done updating metadata database"
 
 - name: Update permissions database
   hosts: db-proxy:&systems
@@ -63,14 +33,4 @@
       - databases
   become: False
   roles:
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":warning: Updating permissions database"
-
       - { role: de-update-database-permissions, tags: ["permissions-db"] }
-
-      - role: util-notify-chat
-        username: "DB Updater"
-        icon: ":facepalm:"
-        msg: ":white_check_mark: Done updating permissions database"
