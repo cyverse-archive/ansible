@@ -20,3 +20,7 @@
 
 - name: change permissions on jobservices.yml
   file: path=/etc/jobservices.yml mode=0644
+
+- name: remove config container
+  shell: docker rm -v road-runner-configs
+  ignore_errors: true
