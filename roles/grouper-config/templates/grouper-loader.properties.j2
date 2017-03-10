@@ -24,11 +24,13 @@ default.subject.source.id = {{ grouper.subject_source.id }}
 # if you dont specify a groupNameExpression, groups will be loaded into this folder
 # if this property doesnt exist, it will be groups:    if it is blank, then there is no top level folder
 # e.g. loader:groups
-loader.ldap.defaultGroupFolder = ldap:groups:
+loader.ldap.defaultGroupFolder = ldap:groups
 
 #################################
 ## LDAP connections
 #################################
 
 # The subject source URL.
-ldap.{{ grouper.subject_source.name }}.url = {{ grouper.subject_source.url }}
+ldap.{{ grouper.loader.name }}.url = {{ grouper.loader.url }}
+ldap.{{ grouper.loader.name }}.user = {{ grouper.loader.user }}
+ldap.{{ grouper.loader.name }}.pass = {{ grouper.loader.pass }}

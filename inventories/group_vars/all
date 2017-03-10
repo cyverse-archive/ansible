@@ -343,6 +343,11 @@ grouper:
       insecure_redirects:
         - server_name: "{{ nginx_ssl.server_name }}"
           return: "https://$host$request_uri"
+  loader:
+    name: groupSource
+    url:
+    user:
+    pass:
   subject_source:
     id:
     name:
