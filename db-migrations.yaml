@@ -34,3 +34,18 @@
   become: False
   roles:
       - { role: de-update-database-permissions, tags: ["permissions-db"] }
+
+### FIXME CORE-8622: remove after next prod release
+- name: initialize tool permissions
+  hosts: permissions:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - permissions-db
+    - permissions-db-tool-reg
+  roles:
+    - role: util-notify-chat
+      msg: "Initializing tool permissions"
+    - role: de-init-tool-permissions
+    - role: util-notify-chat
+      msg: "Done initializing tool permissions"
