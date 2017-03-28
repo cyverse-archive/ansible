@@ -1,2 +1,1 @@
-Documentation may be found [here](http://cyverse.github.io/DE/ansible/).
-
+Documentation may be found [here](https://cyverse-de.github.io/ansible/).
