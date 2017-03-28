@@ -344,6 +344,8 @@ grouper:
         - server_name: "{{ nginx_ssl.server_name }}"
           return: "https://$host$request_uri"
   loader:
+    compose_service: grouper_loader
+    container_name: grouper-loader
     url:
     user:
     pass:
