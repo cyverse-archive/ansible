@@ -1,0 +1,3 @@
+---
+- name: remove binary
+  file: path=/usr/local/bin/de-vault state=absent

@@ -1,0 +1,9 @@
+---
+- name: Deploy de-vault
+  hosts: consul
+  become: true
+  gather_facts: false
+  tags:
+    - vault
+  roles:
+    - de-de-vault
