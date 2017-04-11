@@ -4,6 +4,6 @@
   become: true
   gather_facts: false
   tags:
-    - vault
+    - de-vault
   roles:
     - de-de-vault

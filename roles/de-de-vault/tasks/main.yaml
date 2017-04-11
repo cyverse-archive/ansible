@@ -1,10 +1,10 @@
 ---
 - include: remove.yaml
   tags:
-    - vault
+    - de-vault
     - remove
 
 - include: update.yaml
   tags:
-    - vault
+    - de-vault
     - update
