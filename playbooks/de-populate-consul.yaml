@@ -62,3 +62,25 @@
         - {key: "configs/{{environment_name}}/dewey/qos", value: "100"}
         - {key: "configs/{{environment_name}}/info-typer/qos", value: "100"}
         - {key: "configs/{{environment_name}}/monkey/log-progress/enabled", value: "true"}
+        - {key: "configs/{{environment_name}}/kifshare/mode", value: "{{ kifshare.mode }}"}
+        - {key: "configs/{{environment_name}}/kifshare/download-buffer-size", value: "{{ kifshare.download_buffer_size }}"}
+        - {key: "configs/{{environment_name}}/kifshare/footer-text", value: 'CyVerse is funded by a grant from the National Science Foundation Plant Science Cyberinfrastructure Collaborative (#DBI-0735191, #DBI-1265383).'}
+        - {key: "configs/{{environment_name}}/kifshare/resources-root", value: "./resources"}
+        - {key: "configs/{{environment_name}}/kifshare/images-dir", value: "img"}
+        - {key: "configs/{{environment_name}}/kifshare/js-dir", value: "js"}
+        - {key: "configs/{{environment_name}}/kifshare/css-dir", value: "css"}
+        - {key: "configs/{{environment_name}}/kifshare/flash-dir", value: "flash"}
+        - {key: "configs/{{environment_name}}/kifshare/robots-txt", value: "robots.txt"}
+        - {key: "configs/{{environment_name}}/kifshare/logo-path", value: "resources/img/cyverse-logo-small.png"}
+        - {key: "configs/{{environment_name}}/kifshare/favicon-path", value: "resources/img/cyverse_logo.ico"}
+        - {key: "configs/{{environment_name}}/kifshare/client-cache/scope", value: "public"}
+        - {key: "configs/{{environment_name}}/kifshare/client-cache/max-age", value: "604800"}
+        - {key: "configs/{{environment_name}}/kifshare/irods-url", value: "https://pods.iplantcollaborative.org/wiki/display/start/Using+icommands"}
+        - {key: "configs/{{environment_name}}/kifshare/flags/de-import", value: "\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}"}
+        - {key: "configs/{{environment_name}}/kifshare/flags/curl", value: "curl -o \'\\{\\{filename\\}\\}\' \'\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}\'"}
+        - {key: "configs/{{environment_name}}/kifshare/flags/wget", value: "wget \'\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}\'"}
+        - {key: "configs/{{environment_name}}/kifshare/flags/iget", value: "iget -t \\{\\{ticket-id\\}\\} \'\\{\\{abspath\\}\\}\'"}
+        - {key: "configs/{{environment_name}}/kifshare/css-files", value: "resources/css/reset.css,resources/css/960.css,resources/css/kif.css"}
+        - {key: "configs/{{environment_name}}/kifshare/javascript-files", value: "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js,https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js,resources/js/json2.js,resources/js/kif.js"}
+        - {key: "configs/{{environment_name}}/de/base", value: "{{ de.base }}"}
+        - {key: "configs/{{environment_name}}/services/port", value: "{{ default_service_port }}"}
