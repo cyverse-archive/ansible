@@ -24,6 +24,8 @@
         - {key: "configs/{{environment_name}}/metadata-db/user", value: "{{ metadata_db_user }}"}
         - {key: "configs/{{environment_name}}/metadata-db/pass", value: "{{ metadata_db_password }}"}
         - {key: "configs/{{environment_name}}/notification-db/uri", value: "postgresql://{{notification_db_user}}:{{notification_db_password}}@{{notification_db_host}}:{{notification_db_port}}/{{notification_db_name}}?sslmode=disable"}
+        - {key: "configs/{{environment_name}}/notification-db/driver", value: "{{ notification_db_driver }}"}
+        - {key: "configs/{{environment_name}}/notification-db/subprotocol", value: "{{ notification_db_vendor }}"}
         - {key: "configs/{{environment_name}}/notification-db/host", value: "{{ notification_db_host }}"}
         - {key: "configs/{{environment_name}}/notification-db/port", value: "{{ notification_db_port }}"}
         - {key: "configs/{{environment_name}}/notification-db/name", value: "{{ notification_db_name }}"}
@@ -90,11 +92,4 @@
         - {key: "configs/{{environment_name}}/notification-agent/clean/start", value: "{{ notificationagent.clean_start }}"}
         - {key: "configs/{{environment_name}}/notification-agent/clean/age", value: "{{ notificationagent.clean_age }}"}
         - {key: "configs/{{environment_name}}/notification-agent/clean/enable", value: "{{ notificationagent.clean_enable }}"}
-        - {key: "configs/{{environment_name}}/db/notifications/driver", value: "{{ notification_db_driver }}"}
-        - {key: "configs/{{environment_name}}/db/notifications/subprotocol", value: "{{ notification_db_vendor }}"}
-        - {key: "configs/{{environment_name}}/db/notifications/host", value: "{{ notification_db_host }}"}
-        - {key: "configs/{{environment_name}}/db/notifications/port", value: "{{ notification_db_port }}"}
-        - {key: "configs/{{environment_name}}/db/notifications/name", value: "{{ notification_db_name }}"}
-        - {key: "configs/{{environment_name}}/db/notifications/user", value: "{{ notification_db_user }}"}
-        - {key: "configs/{{environment_name}}/db/notifications/pass", value: "{{ notification_db_password }}"}
         - {key: "configs/{{environment_name}}/services/port", value: "{{ default_service_port }}"}
