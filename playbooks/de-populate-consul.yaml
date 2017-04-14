@@ -11,7 +11,7 @@
     - role: de-populate-consul
       cleanup: True
       kv:
-        - {key: "configs/{{environment_name}}/amqp/uri", value: "amqp://{{}}"}
+        - {key: "configs/{{environment_name}}/amqp/uri", value: "{{ amqp_de_uri }}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
         - {key: "configs/{{environment_name}}/irods-amqp/uri", value: "{{amqp_irods_uri}}"}
