@@ -42,6 +42,11 @@
         - {key: "configs/{{environment_name}}/irods/base", value: "{{irods.home}}"}
         - {key: "configs/{{environment_name}}/irods/resc", value: "{{irods.default_resource}}"}
         - {key: "configs/{{environment_name}}/irods/zone", value: "{{irods.zone}}"}
+        - {key: "configs/{{environment_name}}/icat/host", value: "{{icat.host}}"}
+        - {key: "configs/{{environment_name}}/icat/port", value: "{{icat.port}}"}
+        - {key: "configs/{{environment_name}}/icat/user", value: "{{icat.user}}"}
+        - {key: "configs/{{environment_name}}/icat/password", value: "{{icat.password}}"}
+        - {key: "configs/{{environment_name}}/icat/db", value: "{{icat.db}}"}
         - {key: "configs/{{environment_name}}/elasticsearch/base", value: "http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/host", value: "{{ data_store.elasticsearch.host }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/port", value: "{{ data_store.elasticsearch.port }}"}
