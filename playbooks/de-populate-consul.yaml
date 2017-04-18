@@ -100,3 +100,7 @@
         - {key: "configs/{{environment_name}}/notification-agent/clean/age", value: "{{ notificationagent.clean_age }}"}
         - {key: "configs/{{environment_name}}/notification-agent/clean/enable", value: "{{ notificationagent.clean_enable }}"}
         - {key: "configs/{{environment_name}}/services/port", value: "{{ default_service_port }}"}
+        - {key: "configs/{{environment_name}}/infosquito/notify-enabled", value: "{{ infosquito.notify_enabled }}"}
+        - {key: "configs/{{environment_name}}/infosquito/notify-count", value: "{{ infosquito.notify_count }}"}
+        - {key: "configs/{{environment_name}}/infosquito/retry-interval", value: "{{ infosquito.retry_interval }}"}
+        - {key: "configs/{{environment_name}}/infosquito/reindex-queue", value: "{{ infosquito.reindex_queue }}"}
