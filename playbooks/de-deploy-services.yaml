@@ -282,6 +282,7 @@
     - role: de-deploy-service
       has_data_container: true
       deploy_use_color: "{{use_color|default(false)}}"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{de.compose_service}}"
       service_name_short: "de"
     - role: util-notify-chat

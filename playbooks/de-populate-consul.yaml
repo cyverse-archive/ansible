@@ -104,3 +104,50 @@
         - {key: "configs/{{environment_name}}/infosquito/notify-count", value: "{{ infosquito.notify_count }}"}
         - {key: "configs/{{environment_name}}/infosquito/retry-interval", value: "{{ infosquito.retry_interval }}"}
         - {key: "configs/{{environment_name}}/infosquito/reindex-queue", value: "{{ infosquito.reindex_queue }}"}
+        - {key: "configs/{{environment_name}}/de/default-build-number", value: "{{ de_version_name }}"}
+        - {key: "configs/{{environment_name}}/de/release-version", value: "{{ de_version }}"}
+        - {key: "configs/{{environment_name}}/de/base-url", value: "{{ cas_base }}"}
+        - {key: "configs/{{environment_name}}/de/cas-server-name", value: "{{ de.app_base }}"}
+        - {key: "configs/{{environment_name}}/de/cas-validation", value: "/iplant-cas-ticket-validator"}
+        - {key: "configs/{{environment_name}}/de/cas-logout-url", value: "/iplant-cas-logout"}
+        - {key: "configs/{{environment_name}}/de/cas-app-name", value: "{{ de.description }}"}
+        - {key: "configs/{{environment_name}}/de/cas-login-url", value: "/login"}
+        - {key: "configs/{{environment_name}}/de/authorized-groups", value: "{{ admin_groups }}"}
+        - {key: "configs/{{environment_name}}/de/group-attribute-name", value: "{{ cas_group_attribute }}"}
+        - {key: "configs/{{environment_name}}/de/cas-no-logout-url", value: "{{ cas_no_logout_url }}"}
+        - {key: "configs/{{environment_name}}/de/cas-app-list", value: "{{ cas_app_list }}"}
+        - {key: "configs/{{environment_name}}/de/keepalive-service", value: "{{ de.app_base }}/de/{{ de.rpc_name }}/{{ de.empty_url }}"}
+        - {key: "configs/{{environment_name}}/de/keepalive-target", value: "{{ cas_base }}/login?service={{ de.app_base }}/de/{{ de.rpc_name }}/{{ de.empty_url }}"}
+        - {key: "configs/{{environment_name}}/de/keepalive-interval", value: "90"}
+        - {key: "configs/{{environment_name}}/jwt/private-key-path", value: "{{ jwt.signing_key.private }}"}
+        - {key: "configs/{{environment_name}}/jwt/private-key-password", value: "{{ jwt.signing_key.password }}"}
+        - {key: "configs/{{environment_name}}/de/twitter-url", value: "https://twitter.com/cyverseorg"}
+        - {key: "configs/{{environment_name}}/de/facebook-url", value: "https://www.facebook.com/CyVerse.org/"}
+        - {key: "configs/{{environment_name}}/de/newsletter-url", value: "http://www.cyverse.org/newsletter"}
+        - {key: "configs/{{environment_name}}/de/ask-url", value: "http://www.cyverse.org/learning-center/ask-cyverse"}
+        - {key: "configs/{{environment_name}}/de/prefix", value: "org.iplantc.services"}
+        - {key: "configs/{{environment_name}}/de/file-identifier", value: "{{ path_list_file_identifier }}"}
+        - {key: "configs/{{environment_name}}/de/root-app-category", value: "{{ apps.user_root }}"}
+        - {key: "configs/{{environment_name}}/de/default-app-categories", value: "{{ apps.user_subs }}"}
+        - {key: "configs/{{environment_name}}/de/default-beta-app-category", value: "{{ apps.beta_category }}"}
+        - {key: "configs/{{environment_name}}/de/default-hpc-app-category", value: "{{ apps.hpc_category }}"}
+        - {key: "configs/{{environment_name}}/de/default-trash-app-category", value: "ffffffff-ffff-ffff-ffff-ffffffffffff"}
+        - {key: "configs/{{environment_name}}/de/ontology-attributes", value: "{\"http://edamontology.org/operation.*\":\"rdf:type\",\"http://edamontology.org/topic.*\":\"http://edamontology.org/has_topic\"}"}
+        - {key: "configs/{{environment_name}}/de/beta-attr-iri", value: "{{ apps.beta_attr_iri }}"}
+        - {key: "configs/{{environment_name}}/de/beta-attr-label", value: "{{ apps.beta_attr_label }}"}
+        - {key: "configs/{{environment_name}}/de/beta-value", value: "{{ apps.beta_value }}"}
+        - {key: "configs/{{environment_name}}/de/beta-unit", value: "attr"}
+        - {key: "configs/{{environment_name}}/de/card-url", value: "https://www.gravatar.com/avatar/"}
+        - {key: "configs/{{environment_name}}/de/card-url-options", value: "?d=identicon&s=60"}
+        - {key: "configs/{{environment_name}}/de/context-menu-enabled", value: "{{ de.context_menu_enabled }}"}
+        - {key: "configs/{{environment_name}}/de/community-data-path", value: "/{{ irods.zone }}/{{ irods.community_data_path }}"}
+        - {key: "configs/{{environment_name}}/de/irods-home", value: "{{ irods.home }}"}
+        - {key: "configs/{{environment_name}}/de/trash-path", value: "/{{ irods.zone }}/{{ irods.trash_path }}/{{ irods.user }}"}
+        - {key: "configs/{{environment_name}}/de/maintenance-file", value: "{{ de.maintenance_file }}"}
+        - {key: "configs/{{environment_name}}/de/local-ip-ranges", value: "{{ de.local_ip_ranges }}"}
+        - {key: "configs/{{environment_name}}/de/environment-name", value: "{{ environment_name }}"}
+        - {key: "configs/{{environment_name}}/de/prod-deployment", value: "{{ prod_deployment }}"}
+        - {key: "configs/{{environment_name}}/de/poll-interval", value: "{{ de.notification_poll }}"}
+        - {key: "configs/{{environment_name}}/de/amqp-de-durable", value: "{{ amqp.de.durable }}"}
+        - {key: "configs/{{environment_name}}/de/amqp-de-auto-delete", value: "{{ amqp.de.auto_delete }}"}
+        - {key: "configs/{{environment_name}}/de/support-user", value: "siuser"}
