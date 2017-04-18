@@ -14,6 +14,8 @@
         - {key: "configs/{{environment_name}}/amqp/uri", value: "{{ amqp_de_uri }}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
+        - {key: "configs/{{environment_name}}/amqp/exchange/durable", value: "{{amqp.de.durable}}"}
+        - {key: "configs/{{environment_name}}/amqp/exchange/auto-delete", value: "{{amqp.de.auto_delete}}"}
         - {key: "configs/{{environment_name}}/irods-amqp/uri", value: "{{amqp_irods_uri}}"}
         - {key: "configs/{{environment_name}}/irods-amqp/exchange/name", value: "{{amqp.irods.name}}"}
         - {key: "configs/{{environment_name}}/de-db/uri", value: "postgresql://{{db_user}}:{{db_password}}@{{db_host}}:{{db_port}}/{{db_name}}?sslmode=disable"}
