@@ -126,6 +126,7 @@
         - {key: "configs/{{environment_name}}/de/newsletter-url", value: "http://www.cyverse.org/newsletter"}
         - {key: "configs/{{environment_name}}/de/ask-url", value: "http://www.cyverse.org/learning-center/ask-cyverse"}
         - {key: "configs/{{environment_name}}/de/prefix", value: "org.iplantc.services"}
+        - {key: "configs/{{environment_name}}/de/rpc-prefix", value: "discoveryenvironment/deservice"}
         - {key: "configs/{{environment_name}}/de/file-identifier", value: "{{ path_list_file_identifier }}"}
         - {key: "configs/{{environment_name}}/de/root-app-category", value: "{{ apps.user_root }}"}
         - {key: "configs/{{environment_name}}/de/default-app-categories", value: "{{ apps.user_subs }}"}
@@ -148,6 +149,4 @@
         - {key: "configs/{{environment_name}}/de/environment-name", value: "{{ environment_name }}"}
         - {key: "configs/{{environment_name}}/de/prod-deployment", value: "{{ prod_deployment }}"}
         - {key: "configs/{{environment_name}}/de/poll-interval", value: "{{ de.notification_poll }}"}
-        - {key: "configs/{{environment_name}}/de/amqp-de-durable", value: "{{ amqp.de.durable }}"}
-        - {key: "configs/{{environment_name}}/de/amqp-de-auto-delete", value: "{{ amqp.de.auto_delete }}"}
         - {key: "configs/{{environment_name}}/de/support-user", value: "siuser"}
