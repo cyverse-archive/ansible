@@ -34,7 +34,7 @@
   - name: "Add or update {{key}}"
     consul_kv:
       key: "{{item.key}}"
-      value: "{{item.value}}"
+      value: "{{ item.value | string }}"
       port: "{{consul_port}}"
       token: "{% if consul_update_token and 'token' in consul_update_token %}{{consul_update_token.token}}{% else %}{{ none }}{% endif %}"
     with_items: "{{kv}}"

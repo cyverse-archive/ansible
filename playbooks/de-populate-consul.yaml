@@ -129,7 +129,7 @@
         - {key: "configs/{{environment_name}}/de/rpc-prefix", value: "discoveryenvironment/deservice"}
         - {key: "configs/{{environment_name}}/de/file-identifier", value: "{{ path_list_file_identifier }}"}
         - {key: "configs/{{environment_name}}/de/root-app-category", value: "{{ apps.user_root }}"}
-        - {key: "configs/{{environment_name}}/de/default-app-categories", value: "{{ apps.user_subs }}"}
+        - {key: "configs/{{environment_name}}/de/default-app-categories", value: "{{ apps.user_subs | string }}"}
         - {key: "configs/{{environment_name}}/de/default-beta-app-category", value: "{{ apps.beta_category }}"}
         - {key: "configs/{{environment_name}}/de/default-hpc-app-category", value: "{{ apps.hpc_category }}"}
         - {key: "configs/{{environment_name}}/de/default-trash-app-category", value: "ffffffff-ffff-ffff-ffff-ffffffffffff"}
