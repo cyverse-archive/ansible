@@ -1,0 +1,19 @@
+---
+kifshare_external_url: "http://{{ de.host }}/{{ kifshare.external_url_suffix }}"
+kifshare:
+  host: "{% if use_overlay %}kifshare{% else %}{{ groups['kifshare'][0] }}{% endif %}"
+  port:
+  external_url_suffix: dl
+  service_name: kifshare.service
+  service_name_short: kifshare
+  compose_service: kifshare
+  service_description: kifshare service
+  image_name: kifshare
+  container_name: kifshare
+  properties_file: kifshare.properties
+  log_file: kifshare-docker.log
+  de_url: \{\{url\}\}/d/\{\{ticket-id\}\}/\{\{filename\}\}
+  mode: prod
+  download_buffer_size: 100
+  max_heap: "{{ max_heap.low }}"
+

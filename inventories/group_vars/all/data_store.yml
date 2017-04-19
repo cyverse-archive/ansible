@@ -1,0 +1,8 @@
+---
+data_store:
+  elasticsearch:
+    host: "{{ groups['data-store-elasticsearch'][0] }}"
+    port:
+    scroll_size: 1000
+    data_index: data
+

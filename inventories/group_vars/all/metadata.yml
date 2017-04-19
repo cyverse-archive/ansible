@@ -1,0 +1,14 @@
+---
+metadata:
+  host: "{% if use_overlay %}metadata{% else %}{{ groups['metadata'][0] }}{% endif %}"
+  port:
+  service_name: metadata.service
+  service_name_short: metadata
+  compose_service: metadata
+  service_description: metadata service
+  image_name: metadata
+  container_name: metadata
+  properties_file: metadata.properties
+  log_file: metadata-docker.log
+  max_heap: "{{ max_heap.high }}"
+

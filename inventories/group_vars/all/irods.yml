@@ -1,0 +1,17 @@
+---
+# Both the community data path and the trash path are relative to the iRODS zone.
+irods_admin_users: "{{ irods.user }},{{ irods.admins }}"
+irods:
+  host: "{{ groups['irods'][0] }}"
+  port: 1247
+  user:
+  password:
+  zone: iplant
+  home: /iplant/home
+  default_resource: ""
+  admins: rodsadmin
+  data_curators_group: data-curators
+  bad_chars: \u0060\u0027\u000A\u0009
+  community_data_path: home/shared
+  trash_path: trash/home
+

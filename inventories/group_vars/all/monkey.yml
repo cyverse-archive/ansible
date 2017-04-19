@@ -1,0 +1,13 @@
+---
+monkey:
+  host: "{{ groups['monkey'][0] }}"
+  service_name: monkey.service
+  service_name_short: monkey
+  compose_service: monkey
+  service_description: monkey service
+  image_name: monkey
+  container_name: monkey
+  properties_file: monkey.properties
+  log_file: monkey-docker.log
+  max_heap: "{{ max_heap.low }}"
+

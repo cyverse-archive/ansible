@@ -1,0 +1,8 @@
+---
+image_janitor:
+  compose_service: image_janitor
+  image_name: image-janitor
+  container_name: image-janitor
+  properties_file: jobservices.yml
+  log_file: image-janitor-docker.log
+

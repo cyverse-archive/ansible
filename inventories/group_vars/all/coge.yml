@@ -1,0 +1,7 @@
+---
+coge:
+  user: coge
+  base_url: https://genomevolution.org/coge/api/v1
+  data_folder_name: coge_data
+  genome_load_url: https://genomevolution.org/CoGe/services/service.pl/genome/load
+

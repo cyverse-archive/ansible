@@ -1,0 +1,20 @@
+---
+iplant_groups:
+  host: "{% if use_overlay %}iplant-groups{% else %}{{ groups['iplant-groups'][0] }}{% endif %}"
+  port:
+  base_url: "http://{% if use_overlay %}iplant-groups{% else %}{{ groups['iplant-groups'][0] }}{% endif %}"
+  service_name: iplant-groups.service
+  service_name_short: iplant-groups
+  compose_service: iplant_groups
+  service_description: iplant-groups service
+  image_name: iplant-groups
+  container_name: iplant-groups
+  properties_file: iplant-groups.properties
+  log_file: iplant-groups-docker.log
+  grouper:
+    username: "{{ grouper.admin.user }}"
+    password: "{{ grouper.admin.pass }}"
+    api_version: "v2_2_000"
+    base_url: "{{ grouper.ws.base_url }}"
+  max_heap: "{{ max_heap.low }}"
+

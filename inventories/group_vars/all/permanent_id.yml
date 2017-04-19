@@ -1,0 +1,11 @@
+---
+permanent_id:
+  admin_email_addr: "{{ de_mail_to_addr }}"
+  email_from_addr: "{{ de_mail_from_addr }}"
+  ezid:
+    username: apitest
+    password:
+    shoulders:
+      ark: "ark:/99999/fk4"
+      doi: "doi:10.5072/FK2"
+

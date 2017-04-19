@@ -1,0 +1,14 @@
+---
+data_info:
+  host: "{% if use_overlay %}data-info{% else %}{{ groups['data-info'][0] }}{% endif %}"
+  port:
+  service_name: data-info.service
+  service_name_short: data-info
+  compose_service: data_info
+  service_description: data-info service
+  image_name: data-info
+  container_name: data-info
+  properties_file: data-info.properties
+  log_file: data-info-docker.log
+  max_heap: "{{ max_heap.high }}"
+

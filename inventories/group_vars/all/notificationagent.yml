@@ -1,0 +1,18 @@
+---
+notificationagent:
+  host: "{% if use_overlay %}notification-agent{% else %}{{ groups['notificationagent'][0] }}{% endif %}"
+  port:
+  base: "http://{% if use_overlay %}notification-agent{% else %}{{ groups['notificationagent'][0] }}{% endif %}"
+  service_name: notificationagent.service
+  service_name_short: notificationagent
+  compose_service: notification_agent
+  service_description: notification agent service
+  image_name: notificationagent
+  container_name: notificationagent
+  properties_file: notificationagent.properties
+  log_file: notificationagent-docker.log
+  clean_start: "1:45:00"
+  clean_age: 90
+  clean_enable: "true"
+  max_heap: "{{ max_heap.low }}"
+

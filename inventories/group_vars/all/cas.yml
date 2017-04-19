@@ -1,0 +1,8 @@
+---
+cas_base:
+cas_group_attribute: entitlement
+cas_uid_domain:
+
+cas_no_logout_url: http://user.iplantcollaborative.org
+cas_app_list: all CyVerse applications
+

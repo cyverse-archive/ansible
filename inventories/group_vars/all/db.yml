@@ -1,0 +1,52 @@
+---
+db_driver: org.postgresql.Driver
+db_user:
+db_password:
+db_host: "{{ groups['db'][0] }}"
+db_name: de
+db_port: 5432
+db_admin: postgres
+db_admin_password:
+
+db_vendor: postgresql
+db_allowed_IPv4_remote:
+#  - "X.X.X.X/XX"
+
+jexdb_driver: "{{db_driver}}"
+jexdb_host: "{{db_host}}"
+jexdb_db: jex
+jexdb_password: "{{db_password}}"
+jexdb_port: "{{db_port}}"
+jexdb_user: "{{db_user}}"
+jexdb_vendor: "{{db_vendor}}"
+
+metadata_db_driver: "{{ db_driver }}"
+metadata_db_vendor: "{{ db_vendor }}"
+metadata_db_host: "{{ db_host }}"
+metadata_db_port: "{{ db_port }}"
+metadata_db_user: "{{ db_user }}"
+metadata_db_password: "{{ db_password }}"
+metadata_db_name: metadata
+metadata_db_admin: "{{ db_admin }}"
+metadata_db_admin_password: "{{ db_admin_password }}"
+
+notification_db_driver: "{{ db_driver }}"
+notification_db_vendor: "{{ db_vendor }}"
+notification_db_port: "{{ db_port }}"
+notification_db_host: "{{ db_host }}"
+notification_db_name: notifications
+notification_db_password: "{{ db_password }}"
+notification_db_user: "{{ db_user }}"
+notification_db_admin: "{{ db_admin }}"
+notification_db_admin_password: "{{ db_admin_password }}"
+
+permissions_db_driver: "{{ db_driver }}"
+permissions_db_vendor: "{{ db_vendor }}"
+permissions_db_port: "{{ db_port }}"
+permissions_db_host: "{{ db_host }}"
+permissions_db_name: permissions
+permissions_db_password: "{{ db_password }}"
+permissions_db_user: "{{ db_user }}"
+permissions_db_admin: "{{ db_admin }}"
+permissions_db_admin_password: "{{ db_admin_password }}"
+

@@ -1,0 +1,15 @@
+---
+user_preferences_log_file: /logs/user-preferences.log
+user_preferences:
+  host: "{% if use_overlay %}user-preferences{% else %}{{ groups['user-preferences'][0] }}{% endif %}"
+  port:
+  service_name: user-preferences.service
+  service_name_short: user-preferences
+  compose_service: user_preferences
+  service_description: user preferences service
+  image_name: user-preferences
+  container_name: user-preferences
+  properties_file: user-preferences.properties
+  log_file: user-preferences-docker.log
+  max_heap: "{{ max_heap.low }}"
+

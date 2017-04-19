@@ -1,0 +1,17 @@
+---
+# Jex does not actually have a container. The container name is how most syslog entries
+# are identified. See rsyslog-config role.
+jex:
+  host: "{{ groups['jex'][0] }}"
+  port:
+  base: http://{{ groups['jex'][0] }}
+  service_name: jex.service
+  service_name_short: jex
+  compose_service: jex
+  log_file: jex/jex.log
+  container_name: jex
+  batch_group: batch_processing
+  nfs_base:
+  icommands_path: /usr/local/icommands/:/usr/local/bin/:/usr/bin/
+  request_disk: 0
+

@@ -1,0 +1,11 @@
+---
+templeton_periodic:
+  host: "{{ groups['templeton-periodic'][0] }}"
+  port:
+  service_name_short: templeton-periodic
+  compose_service: templeton_periodic
+  service_description: templeton periodic service
+  image_name: templeton
+  container_name: templeton-periodic
+  log_file: templeton-docker.log
+

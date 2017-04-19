@@ -1,0 +1,6 @@
+---
+# A proxy host and port to be used by the database initialization utility,
+# facepalm. This does not affect network requests not made by facepalm.
+facepalm_proxy_host: null
+facepalm_proxy_port: 80
+
