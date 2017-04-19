@@ -4,5 +4,5 @@
   },
   "config_template": "roles/util-cfg-service/templates/ui/de.properties.j2",
   "config_name": "de.properties",
-  "use_overlay": False
+  "use_overlay": false
 }
