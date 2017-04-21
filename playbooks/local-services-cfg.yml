@@ -1,5 +1,5 @@
 # Set de_config_dir to the local directory.
-# Example: ansible-playbook -i inventories/production.cfg  --extra-vars "de_config_dir=$(pwd)/foo playbook=playbooks/local-services-cfg.yml owner=$(whoami) group=staff de_env=production" --tags="service_config,logging_config" single-role.yaml
+# Example: ansible-playbook playbooks/local-services-cfg.yml -i inventories/production.cfg  --extra-vars "de_config_dir=$(pwd)/foo owner=$(whoami) group=staff de_env=production" --tags="service_config,logging_config"
 
 ---
 - hosts: localhost

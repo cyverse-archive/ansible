@@ -1,5 +1,8 @@
 # This playbook is used to execute "one-to-one" playbooks in the `playbooks` dir.
 #
+# The sole purpose of this playbook is to "pick up" a `group_vars/` folder,
+# if one is not defined within the desired playbook's directory.
+#
 # "one-to-one" refers to playbooks which only execute one role, and are named
 # to indicate that role. This is suggested in ansible's best practices[1].
 #

@@ -1,5 +1,5 @@
-# Use this with single-role.yaml and pass an appropriate service with whether or not it's colored in extra-vars. You'll need to use the JSON-ish syntax or it won't parse the boolean as a boolean.
-# ansible-playbook -K -i <inventory> --extra-vars "{playbook: playbooks/de-deploy-service.yaml, service: clockwork, colored: False}" single-role.yaml
+# Pass an appropriate service with whether or not it's colored in extra-vars. You'll need to use the JSON-ish syntax or it won't parse the boolean as a boolean.
+# ansible-playbook playbooks/de-deploy-service.yaml -i <inventory> --extra-vars "{service: clockwork, colored: False}" -K
 ---
 
 - name: "verify variables"
