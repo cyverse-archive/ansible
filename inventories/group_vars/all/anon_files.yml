@@ -1,0 +1,18 @@
+---
+anon_files:
+  host: "{% if use_overlay %}anon-files{% else %}{{ groups['anon-files'][0] }}{% endif %}"
+  port:
+  base: "http://{% if use_overlay %}anon-files{% else %}{{ groups['anon-files'][0] }}{% endif %}"
+  proxy_url: "https://{{ groups['ui'][0] }}/anon-files/"
+  anon_user: anonymous
+  service_name: anon-files.service
+  service_name_short: anon-files
+  compose_service: anon_files
+  service_description: anon-files service
+  image_name: anon-files
+  log_driver: "{{ docker.log_driver }}"
+  container_name: anon-files
+  properties_file: anon-files.properties
+  log_file: anon-files-docker.log
+  max_heap: "{{ max_heap.low }}"
+

@@ -1,0 +1,5 @@
+---
+logging:
+  dir: /var/log/de
+  conf_dir: "{{de_config_dir}}/logging"
+

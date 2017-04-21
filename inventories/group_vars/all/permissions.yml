@@ -1,0 +1,9 @@
+---
+permissions:
+  host: "{% if use_overlay %}permissions{% else %}{{ groups['permissions'][0] if groups['permissions']|count else '' }}{% endif %}"
+  port:
+  compose_service: permissions
+  service_name_short: permissions
+
+permissions_base: "http://{{ permissions.host }}:{{ permissions.port }}"
+

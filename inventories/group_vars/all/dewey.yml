@@ -1,0 +1,14 @@
+---
+dewey_listen_port:
+
+dewey:
+  service_name: dewey.service
+  service_name_short: dewey
+  compose_service: dewey
+  service_description: dewey service
+  image_name: dewey
+  container_name: dewey
+  properties_file: dewey.properties
+  log_file: dewey-docker.log
+  max_heap: "{{ max_heap.low }}"
+

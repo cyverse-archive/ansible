@@ -1,0 +1,8 @@
+---
+de_support_email_to_addr: ""
+de_mail_from_addr: ""
+de_mail_to_addr: "{{ de_support_email_to_addr }}"
+
+email_smtp_host: 127.0.0.1
+email_smtp_from_address:
+

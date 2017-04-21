@@ -1,0 +1,10 @@
+---
+agave:
+  base_url: https://agave.iplantc.org
+  read_timeout: 10000
+  page_length: 5000
+  oauth_refresh_window: 5
+  job_status_callback: "{{ de.base }}/agave-cb"
+  client_key:
+  client_secret:
+

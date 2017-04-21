@@ -1,0 +1,10 @@
+---
+exim:
+  service_name: exim-sender.service
+  service_name_short: exim-sender
+  compose_service: exim_sender
+  service_description: exim-sender service
+  image_name: exim-sender
+  container_name: exim
+  log_file: exim-docker.log
+

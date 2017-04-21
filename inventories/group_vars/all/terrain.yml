@@ -1,0 +1,15 @@
+---
+terrain:
+  host: "{% if use_overlay %}terrain{% else %}{{ groups['terrain'][0] }}{% endif %}"
+  port:
+  base: "http://{% if use_overlay %}terrain{% else %}{{ groups['terrain'][0] }}{% endif %}"
+  service_name: terrain.service
+  service_name_short: terrain
+  compose_service: terrain
+  service_description: terrain service
+  image_name: terrain
+  container_name: terrain
+  properties_file: terrain.properties
+  log_file: terrain-docker.log
+  max_heap: "{{ max_heap.high }}"
+

@@ -1,0 +1,12 @@
+---
+clockwork:
+  service_name: clockwork.service
+  service_name_short: clockwork
+  compose_service: clockwork
+  service_description: clockwork service
+  image_name: clockwork
+  container_name: clockwork
+  properties_file: clockwork.properties
+  log_file: clockwork-docker.log
+  max_heap: "{{ max_heap.low }}"
+

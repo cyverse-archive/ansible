@@ -1,0 +1,52 @@
+---
+grouper:
+  compose_service: grouper
+  image_repo: "{{ docker.user }}/grouper:2.2.2"
+  init_image: sharkbait
+  log_driver: "{{ docker.log_driver }}"
+  max_heap_size: 2048M
+  max_perm_size: 256M
+  admin:
+    user:
+    pass:
+  api:
+    env_name:
+  container_name: grouper
+  db:
+    url:
+    host:
+    port:
+    name:
+    user:
+    pass:
+  http_server:
+    compose_service: grouper_nginx
+    image_repo: "{{ de.http_server.image_name }}"
+    container_name: grouper-nginx
+    log_driver: "{{ docker.log_driver }}"
+    ssl:
+      servers:
+        - server_name: "{{ nginx_ssl.server_name }}"
+          ssl_certificate: "{{ nginx_ssl.cert }}"
+          ssl_certificate_key: "{{ nginx_ssl.cert_key }}"
+      insecure_redirects:
+        - server_name: "{{ nginx_ssl.server_name }}"
+          return: "https://$host$request_uri"
+  loader:
+    compose_service: grouper_loader
+    container_name: grouper-loader
+    url:
+    user:
+    pass:
+  subject_source:
+    id:
+    name:
+    url:
+    auth_type:
+    principal:
+    credentials:
+  ui:
+    base_url:
+  ws:
+    base_url:
+

@@ -1,0 +1,15 @@
+---
+user_sessions_log_file: /logs/user-sessions.log
+user_sessions:
+  host: "{% if use_overlay %}user-sessions{% else %}{{ groups['user-sessions'][0] }}{% endif %}"
+  port:
+  service_name: user-sessions.service
+  service_name_short: user-sessions
+  compose_service: user_sessions
+  service_description: user sessions service
+  image_name: user-sessions
+  container_name: user-sessions
+  properties_file: user-sessions.properties
+  log_file: user-sessions-docker.log
+  max_heap: "{{ max_heap.low }}"
+  

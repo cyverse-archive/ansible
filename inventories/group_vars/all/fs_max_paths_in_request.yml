@@ -1,0 +1,3 @@
+---
+fs_max_paths_in_request: 1000
+

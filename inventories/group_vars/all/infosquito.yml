@@ -1,0 +1,16 @@
+---
+infosquito:
+  host: "{{ groups['infosquito'][0] }}"
+  service_name: infosquito.service
+  service_name_short: infosquito
+  compose_service: infosquito
+  service_description: infosquito service
+  image_name: infosquito
+  container_name: infosquito
+  properties_file: infosquito.properties
+  log_file: infosquito-docker.log
+  notify_enabled: true
+  notify_count: 10000
+  retry_interval: 900
+  max_heap: "{{ max_heap.low }}"
+

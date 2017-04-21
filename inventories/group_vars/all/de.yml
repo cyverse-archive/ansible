@@ -1,0 +1,44 @@
+---
+de_base:
+de:
+  host: "{{ groups['ui'][0] }}"
+  base: "https://{{ groups['ui'][0] }}/de"
+  app_base: "https://{{ groups['ui'][0] }}"
+  service_name: de-ui.service
+  service_name_short: ui
+  compose_service: de_ui
+  service_description: DE UI; iPlant Discovery Environment user interface
+  image_name: de
+  container_name: de_ui
+  log_driver: "{{ docker.log_driver }}"
+  log_file: de-ui.log
+  context_menu_enabled: false
+  description: the CyVerse Discovery Environment
+  empty_url: empty
+  app_name: de
+  rpc_name: discoveryenvironment
+  notification_poll: 15
+  maintenance_file: de-maintenance
+  local_ip_ranges:
+  http_server:
+    service_name: de-ui-nginx.service
+    service_name_short: de-ui-nginx
+    compose_service: de_ui_nginx
+    service_description: DE UI nginx
+    image_name: nginx
+    container_name: de_ui_nginx
+    log_driver: "{{ docker.log_driver }}"
+    log_file: nginx-de-ui.log
+    ssl:
+      server_name: "{{ nginx_ssl.server_name }}"
+      cert: "{{ nginx_ssl.cert }}"
+      cert_key: "{{ nginx_ssl.cert_key }}"
+      insecure_redirects:
+        - server_name: "{{ nginx_ssl.server_name }}"
+          return: "https://$host$request_uri"
+#      redirects:
+#        - server_name: "~^(?<basename>[^.]+)[.]example[.]com$"
+#          return: "https://$basename.example.org$request_uri"
+#          ssl_certificate: "/etc/ssl/example.com.crt"
+#          ssl_certificate_key: "/etc/ssl/example.com.key"
+

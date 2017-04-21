@@ -1,0 +1,15 @@
+---
+jexevents:
+  host: "{{ groups['jexevents'][0] }}"
+  port:
+  base: "http://{{ groups['jexevents'][0] }}/"
+  event_url: "{{ apps.base }}/callbacks/de-job"
+  service_name: jexevents.service
+  service_name_short: jexevents
+  compose_service: jex_events
+  service_description: jex events service
+  image_name: jex-events
+  container_name: jex-events
+  properties_file: jexevents.properties
+  log_file: jex-events-docker.log
+

@@ -1,0 +1,15 @@
+---
+saved_searches_log_file: /logs/saved-searches.log
+saved_searches:
+  host: "{% if use_overlay %}saved-searches{% else %}{{ groups['saved-searches'][0] }}{% endif %}"
+  port:
+  service_name: saved-searches.service
+  service_name_short: saved-searches
+  compose_service: saved_searches
+  service_description: saved searches services
+  image_name: saved-searches
+  container_name: saved-searches
+  properties_file: saved-searches.properties
+  log_file: saved-searches-docker.log
+  max_heap: "{{ max_heap.low }}"
+

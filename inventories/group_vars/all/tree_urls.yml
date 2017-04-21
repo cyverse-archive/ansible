@@ -1,0 +1,19 @@
+---
+tree_urls_log_file: /logs/tree-urls.log
+tree_urls:
+  host: "{% if use_overlay %}tree-urls{% else %}{{ groups['tree-urls'][0] }}{% endif %}"
+  port:
+  service_name: tree-urls.service
+  service_name_short: tree-urls
+  compose_service: tree_urls
+  service_description: Tree urls service
+  image_name: tree-urls
+  container_name: tree-urls
+  properties_file: tree-urls.properties
+  log_file: tree-urls-docker.log
+  cleanup_age: 30
+  cleanup_start: "1:30:00"
+  cleanup_enable: "true"
+  avu: tree-urls
+  max_heap: "{{ max_heap.low }}"
+

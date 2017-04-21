@@ -1,0 +1,13 @@
+---
+info_typer:
+  host: "{{ groups['info-typer'][0] }}"
+  service_name: info-typer.service
+  service_name_short: info-typer
+  compose_service: info_typer
+  service_description: info-typer service
+  image_name: info-typer
+  container_name: info-typer
+  properties_file: info-typer.properties
+  log_file: info-typer-docker.log
+  max_heap: "{{ max_heap.low }}"
+

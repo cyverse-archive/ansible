@@ -1,0 +1,26 @@
+---
+apps:
+  host: "{% if use_overlay %}apps{% else %}{{ groups['apps'][0] }}{% endif %}"
+  port:
+  base: "http://{% if use_overlay %}apps{% else %}{{ groups['apps'][0] }}{% endif %}"
+  service_name: apps.service
+  service_name_short: apps
+  compose_service: apps
+  service_description: apps service
+  image_name: apps
+  container_name: apps
+  properties_file: apps.properties
+  log_file: apps-docker.log
+  out_dir: analyses
+  path_list_max_paths: 16
+  path_list_max_size: 1048576
+  beta_category: 5401bd14-6c14-4470-aedd-57b47ea1b979
+  hpc_category: 00000000-0000-0000-0000-000000000001
+  user_root: Workspace
+  user_subs: "[\"Apps under development\",\"Favorite Apps\"]"
+  max_heap: "{{ max_heap.high }}"
+  grouper_user:
+  beta_attr_iri: n2t.net/ark:/99152/h1459
+  beta_attr_label: releaseStatus
+  beta_value: beta
+

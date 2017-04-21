@@ -1,0 +1,12 @@
+---
+condor_log_monitor_event_log: /var/log/condor/event_log
+condor_log_monitor:
+  service_name: condor-log-monitor.service
+  service_name_short: condor-log-monitor
+  compose_service: clm
+  service_description: CLM; Condor log monitor
+  image_name: jex-events
+  container_name: clm
+  properties_file: jexevents.properties
+  log_file: condor-log-monitor-docker.log
+

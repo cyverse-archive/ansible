@@ -1,0 +1,17 @@
+---
+data_container:
+  image_name: iplant_data
+  container_name: iplant_data
+  service_name: iplant-data.service
+  service_name_short: iplant-data
+  compose_service: iplant_data
+  service_description: The iPlant Discovery Environment data container
+  ssl:
+    cert: "{{ nginx_ssl.cert }}"
+    key: "{{ nginx_ssl.cert_key }}"
+    gd_bundle_crt: /etc/ssl/gd_bundle.crt
+  keystore:
+    path: /etc/ssl/example.pkcs12
+    password:
+    type: pkcs12
+
