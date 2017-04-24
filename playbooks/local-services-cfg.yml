@@ -6,9 +6,9 @@
   become: false
   gather_facts: false
   pre_tasks:
-     - name: Load Vars
-       include_vars:
-          dir: "{{playbook_dir}}/../inventories/{{de_env}}/group_vars"
+    - name: Load Vars
+      include_vars:
+        dir: "{{playbook_dir}}/../inventories/{{de_env}}/group_vars"
 
     - name: create the output directory
       file: path={{de_config_dir}} state=directory
