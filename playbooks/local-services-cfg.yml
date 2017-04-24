@@ -9,6 +9,12 @@
     - debug: var=playbook_dir
       tags:
         - service_config
+    - debug: var=de_env
+      tags:
+        - service_config
+    - debug: var=DE_ENV
+      tags:
+        - service_config
 
     - name: Load Vars Group_vars/all
       include_vars:
