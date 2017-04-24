@@ -6,9 +6,7 @@
   become: false
   gather_facts: false
   pre_tasks:
-    - name: Load Vars Group_vars/{{de_env}}/environment_name.yml
-      include_vars:
-        dir: "{{playbook_dir}}/../inventories/{{de_env}}/group_vars/{{de_env}}/environment_name.yml"
+    - debug: var=playbook_dir
     - name: Load Vars Group_vars/all
       include_vars:
         dir: "{{playbook_dir}}/../inventories/{{de_env}}/group_vars/all"
