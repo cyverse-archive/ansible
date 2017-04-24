@@ -7,12 +7,20 @@
   gather_facts: false
   pre_tasks:
     - debug: var=playbook_dir
+      tags:
+        - service_config
+
     - name: Load Vars Group_vars/all
       include_vars:
         dir: "{{playbook_dir}}/../inventories/{{de_env}}/group_vars/all"
+      tags:
+        - service_config
+
     - name: Load Vars Group_vars/{{de_env}}
       include_vars:
         dir: "{{playbook_dir}}/../inventories/{{de_env}}/group_vars/{{de_env}}"
+      tags:
+        - service_config
 
     - name: create the output directory
       file: path={{de_config_dir}} state=directory
