@@ -1,0 +1,12 @@
+---
+elasticsearch_uri: "{{elasticsearch.scheme}}://{{elasticsearch.host}}:{{elasticsearch.port}}"
+elasticsearch:
+  scheme: "http"
+  host: "{{ groups['data-store-elasticsearch'][0] }}"
+  port:
+  batch_size: 1000
+  scroll_size: 1000
+  indices:
+     data:
+        name: data
+        alias: data

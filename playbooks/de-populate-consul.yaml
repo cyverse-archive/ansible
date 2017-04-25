@@ -47,13 +47,16 @@
         - {key: "configs/{{environment_name}}/icat/user", value: "{{icat.user}}"}
         - {key: "configs/{{environment_name}}/icat/password", value: "{{icat.password}}"}
         - {key: "configs/{{environment_name}}/icat/db", value: "{{icat.db}}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/base", value: "http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/host", value: "{{ data_store.elasticsearch.host }}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/port", value: "{{ data_store.elasticsearch.port }}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ data_store.elasticsearch.data_index }}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/data-alias", value: "data"}
-        - {key: "configs/{{environment_name}}/elasticsearch/scroll-size", value: "1000"}
-        - {key: "configs/{{environment_name}}/elasticsearch/batch-size", value: "1000"}
+        - {key: "configs/{{environment_name}}/elasticsearch/base", value: "{{elasticsearch_uri}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/uri", value: "{{elasticsearch_uri}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/host", value: "{{ elasticsearch.host }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/port", value: "{{ elasticsearch.port }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ elasticsearch.indices.data.name }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/data-alias", value: "{{elasticsearch.indices.data.alias}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/indices/data/name", value: "{{ elasticsearch.indices.data.name }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/indices/data/alias", value: "{{elasticsearch.indices.data.alias}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/scroll-size", value: "{{elasticsearch.scroll_size}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/batch-size", value: "{{elasticseach.batch_size}}"}
         - {key: "configs/{{environment_name}}/grouper/base", value: "{{ grouper.ws.base_url }}"}
         - {key: "configs/{{environment_name}}/grouper/api-version", value: "{{ iplant_groups.grouper.api_version }}"}
         - {key: "configs/{{environment_name}}/grouper/user", value: "{{ grouper.admin.user }}"}
