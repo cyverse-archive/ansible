@@ -10,6 +10,8 @@ monkey.amqp.exchange.durable     = {{ amqp.de.durable }}
 monkey.amqp.exchange.auto-delete = {{ amqp.de.auto_delete }}
 
 monkey.es.url            = {{ elasticsearch_uri }}
+monkey.es.username       = {{ elasticsearch.username }}
+monkey.es.password       = {{ elasticsearch.password }}
 monkey.es.index          = {{ elasticsearch.indices.data.alias }}
 monkey.es.tag-type       = tag
 monkey.es.batch-size     = {{ elasticsearch.batch_size }}

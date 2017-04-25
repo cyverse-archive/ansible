@@ -6,6 +6,8 @@ amqp:
 
 elasticsearch:
   base: {{ elasticsearch_uri }}
+  username: {{ elasticsearch.username }}
+  password: {{ elasticsearch.password }}
   index: {{ elasticsearch.indices.data.alias }}
 
 db:

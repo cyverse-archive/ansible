@@ -51,6 +51,8 @@
         - {key: "configs/{{environment_name}}/elasticsearch/uri", value: "{{elasticsearch_uri}}"}
         - {key: "configs/{{environment_name}}/elasticsearch/host", value: "{{ elasticsearch.host }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/port", value: "{{ elasticsearch.port }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/username", value: "{{ elasticsearch.username }}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/password", value: "{{ elasticsearch.password }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ elasticsearch.indices.data.name }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/data-alias", value: "{{elasticsearch.indices.data.alias}}"}
         - {key: "configs/{{environment_name}}/elasticsearch/indices/data/name", value: "{{ elasticsearch.indices.data.name }}"}

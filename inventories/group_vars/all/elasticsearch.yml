@@ -4,6 +4,8 @@ elasticsearch:
   scheme: "http"
   host: "{{ groups['data-store-elasticsearch'][0] }}"
   port:
+  username:
+  password:
   batch_size: 1000
   scroll_size: 1000
   indices:
