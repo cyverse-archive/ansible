@@ -19,7 +19,6 @@
     - docker_stop
   vars:
     stop_service_name: "{{restart_service_name}}"
-  when: has_configs|default(true) or has_data_container|default(false)
 
 - name: remove the {{rm_service_name}} container (s)
   shell: "docker-compose -f {{docker_compose_path}} rm -f -v {{rm_service_name}}"
@@ -31,7 +30,6 @@
     - docker_rm_service
   vars:
     rm_service_name: "{{restart_service_name}} {% if has_configs|default(true)   %}config_{{restart_service_name}}{% endif %} {% if has_data_container|default  (false) %}{{data_container_service_name}}_{{restart_service_name}}{% endif %}"
-  when: has_configs|default(true) or has_data_container|default(false)
 
 - name: start {{up_service_name}}
   shell: "docker-compose -f {{docker_compose_path}} up -d {% if force_recreate|default(true) %}--force-recreate{% endif %} {{up_service_name}}"
