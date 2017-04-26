@@ -29,3 +29,9 @@ irods:
 porklock:
   image: discoenv/porklock
   tag: "{{docker.tag}}"
+
+vault:
+  token: "{{vault.token}}"
+  url: "{{vault.url}}"
+  irods:
+    mount: irods-config-storage
