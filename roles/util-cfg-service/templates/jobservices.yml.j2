@@ -34,4 +34,6 @@ vault:
   token: "{{vault.token}}"
   url: "{{vault.url}}"
   irods:
-    mount: irods-config-storage
+    mount_path: "{{vault.irods.mount_path}}"
+    child_token:
+      use_limit: "{{vault.irods.child_token.use_limit}}"
