@@ -8,8 +8,12 @@ dewey.amqp.qos                  = 100
 
 dewey.events.amqp.uri           = {{ amqp_de_uri }}
 
-dewey.es.host                   = {{ data_store.elasticsearch.host }}
-dewey.es.port                   = {{ data_store.elasticsearch.port }}
+dewey.es.uri                    = {{ elasticsearch_uri }}
+dewey.es.host                   = {{ elasticsearch.host }}
+dewey.es.port                   = {{ elasticsearch.port }}
+dewey.es.username               = {{ elasticsearch.username }}
+dewey.es.password               = {{ elasticsearch.password }}
+dewey.es.index                  = {{ elasticsearch.indices.data.alias }}
 
 dewey.irods.host                = {{ irods.host }}
 dewey.irods.port                = {{ irods.port }}

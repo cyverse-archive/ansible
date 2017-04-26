@@ -54,7 +54,10 @@ terrain.jex.base-url = {{ jex.base }}/
 terrain.tree-viewer.base-url = {{ tree_parser_base }}
 
 # Data-Store Elastic Search settings
-terrain.infosquito.es-url = http://{{ data_store.elasticsearch.host }}:{{ data_store.elasticsearch.port }}
+terrain.infosquito.es-url = {{ elasticsearch_uri }}
+terrain.es.username       = {{ elasticsearch.username }}
+terrain.es.password       = {{ elasticsearch.password }}
+terrain.es.index          = {{ elasticsearch.indices.data.alias }}
 
 # App execution settings
 terrain.job-exec.default-output-folder = {{ apps.out_dir }}
