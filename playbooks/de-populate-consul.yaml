@@ -5,11 +5,11 @@
   run_once: true
   become: true
   gather_facts: false
-  when: use_consul_configs
   tags:
     - consul-kv
   roles:
     - role: de-populate-consul
+      when: use_consul_configs
       cleanup: True
       kv:
         - {key: "configs/{{environment_name}}/amqp/uri", value: "{{ amqp_de_uri }}"}
@@ -89,9 +89,9 @@
         - {key: "configs/{{environment_name}}/kifshare/client-cache/max-age", value: "604800"}
         - {key: "configs/{{environment_name}}/kifshare/irods-url", value: "https://pods.iplantcollaborative.org/wiki/display/start/Using+icommands"}
         - {key: "configs/{{environment_name}}/kifshare/flags/de-import", value: "\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}"}
-        - {key: "configs/{{environment_name}}/kifshare/flags/curl", value: "curl -o \'\\{\\{filename\\}\\}\' \'\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}\'"}
-        - {key: "configs/{{environment_name}}/kifshare/flags/wget", value: "wget \'\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}\'"}
-        - {key: "configs/{{environment_name}}/kifshare/flags/iget", value: "iget -t \\{\\{ticket-id\\}\\} \'\\{\\{abspath\\}\\}\'"}
+        - {key: "configs/{{environment_name}}/kifshare/flags/curl", value: "curl -o '\\{\\{filename\\}\\}' '\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}'"}
+        - {key: "configs/{{environment_name}}/kifshare/flags/wget", value: "wget '\\{\\{url\\}\\}/d/\\{\\{ticket-id\\}\\}/\\{\\{filename\\}\\}'"}
+        - {key: "configs/{{environment_name}}/kifshare/flags/iget", value: "iget -t \\{\\{ticket-id\\}\\} '\\{\\{abspath\\}\\}'"}
         - {key: "configs/{{environment_name}}/kifshare/css-files", value: "resources/css/reset.css,resources/css/960.css,resources/css/kif.css"}
         - {key: "configs/{{environment_name}}/kifshare/javascript-files", value: "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js,https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js,resources/js/json2.js,resources/js/kif.js"}
         - {key: "configs/{{environment_name}}/de/base", value: "{{ de.base }}"}
