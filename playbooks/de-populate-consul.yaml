@@ -136,8 +136,8 @@
         - {key: "configs/{{environment_name}}/infosquito/notify-count", value: "{{ infosquito.notify_count }}"}
         - {key: "configs/{{environment_name}}/infosquito/retry-interval", value: "{{ infosquito.retry_interval }}"}
         - {key: "configs/{{environment_name}}/infosquito/reindex-queue", value: "{{ infosquito.reindex_queue }}"}
-        - {key: "configs/{{environment_name}}/infosquito/job-indexing-enabled", value: "{{ infosquito.job_indexing_enabled"}
-        - {key: "configs/{{environment_name}}/infosquito/job-basename", value: "{{ infosquito.job_basename"}
+        - {key: "configs/{{environment_name}}/infosquito/job-indexing-enabled", value: "{{ infosquito.job_indexing_enabled }}"}
+        - {key: "configs/{{environment_name}}/infosquito/job-basename", value: "{{ infosquito.job_basename }}"}
         - {key: "configs/{{environment_name}}/de/default-build-number", value: "{{ de_version_name }}"}
         - {key: "configs/{{environment_name}}/de/release-version", value: "{{ de_version }}"}
         - {key: "configs/{{environment_name}}/de/base-url", value: "{{ cas_base }}"}
