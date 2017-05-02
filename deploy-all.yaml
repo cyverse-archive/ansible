@@ -26,4 +26,4 @@
 - include: playbooks/de-image-janitor.yaml
 - include: playbooks/de-stop-containers-cleanup.yaml
 - include: playbooks/de-rm-containers-cleanup.yaml
-- include: playbooks/de-rm-jex.yaml
+
