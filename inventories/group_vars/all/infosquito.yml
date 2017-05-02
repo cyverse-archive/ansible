@@ -13,4 +13,7 @@ infosquito:
   notify_count: 10000
   retry_interval: 900
   max_heap: "{{ max_heap.low }}"
+  reindex_queue: infosquito.reindex
+  job_indexing_enabled: true
+  job_basename: "infosquito.indexing.1"
 
