@@ -10,6 +10,22 @@
 # * ({{.CheckID}} {{.Status}}: {{.Output | replaceAll "\n" "\n#"}})
 {{- end }}
 {{- end }}
+# Below here, we've got the anon-files-nginx and kifshare-nginx checks. Having
+# them here is relevant because they're used in this file, but more importantly
+# it means that if their IP addresses or health checks change, it'll result in
+# a configuration reload, which will clear nginx's cache of their IP addresses.
+{{- range service "anon-files-nginx" "any" }}
+# {{.ID}} {{.Address}}:{{.Port}} {{.Tags}}
+{{- range .Checks }}
+# * ({{.CheckID}} {{.Status}}: {{.Output | replaceAll "\n" "\n#"}})
+{{- end }}
+{{- end }}
+{{- range service "kifshare-nginx" "any" }}
+# {{.ID}} {{.Address}}:{{.Port}} {{.Tags}}
+{{- range .Checks }}
+# * ({{.CheckID}} {{.Status}}: {{.Output | replaceAll "\n" "\n#"}})
+{{- end }}
+{{- end }}
 {% endraw %}
 {% endblock %}
 
