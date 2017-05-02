@@ -20,7 +20,7 @@
         - {key: "configs/{{environment_name}}/agave/oauth-refresh-window", value: "{{ agave.oauth_refresh_window }}"}
         - {key: "configs/{{environment_name}}/agave/read-timeout", value: "{{ agave.read_timeout }}"}
         - {key: "configs/{{environment_name}}/agave/page-length", value: "{{ agave.page_length }}"}
-        - {key: "configs/{{environment_name}}/agave/job-status-callback", value "{{ agave.job_status_callback }}"}
+        - {key: "configs/{{environment_name}}/agave/job-status-callback", value: "{{ agave.job_status_callback }}"}
         - {key: "configs/{{environment_name}}/amqp/uri", value: "{{ amqp_de_uri }}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
@@ -93,7 +93,7 @@
         - {key: "configs/{{environment_name}}/apps/job-status-poll-interval", value: "{{ job_status_poll_interval }}"}
         - {key: "configs/{{environment_name}}/apps/grouper-user", value: "{{ apps.grouper_user }}"}
         - {key: "configs/{{environment_name}}/apps/deletion-from-addr", value: "{{ de_mail_from_addr }}"}
-        - {key: "configs/{{environment_name}}/apps/deletion-subject", value: "Your \"%s\" app has been administratively deprecated"
+        - {key: "configs/{{environment_name}}/apps/deletion-subject", value: "Your \"%s\" app has been administratively deprecated"}
         - {key: "configs/{{environment_name}}/data-container/pgp-keyring-path", value: "{{ pgp_keyring_path }}"}
         - {key: "configs/{{environemnt_name}}/data-container/pgp-key-pass", value: "{{ pgp_key_password }}"}
         - {key: "configs/{{environment_name}}/email/base", value: "{{iplant_email.base}}"}
@@ -144,7 +144,7 @@
         - {key: "configs/{{environment_name}}/de/cas-logout-url", value: "/iplant-cas-logout"}
         - {key: "configs/{{environment_name}}/de/cas-app-name", value: "{{ de.description }}"}
         - {key: "configs/{{environment_name}}/de/cas-login-url", value: "/login"}
-        - {key: "configs/{{environment_name}}/de/cas-uid-domain", value "{{ cas_uid_domain }}"}
+        - {key: "configs/{{environment_name}}/de/cas-uid-domain", value: "{{ cas_uid_domain }}"}
         - {key: "configs/{{environment_name}}/de/authorized-groups", value: "{{ admin_groups }}"}
         - {key: "configs/{{environment_name}}/de/group-attribute-name", value: "{{ cas_group_attribute }}"}
         - {key: "configs/{{environment_name}}/de/cas-no-logout-url", value: "{{ cas_no_logout_url }}"}
