@@ -95,7 +95,7 @@
         - {key: "configs/{{environment_name}}/apps/deletion-from-addr", value: "{{ de_mail_from_addr }}"}
         - {key: "configs/{{environment_name}}/apps/deletion-subject", value: "Your \"%s\" app has been administratively deprecated"}
         - {key: "configs/{{environment_name}}/data-container/pgp-keyring-path", value: "{{ pgp_keyring_path }}"}
-        - {key: "configs/{{environemnt_name}}/data-container/pgp-key-pass", value: "{{ pgp_key_password }}"}
+        - {key: "configs/{{environment_name}}/data-container/pgp-key-pass", value: "{{ pgp_key_password }}"}
         - {key: "configs/{{environment_name}}/email/base", value: "{{iplant_email.base}}"}
         - {key: "configs/{{environment_name}}/groups/base", value: "{{iplant_groups.base_url}}"}
         - {key: "configs/{{environment_name}}/notifications/base", value: "{{notificationagent.base}}"}
