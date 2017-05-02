@@ -12,6 +12,15 @@
       when: use_consul_configs
       cleanup: True
       kv:
+        - {key: "configs/{{environment_name}}/agave/enabled", value: "{{ features.agave }}"}
+        - {key: "configs/{{environment_name}}/agave/jobs-enabled", value: "{{ features.agave }}"}
+        - {key: "configs/{{environment_name}}/agave/base", value: "{{ agave.base_url }}"}
+        - {key: "configs/{{environment_name}}/agave/client-key", value: "{{ agave.client_key }}"}
+        - {key: "configs/{{environment_name}}/agave/client-secret", value: "{{ agave.client_secret }}"}
+        - {key: "configs/{{environment_name}}/agave/oauth-refresh-window", value: "{{ agave.oauth_refresh_window }}"}
+        - {key: "configs/{{environment_name}}/agave/read-timeout", value: "{{ agave.read_timeout }}"}
+        - {key: "configs/{{environment_name}}/agave/page-length", value: "{{ agave.page_length }}"}
+        - {key: "configs/{{environment_name}}/agave/job-status-callback", value "{{ agave.job_status_callback }}"}
         - {key: "configs/{{environment_name}}/amqp/uri", value: "{{ amqp_de_uri }}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/name", value: "{{amqp.de.name}}"}
         - {key: "configs/{{environment_name}}/amqp/exchange/type", value: "{{amqp.de.type}}"}
@@ -20,6 +29,14 @@
         - {key: "configs/{{environment_name}}/irods-amqp/uri", value: "{{amqp_irods_uri}}"}
         - {key: "configs/{{environment_name}}/irods-amqp/exchange/name", value: "{{amqp.irods.name}}"}
         - {key: "configs/{{environment_name}}/de-db/uri", value: "postgresql://{{db_user}}:{{db_password}}@{{db_host}}:{{db_port}}/{{db_name}}?sslmode=disable"}
+        - {key: "configs/{{environment_name}}/de-db/driver", value: "{{ db_driver }}"}
+        - {key: "configs/{{environment_name}}/de-db/subprotocol", value: "{{ db_vendor }}"}
+        - {key: "configs/{{environment_name}}/de-db/host", value: "{{ db_host }}"}
+        - {key: "configs/{{environment_name}}/de-db/port", value: "{{ db_port }}"}
+        - {key: "configs/{{environment_name}}/de-db/name", value: "{{ db_name }}"}
+        - {key: "configs/{{environment_name}}/de-db/user", value: "{{ db_user }}"}
+        - {key: "configs/{{environment_name}}/de-db/pass", value: "{{ db_password }}"}
+        - {key: "configs/{{environment_name}}/metadata/base", value: "http://{{ metadata_host }}:{{ metadata_port }}"}
         - {key: "configs/{{environment_name}}/metadata-db/uri", value: "postgresql://{{metadata_db_user}}:{{metadata_db_password}}@{{metadata_db_host}}:{{metadata_db_port}}/{{metadata_db_name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/metadata-db/host", value: "{{ metadata_db_host }}"}
         - {key: "configs/{{environment_name}}/metadata-db/port", value: "{{ metadata_db_port }}"}
@@ -34,6 +51,7 @@
         - {key: "configs/{{environment_name}}/notification-db/name", value: "{{ notification_db_name }}"}
         - {key: "configs/{{environment_name}}/notification-db/user", value: "{{ notification_db_user }}"}
         - {key: "configs/{{environment_name}}/notification-db/pass", value: "{{ notification_db_password }}"}
+        - {key: "configs/{{environment_name}}/permissions/base", value: "{{ permissions_base }}"}
         - {key: "configs/{{environment_name}}/permissions-db/uri", value: "postgresql://{{permissions_db_user}}:{{permissions_db_password}}@{{permissions_db_host}}:{{permissions_db_port}}/{{permissions_db_name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/grouper-db/uri", value: "postgresql://{{grouper.db.user}}:{{grouper.db.pass}}@{{grouper.db.host}}:{{grouper.db.port}}/{{grouper.db.name}}?sslmode=disable"}
         - {key: "configs/{{environment_name}}/irods/user", value: "{{irods.user}}"}
@@ -67,6 +85,17 @@
         - {key: "configs/{{environment_name}}/smtp/from-address", value: "{{ email_smtp_from_address }}"}
         - {key: "configs/{{environment_name}}/apps/base", value: "{{apps.base}}"}
         - {key: "configs/{{environment_name}}/apps/de-callback-uri", value: "{{apps.base}}/callbacks/de-job"}
+        - {key: "configs/{{environment_name}}/apps/public-workspace-id", value: "00000000-0000-0000-0000-000000000000"}
+        - {key: "configs/{{environment_name}}/apps/root-category-attrs", value: "rdf:type, http://edamontology.org/has_topic"}
+        - {key: "configs/{{environment_name}}/apps/path-list-info-type", value: "{{ path_list_info_type }}"}
+        - {key: "configs/{{environment_name}}/apps/path-list-max-paths", value: "{{ apps.path_list_max_paths }}"}
+        - {key: "configs/{{environment_name}}/apps/path-list-max-size", value: "{{ apps.path_list_max_size }}"}
+        - {key: "configs/{{environment_name}}/apps/job-status-poll-interval", value: "{{ job_status_poll_interval }}"}
+        - {key: "configs/{{environment_name}}/apps/grouper-user", value: "{{ apps.grouper_user }}"}
+        - {key: "configs/{{environment_name}}/apps/deletion-from-addr", value: "{{ de_mail_from_addr }}"}
+        - {key: "configs/{{environment_name}}/apps/deletion-subject", value: "Your \"%s\" app has been administratively deprecated"
+        - {key: "configs/{{environment_name}}/data-container/pgp-keyring-path", value: "{{ pgp_keyring_path }}"}
+        - {key: "configs/{{environemnt_name}}/data-container/pgp-key-pass", value: "{{ pgp_key_password }}"}
         - {key: "configs/{{environment_name}}/email/base", value: "{{iplant_email.base}}"}
         - {key: "configs/{{environment_name}}/groups/base", value: "{{iplant_groups.base_url}}"}
         - {key: "configs/{{environment_name}}/notifications/base", value: "{{notificationagent.base}}"}
@@ -115,6 +144,7 @@
         - {key: "configs/{{environment_name}}/de/cas-logout-url", value: "/iplant-cas-logout"}
         - {key: "configs/{{environment_name}}/de/cas-app-name", value: "{{ de.description }}"}
         - {key: "configs/{{environment_name}}/de/cas-login-url", value: "/login"}
+        - {key: "configs/{{environment_name}}/de/cas-uid-domain", value "{{ cas_uid_domain }}"}
         - {key: "configs/{{environment_name}}/de/authorized-groups", value: "{{ admin_groups }}"}
         - {key: "configs/{{environment_name}}/de/group-attribute-name", value: "{{ cas_group_attribute }}"}
         - {key: "configs/{{environment_name}}/de/cas-no-logout-url", value: "{{ cas_no_logout_url }}"}
@@ -133,6 +163,8 @@
         - {key: "configs/{{environment_name}}/de/file-identifier", value: "{{ path_list_file_identifier }}"}
         - {key: "configs/{{environment_name}}/de/root-app-category", value: "{{ apps.user_root }}"}
         - {key: "configs/{{environment_name}}/de/default-app-categories", value: "{{ apps.user_subs | string }}"}
+        - {key: "configs/{{environment_name}}/de/dev-app-category-index", value: "0"}
+        - {key: "configs/{{environment_name}}/de/favorites-app-category-index", value: "1"}
         - {key: "configs/{{environment_name}}/de/default-beta-app-category", value: "{{ apps.beta_category }}"}
         - {key: "configs/{{environment_name}}/de/default-hpc-app-category", value: "{{ apps.hpc_category }}"}
         - {key: "configs/{{environment_name}}/de/default-trash-app-category", value: "ffffffff-ffff-ffff-ffff-ffffffffffff"}
@@ -153,3 +185,6 @@
         - {key: "configs/{{environment_name}}/de/prod-deployment", value: "{{ prod_deployment }}"}
         - {key: "configs/{{environment_name}}/de/poll-interval", value: "{{ de.notification_poll }}"}
         - {key: "configs/{{environment_name}}/de/support-user", value: "siuser"}
+        - {key: "configs/{{environment_name}}/jex/base", value: "{{ jex.base }}"}
+        - {key: "configs/{{environment_name}}/jex/batch-group", value: "{{ jex.batch_group }}"}
+        - {key: "configs/{{environment_name}}/data-info/base", value: "http://{{ data_info.host }}:{{ data_info.port }}"}
