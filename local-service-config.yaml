@@ -1,6 +1,3 @@
-# Setup inventories/localhost.cfg and host_vars/localhost as described in
-# doc/work_instructions/Local_Configs.md
-#
 # Supported extra-vars: service="dest-service-name"
 #                       de_config_dir="/etc/iplant/de"
 #                       config_name="service.properties"

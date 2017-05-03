@@ -1,4 +1,5 @@
 /group_vars
+localhost
 *.*un~
 .DS_Store
 cfg_files/
