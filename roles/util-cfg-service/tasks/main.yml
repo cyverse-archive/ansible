@@ -1,7 +1,7 @@
 ---
 # tasks file for cfg-service
 
-- debug: msg="Placing {{service_cfg_file_name}} service config file"
+- debug: msg="Placing {{service_name_short}} service config file: {{dest}}"
   tags:
       - service_config
 
