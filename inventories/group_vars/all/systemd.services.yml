@@ -1,7 +1,6 @@
 ---
 systemd:
   services:
-    - "{{anon_files}}"
     - "{{apps}}"
     - "{{clockwork}}"
     - "{{condor_log_monitor}}"

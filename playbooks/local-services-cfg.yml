@@ -51,12 +51,6 @@
 
   roles:
     - role: util-cfg-service
-      service_name_short: "{{anon_files.service_name_short}}"
-      tags:
-        - service_config
-        - anon-files
-
-    - role: util-cfg-service
       service_name_short: "{{apps.service_name_short}}"
       tags:
         - service_config

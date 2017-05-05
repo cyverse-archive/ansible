@@ -27,7 +27,6 @@ The variables included in the `services` list must have the following sub-items:
 The docker image that will be pulled is of the form `{{docker_user}}/{{item.image_name}}:{{docker_tag}}`. 
 
 *Supported services:*
-* anon-files
 * apps
 * clockwork
 * condor-log-monitor

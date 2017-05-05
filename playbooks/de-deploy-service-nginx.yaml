@@ -15,21 +15,6 @@
     - role: util-notify-chat
       msg: "Deploying service nginxes"
 
-- name: Redeploy anon-files-nginx
-  hosts: anon-files:&systems
-  become: true
-  gather_facts: false
-  tags:
-    - services
-    - anon-files
-  roles:
-    - role: de-deploy-service
-      has_configs: false
-      has_data_container: false
-      deploy_use_color: false
-      force_recreate: false
-      service_name: "{{anon_files.compose_service}}_nginx"
-
 - name: Redeploy apps-nginx
   hosts: apps:&systems
   become: true
