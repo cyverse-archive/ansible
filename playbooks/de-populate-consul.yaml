@@ -191,3 +191,4 @@
         - {key: "configs/{{environment_name}}/jex/base", value: "{{ jex.base }}"}
         - {key: "configs/{{environment_name}}/jex/batch-group", value: "{{ jex.batch_group }}"}
         - {key: "configs/{{environment_name}}/data-info/base", value: "http://{{ data_info.host }}:{{ data_info.port }}"}
+        - {key: "configs/{{environment_name}}/templeton/amqp-queue-prefix", value: "{{ templeton.amqp.queue_prefix }}"}

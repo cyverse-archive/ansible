@@ -1,0 +1,4 @@
+---
+templeton:
+  amqp:
+    queue_prefix: "templeton"

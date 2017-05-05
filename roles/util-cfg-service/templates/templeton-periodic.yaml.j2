@@ -3,6 +3,7 @@ amqp:
   exchange:
     name: {{amqp.de.name}}
     type: {{amqp.de.type}}
+  queue_prefix: {{ templeton.amqp.queue_prefix }}
 
 elasticsearch:
   base: {{ elasticsearch_uri }}
