@@ -104,6 +104,7 @@
         - {key: "configs/{{environment_name}}/dewey/amqp-queue-name", value: "{{dewey.amqp.queue_name}}"}
         - {key: "configs/{{environment_name}}/info-typer/qos", value: "100"}
         - {key: "configs/{{environment_name}}/monkey/log-progress/enabled", value: "true"}
+        - {key: "configs/{{environment_name}}/monkey/queue", value: "{{ monkey.amqp.queue_name }}"}
         - {key: "configs/{{environment_name}}/kifshare/mode", value: "{{ kifshare.mode }}"}
         - {key: "configs/{{environment_name}}/kifshare/download-buffer-size", value: "{{ kifshare.download_buffer_size }}"}
         - {key: "configs/{{environment_name}}/kifshare/footer-text", value: 'CyVerse is funded by a grant from the National Science Foundation Plant Science Cyberinfrastructure Collaborative (#DBI-0735191, #DBI-1265383).'}
