@@ -45,3 +45,41 @@
       ignore_errors: yes
       become: true
       shell: docker rm -v config_jexevents
+
+- name: Remove anon-files and anon-files-nginx (CORE-8534)
+  hosts: systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - kifshare
+    - anon-files
+  post_tasks:
+    - name: annihilate anon-files
+      ignore_errors: yes
+      become: true
+      shell: docker rm -fv anon-files
+    - name: annihilate etc_anon_files_green_1
+      ignore_errors: yes
+      become: true
+      shell: docker rm -fv etc_anon_files_green_1
+    - name: annihilate etc_config_anon_files_green_1
+      ignore_errors: yes
+      become: true
+      shell: docker rm -fv etc_config_anon_files_green_1
+    - name: annihilate etc_anon_files_blue_1
+      ignore_errors: yes
+      become: true
+      shell: docker rm -fv etc_anon_files_blue_1
+    - name: annihilate etc_config_anon_files_blue_1
+      ignore_errors: yes
+      become: true
+      shell: docker rm -fv etc_config_anon_files_blue_1
+    - name: annihilate etc_anon_files_1
+      ignore_errors: yes
+      become: true
+      shell: docker rm -fv etc_anon_files_1
+    - name: annihilate etc_config_anon_files_1
+      ignore_errors: yes
+      become: true
+      shell: docker rm -fv etc_config_anon_files_1
