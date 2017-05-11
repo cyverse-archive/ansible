@@ -10,4 +10,6 @@ monkey:
   properties_file: monkey.properties
   log_file: monkey-docker.log
   max_heap: "{{ max_heap.low }}"
+  amqp:
+    queue_name: "monkey"
 
