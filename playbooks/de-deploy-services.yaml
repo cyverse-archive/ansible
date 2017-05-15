@@ -13,7 +13,7 @@
       msg: "Deploying apps"
     - role: de-deploy-service
       has_data_container: true
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{apps.compose_service}}"
     - role: util-notify-chat
@@ -31,7 +31,7 @@
     - role: util-notify-chat
       msg: "Deploying data-info"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       service_name: "{{data_info.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying data-info"
@@ -48,7 +48,7 @@
     - role: util-notify-chat
       msg: "Deploying iplant-email"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{iplant_email.compose_service}}"
     - role: util-notify-chat
@@ -66,7 +66,7 @@
     - role: util-notify-chat
       msg: "Deploying iplant-groups"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{iplant_groups.compose_service}}"
     - role: util-notify-chat
@@ -84,7 +84,7 @@
     - role: util-notify-chat
       msg: "Deploying jex-adapter"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: jex_adapter
     - role: util-notify-chat
@@ -102,7 +102,7 @@
     - role: util-notify-chat
       msg: "Deploying kifshare"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{kifshare.compose_service}}"
     - role: util-notify-chat
@@ -120,7 +120,7 @@
     - role: util-notify-chat
       msg: "Deploying metadata"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{metadata.compose_service}}"
     - role: util-notify-chat
@@ -138,7 +138,7 @@
     - role: util-notify-chat
       msg: "Deploying notification-agent"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{notificationagent.compose_service}}"
     - role: util-notify-chat
@@ -156,7 +156,7 @@
     - role: util-notify-chat
       msg: "Deploying permissions"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{permissions.compose_service}}"
     - role: util-notify-chat
@@ -174,7 +174,7 @@
     - role: util-notify-chat
       msg: "Deploying saved-searches"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{saved_searches.compose_service}}"
     - role: util-notify-chat
@@ -193,7 +193,7 @@
       msg: "Deploying terrain"
     - role: de-deploy-service
       has_data_container: true
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       service_name: "{{terrain.compose_service}}"
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying terrain"
@@ -210,7 +210,7 @@
     - role: util-notify-chat
       msg: "Deploying tree-urls"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{tree_urls.compose_service}}"
     - role: util-notify-chat
@@ -228,7 +228,7 @@
     - role: util-notify-chat
       msg: "Deploying user-preferences"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{user_preferences.compose_service}}"
     - role: util-notify-chat
@@ -246,7 +246,7 @@
     - role: util-notify-chat
       msg: "Deploying user-sessions"
     - role: de-deploy-service
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{user_sessions.compose_service}}"
     - role: util-notify-chat
@@ -264,7 +264,7 @@
       msg: "Deploying UI"
     - role: de-deploy-service
       has_data_container: true
-      deploy_use_color: "{{use_color|default(false)}}"
+      deploy_use_color: "use_color|default(false)"
       has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
       service_name: "{{de.compose_service}}"
       service_name_short: "de"
