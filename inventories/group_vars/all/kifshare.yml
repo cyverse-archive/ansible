@@ -1,6 +1,6 @@
 ---
-kifshare_external_url: "http://{{ de.host }}/{{ kifshare.external_url_suffix }}"
-kifshare_external_anon_files_url: "http://{{ de.host }}/{{ kifshare.external_anon_files_suffix }}"
+kifshare_external_url: "https://{{ de.host }}/{{ kifshare.external_url_suffix }}"
+kifshare_external_anon_files_url: "https://{{ de.host }}/{{ kifshare.external_anon_files_suffix }}"
 kifshare:
   host: "{% if use_overlay %}kifshare{% else %}{{ groups['kifshare'][0] }}{% endif %}"
   port:
