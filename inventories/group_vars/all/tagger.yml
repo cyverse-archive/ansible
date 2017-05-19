@@ -1,0 +1,8 @@
+---
+tagger:
+  host: "{% if use_overlay %}tagger{% else %}{{ groups['tagger'][0] if groups['tagger']|count else '' }}{% endif %}"
+  port:
+  compose_service: tagger
+  service_name_short: tagger
+
+tagger_base: "http://{{ tagger.host }}:{{ tagger.port }}"
