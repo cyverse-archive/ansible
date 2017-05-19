@@ -55,9 +55,9 @@ terrain.tree-viewer.base-url = {{ tree_parser_base }}
 
 # Data-Store Elastic Search settings
 terrain.infosquito.es-url = {{ elasticsearch_uri }}
-terrain.es.username       = {{ elasticsearch.username }}
-terrain.es.password       = {{ elasticsearch.password }}
-terrain.es.index          = {{ elasticsearch.indices.data.alias }}
+terrain.es.username       = {{ indices.data.es_user }}
+terrain.es.password       = {{ indices.data.es_password }}
+terrain.es.index          = {{ indices.data.write_alias }}
 
 # App execution settings
 terrain.job-exec.default-output-folder = {{ apps.out_dir }}

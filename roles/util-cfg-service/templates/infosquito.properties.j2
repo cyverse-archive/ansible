@@ -2,9 +2,9 @@
 infosquito.es.uri         = {{ elasticsearch_uri }}
 infosquito.es.host        = {{ elasticsearch.host }}
 infosquito.es.port        = {{ elasticsearch.port }}
-infosquito.es.username    = {{ elasticsearch.username }}
-infosquito.es.password    = {{ elasticsearch.password }}
-infosquito.es.index       = {{ elasticsearch.indices.data.alias }}
+infosquito.es.username    = {{ indices.data.es_user }}
+infosquito.es.password    = {{ indices.data.es_password }}
+infosquito.es.index       = {{ indices.data.write_alias }}
 infosquito.es.scroll-size = {{ elasticsearch.scroll_size }}
 
 # ICAT Database Connection Settings
@@ -20,7 +20,7 @@ infosquito.index-batch-size = 1000
 
 # AMQP Settings
 infosquito.amqp.uri                  = {{ amqp_de_uri }}
-infosquito.amqp.reindex-queue        = infosquito.reindex
+infosquito.amqp.reindex-queue        = {{ infosquito.reindex_queue }}
 infosquito.amqp.exchange.name        = {{ amqp.de.name }}
 infosquito.amqp.exchange.durable     = {{ amqp.de.durable }}
 infosquito.amqp.exchange.auto-delete = {{ amqp.de.auto_delete }}

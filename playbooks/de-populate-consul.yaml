@@ -69,10 +69,9 @@
         - {key: "configs/{{environment_name}}/elasticsearch/base", value: "{{elasticsearch_uri}}"}
         - {key: "configs/{{environment_name}}/elasticsearch/host", value: "{{ elasticsearch.host }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/port", value: "{{ elasticsearch.port }}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/username", value: "{{ elasticsearch.username | default('')}}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/password", value: "{{ elasticsearch.password | default('')}}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/data-index", value: "{{ elasticsearch.indices.data.name }}"}
-        - {key: "configs/{{environment_name}}/elasticsearch/data-alias", value: "{{elasticsearch.indices.data.alias}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/username", value: "{{ indices.data.es_user | default('')}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/password", value: "{{ indices.data.es_password | default('')}}"}
+        - {key: "configs/{{environment_name}}/elasticsearch/data-alias", value: "{{ indices.data.write_alias }}"}
         - {key: "configs/{{environment_name}}/elasticsearch/scroll-size", value: "{{elasticsearch.scroll_size}}"}
         - {key: "configs/{{environment_name}}/elasticsearch/batch-size", value: "{{elasticsearch.batch_size}}"}
         - {key: "configs/{{environment_name}}/grouper/base", value: "{{ grouper.ws.base_url }}"}
