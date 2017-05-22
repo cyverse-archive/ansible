@@ -1,0 +1,12 @@
+---
+indices:
+  data:
+    description: >-
+      Index which provides tag, metadata, file and folder
+      search capability for the Data Store.
+    read_alias: "data"
+    write_alias: "data_write"
+    es_user:
+    es_password:
+    template_name: "data"
+    template: {}
