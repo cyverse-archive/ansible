@@ -139,6 +139,7 @@
         - {key: "configs/{{environment_name}}/infosquito/reindex-queue", value: "{{ infosquito.reindex_queue }}"}
         - {key: "configs/{{environment_name}}/infosquito/job-indexing-enabled", value: "{{ infosquito.job_indexing_enabled }}"}
         - {key: "configs/{{environment_name}}/infosquito/job-basename", value: "{{ infosquito.job_basename }}"}
+        - {key: "configs/{{environment_name}}/infosquito/job-daynum", value: "{{ infosquito.job_daynum }}"}
         - {key: "configs/{{environment_name}}/de/default-build-number", value: "{{ de_version_name }}"}
         - {key: "configs/{{environment_name}}/de/release-version", value: "{{ de_version }}"}
         - {key: "configs/{{environment_name}}/de/base-url", value: "{{ cas_base }}"}

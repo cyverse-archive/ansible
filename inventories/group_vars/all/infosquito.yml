@@ -16,4 +16,6 @@ infosquito:
   reindex_queue: infosquito.reindex
   job_indexing_enabled: true
   job_basename: "infosquito.indexing.1"
+  # Sunday-Monday ==> [1-7]
+  job_daynum: 1
 
