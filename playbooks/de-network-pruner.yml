@@ -1,0 +1,12 @@
+- name: Configure network-pruner
+  hosts: condor
+  become: yes
+  gather_facts: false
+  tags:
+    - network-pruner
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying network-pruner"
+    - role: de-network-pruner
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying network-pruner"

@@ -1,0 +1,20 @@
+---
+- debug: msg="Configuring network-pruner systemd"
+
+- name: Disable network-pruner
+  service: name=network-pruner enabled=false
+  ignore_errors: true
+
+- name: Place systemd unit file
+  template:
+      src: "network-pruner.service.j2"
+      dest: "/lib/systemd/system/network-pruner.service"
+      group: "root"
+      owner: "root"
+      mode: 0644
+
+- name: Reload systemd
+  shell: systemctl daemon-reload
+
+- name: Enable network-pruner.service
+  service: name=network-pruner enabled=true

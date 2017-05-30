@@ -1,0 +1,10 @@
+---
+- name: remove binary
+  file: path=/usr/local/bin/network-pruner state=absent
+
+- name: remove systemd file
+  file: path=/lib/systemd/system/network-pruner.service state=absent
+
+- name: reload systemd
+  become: true
+  shell: systemctl daemon-reload

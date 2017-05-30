@@ -1,0 +1,3 @@
+---
+- name: start network-pruner
+  service: name=network-pruner state=started

@@ -1,0 +1,20 @@
+---
+- include: stop.yml
+  tags:
+    - network-pruner
+    - stop
+
+- include: remove.yml
+  tags:
+    - network-pruner
+    - remove
+
+- include: update.yml
+  tags:
+    - network-pruner
+    - update
+
+- include:  start.yml
+  tags:
+    - network-pruner
+    - start

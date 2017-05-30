@@ -1,0 +1,11 @@
+---
+- name: create /var/log/network-pruner
+  file: path=/var/log/network-pruner owner=root group=root mode=0755 state=directory
+
+- name: pull network-pruner image
+  shell: docker pull discoenv/network-pruner:{{docker.tag}}
+
+- name: install network-pruner
+  shell: docker run --rm -v /usr/local/bin:/network-pruner --entrypoint "cp" discoenv/network-pruner:{{docker.tag}} /go/bin/network-pruner /network-pruner/network-pruner
+
+- include: systemd.yml
