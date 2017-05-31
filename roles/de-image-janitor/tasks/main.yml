@@ -8,3 +8,20 @@
   tags:
     - image-janitor
     - remove
+
+- name: create /opt/image-janitor directory
+  file:
+    path: /opt/image-janitor
+    state: directory
+    owner: condor
+    group: condor
+    mode: 0755
+  tags:
+    - image-janitor
+
+- name: create the excludes file
+  template:
+    src: excludes.j2
+    dest: /opt/image-janitor/excludes
+  tags:
+    - image-janitor
