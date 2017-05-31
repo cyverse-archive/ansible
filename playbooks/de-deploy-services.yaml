@@ -180,6 +180,24 @@
     - role: util-notify-chat
       msg: ":heavy_check_mark: Done deploying saved-searches"
 
+- name: Redeploy tagger
+  hosts: tagger:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - colored
+    - tagger
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying tagger"
+    - role: de-deploy-service
+      deploy_use_color: "use_color|default(false)"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
+      service_name: "{{tagger.compose_service}}"
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying tagger"
+
 - name: Redeploy terrain
   hosts: terrain:&systems
   become: true
