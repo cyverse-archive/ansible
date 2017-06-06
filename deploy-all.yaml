@@ -26,6 +26,7 @@
 - include: playbooks/de-apps.yml
 - include: playbooks/de-data-info.yml
 - include: playbooks/de-iplant-email.yml
+- include: playbooks/de-iplant-groups.yml
 - include: playbooks/de-deploy-services.yaml
 - include: playbooks/de-image-janitor.yaml
 - include: playbooks/de-stop-containers-cleanup.yaml
