@@ -1,0 +1,18 @@
+---
+- name: Redeploy timelord
+  hosts: timelord:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - uncolored
+    - timelord
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying timelord"
+    - role: de-deploy-service
+      deploy_use_color: false
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
+      service_name: timelord
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying timelord"

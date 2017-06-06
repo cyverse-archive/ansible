@@ -1,0 +1,18 @@
+---
+- name: Redeploy job-status-recorder
+  hosts: job-status-recorder:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - uncolored
+    - job-status-recorder
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying job-status-recorder"
+    - role: de-deploy-service
+      deploy_use_color: false
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
+      service_name: job_status_recorder
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying job-status-recorder"

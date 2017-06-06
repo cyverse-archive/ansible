@@ -1,0 +1,17 @@
+---
+- name: Redeploy image-janitor
+  hosts: image-janitor:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - uncolored
+    - image-janitor
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying image-janitor"
+    - role: de-deploy-service
+      deploy_use_color: false
+      service_name: "{{image_janitor.compose_service}}"
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying image-janitor"

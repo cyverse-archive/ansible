@@ -1,0 +1,18 @@
+---
+- name: Redeploy exim-sender
+  hosts: exim-sender:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - uncolored
+    - exim-sender
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying exim-sender"
+    - role: de-deploy-service
+      deploy_use_color: false
+      has_configs: false
+      service_name: "{{exim.compose_service}}"
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying exim-sender"

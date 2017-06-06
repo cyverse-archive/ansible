@@ -1,0 +1,19 @@
+---
+- name: Redeploy de-ui
+  hosts: ui:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - ui
+    - colored
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying UI"
+    - role: de-deploy-service
+      has_data_container: true
+      deploy_use_color: "use_color|default(false)"
+      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
+      service_name: "{{de.compose_service}}"
+      service_name_short: "de"
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying UI"

@@ -1,0 +1,18 @@
+---
+- name: Redeploy terrain
+  hosts: terrain:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - colored
+    - terrain
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying terrain"
+    - role: de-deploy-service
+      has_data_container: true
+      deploy_use_color: "use_color|default(false)"
+      service_name: "{{terrain.compose_service}}"
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying terrain"
