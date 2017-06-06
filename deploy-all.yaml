@@ -23,6 +23,7 @@
 - include: playbooks/de-network-pruner.yml
 - include: playbooks/de-road-runner.yml
 - include: playbooks/de-de-vault.yaml
+- include: playbooks/de-anon-files.yml
 - include: playbooks/de-apps.yml
 - include: playbooks/de-data-info.yml
 - include: playbooks/de-iplant-email.yml
