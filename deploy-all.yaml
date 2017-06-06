@@ -43,7 +43,8 @@
 - include: playbooks/de-monkey.yml
 - include: playbooks/de-saved-searches.yml
 - include: playbooks/de-tagger.yml
-- include: playbooks/de-templeton.yml
+- include: playbooks/de-templeton-incremental.yml
+- include: playbooks/de-templeton-periodic.yml
 - include: playbooks/de-terrain.yml
 - include: playbooks/de-timelord.yml
 - include: playbooks/de-tree-urls.yml
