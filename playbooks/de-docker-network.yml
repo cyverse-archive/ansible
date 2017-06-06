@@ -1,15 +1,6 @@
-- hosts: services:ui
+- hosts: services:ui:image-janitor
   become: true
   gather_facts: false
   serial: 1
   roles:
     - de-docker-network
-
-# Some of those will fail in an overlay setting, but be ignored. Now, make a non-overlay network.
-
-- hosts: image-janitor
-  become: true
-  gather_facts: false
-  roles:
-    - role: de-docker-network
-      use_overlay: false
