@@ -1,22 +1,4 @@
 ---
-- name: Redeploy jex-adapter
-  hosts: jexevents
-  become: true
-  gather_facts: false
-  tags:
-    - services
-    - colored
-    - jex-adapter
-  roles:
-    - role: util-notify-chat
-      msg: "Deploying jex-adapter"
-    - role: de-deploy-service
-      deploy_use_color: "use_color|default(false)"
-      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
-      service_name: jex_adapter
-    - role: util-notify-chat
-      msg: ":heavy_check_mark: Done deploying jex-adapter"
-
 - name: Redeploy kifshare
   hosts: kifshare:&systems
   become: true
