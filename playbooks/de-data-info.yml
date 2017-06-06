@@ -1,0 +1,17 @@
+---
+- name: Redeploy data-info
+  hosts: data-info:&systems
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - colored
+    - data-info
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying data-info"
+    - role: de-deploy-service
+      deploy_use_color: "use_color|default(false)"
+      service_name: "{{data_info.compose_service}}"
+    - role: util-notify-chat
+      msg: ":heavy_check_mark: Done deploying data-info"
