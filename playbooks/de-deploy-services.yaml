@@ -1,24 +1,4 @@
 ---
-
-- name: Redeploy apps
-  hosts: apps:&systems
-  become: true
-  gather_facts: false
-  tags:
-    - services
-    - colored
-    - apps
-  roles:
-    - role: util-notify-chat
-      msg: "Deploying apps"
-    - role: de-deploy-service
-      has_data_container: true
-      deploy_use_color: "use_color|default(false)"
-      has_configs: "{% if use_consul_configs %}{{ false }}{% else %}{{ true }}{% endif %}"
-      service_name: "{{apps.compose_service}}"
-    - role: util-notify-chat
-      msg: ":heavy_check_mark: Done deploying apps"
-
 - name: Redeploy data-info
   hosts: data-info:&systems
   become: true
