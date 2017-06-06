@@ -30,6 +30,7 @@
 - include: playbooks/de-jex-adapter.yml
 - include: playbooks/de-kifshare.yml
 - include: playbooks/de-metadata.yml
+- include: playbooks/de-notification-agent.yml
 - include: playbooks/de-deploy-services.yaml
 - include: playbooks/de-image-janitor.yaml
 - include: playbooks/de-stop-containers-cleanup.yaml
