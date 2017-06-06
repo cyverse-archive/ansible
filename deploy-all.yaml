@@ -8,7 +8,7 @@
 ############################################
 # Condor
 ############################################
-- include: playbooks/de-porklock.yaml
+- include: playbooks/de-porklock.yml
 
 ############################################
 # Databases
