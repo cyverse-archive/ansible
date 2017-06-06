@@ -1,0 +1,10 @@
+---
+- name: Redeploy facepalm
+  hosts: terrain
+  tags:
+    - services
+    - uncolored
+    - facepalm
+  roles:
+    - role: util-notify-chat
+      msg: "Deploying facepalm, which does nothing."
