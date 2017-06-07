@@ -2,6 +2,6 @@
 - name: pull de-vault image
   shell: docker pull discoenv/de-vault:{{docker.tag}}
 
-- name: install road-runner
+- name: install de-vault
   shell: docker run --rm -v /usr/local/bin:/de-vault --entrypoint "cp" discoenv/de-vault:{{docker.tag}} /go/bin/de-vault /de-vault/de-vault
   
