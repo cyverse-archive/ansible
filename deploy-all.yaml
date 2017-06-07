@@ -30,7 +30,7 @@
 - include: playbooks/de-jex-adapter.yml
 - include: playbooks/de-kifshare.yml
 - include: playbooks/de-metadata.yml
-- include: playbooks/de-notification-agent.yml
+- include: playbooks/de-notificationagent.yml
 - include: playbooks/de-permissions.yml
 - include: playbooks/de-clockwork.yml
 - include: playbooks/de-dewey.yml
