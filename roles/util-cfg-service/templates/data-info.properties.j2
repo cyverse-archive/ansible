@@ -1,13 +1,13 @@
-data-info.anon-files-base-url        = {{ kifshare_external_anon_files_url }}
-data-info.anon-user                  = {{ kifshare.anon_user }}
+data-info.anon-files-base-url        = https://{{ de.host }}/anon-files
+data-info.anon-user                  = anonymous
 data-info.bad-chars                  = {{ irods.bad_chars }}
 data-info.community-data             = {{ irods.home }}/shared
 data-info.copy-key                   = ipc-de-copy-from
 data-info.max-paths-in-request       = {{ fs_max_paths_in_request }}
 data-info.metadata.base-url          = http://{{ metadata.host }}:{{ metadata.port }}
 data-info.tree-urls.base-url         = http://{{ tree_urls.host }}:{{ tree_urls.port }}
-data-info.kifshare-download-template = {{ kifshare.de_url }}
-data-info.kifshare-external-url      = {{ kifshare_external_url }}
+data-info.kifshare-download-template = \{\{url\}\}/d/\{\{ticket-id\}\}/\{\{filename\}\}
+data-info.kifshare-external-url      = https://{{ de.host }}/dl
 data-info.perms-filter               = {{ irods.admins }}
 data-info.port                       = {{ default_service_port }}
 
