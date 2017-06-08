@@ -61,6 +61,13 @@
         - {key: "configs/{{environment_name}}/irods/base", value: "{{irods.home}}"}
         - {key: "configs/{{environment_name}}/irods/resc", value: "{{irods.default_resource}}"}
         - {key: "configs/{{environment_name}}/irods/zone", value: "{{irods.zone}}"}
+        - {key: "configs/{{environment_name}}/irods/admins", value: "{{irods.admins}}"}
+        - {key: "configs/{{environment_name}}/irods/admin-users", value: "{{irods_admin_users}}"}
+        - {key: "configs/{{environment_name}}/irods/bad-chars", value: "{{irods.bad_chars}}"}
+        - {key: "configs/{{environment_name}}/irods/max-paths-in-request", value: "{{fs_max_paths_in_request}}"}
+        - {key: "configs/{{environment_name}}/irods/max-retries", value: "10"}
+        - {key: "configs/{{environment_name}}/irods/retry-sleep", value: "1000"}
+        - {key: "configs/{{environment_name}}/irods/use-trash", value: "true"}
         - {key: "configs/{{environment_name}}/icat/host", value: "{{icat.host}}"}
         - {key: "configs/{{environment_name}}/icat/port", value: "{{icat.port}}"}
         - {key: "configs/{{environment_name}}/icat/user", value: "{{icat.user}}"}
@@ -124,7 +131,7 @@
         - {key: "configs/{{environment_name}}/kifshare/flags/iget", value: "iget -t \\{\\{ticket-id\\}\\} '\\{\\{abspath\\}\\}'"}
         - {key: "configs/{{environment_name}}/kifshare/css-files", value: "resources/css/reset.css,resources/css/960.css,resources/css/kif.css"}
         - {key: "configs/{{environment_name}}/kifshare/javascript-files", value: "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js,https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js,resources/js/json2.js,resources/js/kif.js"}
-        - {key: "configs/{{environment_name}}/de/base", value: "{{ de.base }}"}
+        - {key: "configs/{{environment_name}}/tree-urls/base", value: "http://{{ tree_urls.host }}:{{ tree_urls.port }}"}
         - {key: "configs/{{environment_name}}/tree-urls/cleanup/age", value: "{{ tree_urls.cleanup_age }}"}
         - {key: "configs/{{environment_name}}/tree-urls/cleanup/start", value: "{{ tree_urls.cleanup_start }}"}
         - {key: "configs/{{environment_name}}/tree-urls/cleanup/enable", value: "{{ tree_urls.cleanup_enable }}"}
@@ -140,6 +147,7 @@
         - {key: "configs/{{environment_name}}/infosquito/job-indexing-enabled", value: "{{ infosquito.job_indexing_enabled }}"}
         - {key: "configs/{{environment_name}}/infosquito/job-basename", value: "{{ infosquito.job_basename }}"}
         - {key: "configs/{{environment_name}}/infosquito/job-daynum", value: "{{ infosquito.job_daynum }}"}
+        - {key: "configs/{{environment_name}}/de/base", value: "{{ de.base }}"}
         - {key: "configs/{{environment_name}}/de/default-build-number", value: "{{ de_version_name }}"}
         - {key: "configs/{{environment_name}}/de/release-version", value: "{{ de_version }}"}
         - {key: "configs/{{environment_name}}/de/base-url", value: "{{ cas_base }}"}
@@ -192,5 +200,11 @@
         - {key: "configs/{{environment_name}}/jex/base", value: "{{ jex.base }}"}
         - {key: "configs/{{environment_name}}/jex/batch-group", value: "{{ jex.batch_group }}"}
         - {key: "configs/{{environment_name}}/data-info/base", value: "http://{{ data_info.host }}:{{ data_info.port }}"}
+        - {key: "configs/{{environment_name}}/data-info/anon-files-base", value: "https://{{ de.host }}/anon-files"}
+        - {key: "configs/{{environment_name}}/data-info/anon-user", value: "anonymous"}
+        - {key: "configs/{{environment_name}}/data-info/copy-key", value: "ipc-de-copy-from"}
+        - {key: "configs/{{environment_name}}/data-info/community-data", value: "{{irods.home}}/shared"}
+        - {key: "configs/{{environment_name}}/data-info/kifshare-external-url", value: "https://{{ de.host }}/dl"}
+        - {key: "configs/{{environment_name}}/data-info/type-detect-attribute", value: "ipc-filetype"}
         - {key: "configs/{{environment_name}}/templeton/amqp-queue-prefix", value: "{{ templeton.amqp.queue_prefix }}"}
 
