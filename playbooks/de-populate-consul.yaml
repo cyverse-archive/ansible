@@ -8,6 +8,10 @@
   tags:
     - consul-kv
   roles:
+    - role: util-notify-chat
+      username: Consul
+      icon: ":consul:"
+      msg: "Populating Consul K/V Store"
     - role: de-populate-consul
       when: use_consul_configs
       cleanup: True
@@ -207,4 +211,8 @@
         - {key: "configs/{{environment_name}}/data-info/kifshare-external-url", value: "https://{{ de.host }}/dl"}
         - {key: "configs/{{environment_name}}/data-info/type-detect-attribute", value: "ipc-filetype"}
         - {key: "configs/{{environment_name}}/templeton/amqp-queue-prefix", value: "{{ templeton.amqp.queue_prefix }}"}
+    - role: util-notify-chat
+      username: Consul
+      icon: ":consul:"
+      msg: ":heavy_check_mark: Done populating Consul K/V Store"
 
