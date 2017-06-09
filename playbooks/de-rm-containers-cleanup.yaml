@@ -83,3 +83,17 @@
       ignore_errors: yes
       become: true
       shell: docker rm -fv etc_config_anon_files_1
+
+- name: Remove old 'etc' project containers
+  hosts: services:ui:image-janitor:consul:!grouper
+  become: true
+  gather_facts: false
+  tags:
+    - services
+    - ui
+  post_tasks:
+    - name: Stop all containers with 'etc' docker-compose project
+      shell: docker stop $(docker ps -qf "label=com.docker.compose.project=etc")
+
+    - name: Remove all containers with 'etc' docker-compose project
+      shell: docker rm -fv $(docker ps -qf "label=com.docker.compose.project=etc")
