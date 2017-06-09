@@ -13,6 +13,7 @@
     DE_TAG: "{{docker.tag}}"
     DE_ENV: "{{environment_name}}"
     HOSTNAME: "{{ hostname_i.stdout_lines[0] }}"
+    COMPOSE_PROJECT_NAME: "{{ inventory_hostname_short }}"
   shell: "docker-compose -f {{docker_compose_path}} config --services"
   register: service_list
   tags:

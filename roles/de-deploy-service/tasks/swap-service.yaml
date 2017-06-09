@@ -13,6 +13,7 @@
     DE_TAG: "{{docker.tag}}"
     DE_ENV: "{{environment_name}}"
     HOSTNAME: "{{ hostname_i.stdout_lines[0] }}"
+    COMPOSE_PROJECT_NAME: "{{ inventory_hostname_short }}"
     CONSUL_TOKEN: "{{(inventory_hostname+environment_name+consul.get('salt', 'consul_salt')) | to_uuid}}"
 
 - block:
@@ -86,4 +87,5 @@
     DE_TAG: "{{docker.tag}}"
     DE_ENV: "{{environment_name}}"
     HOSTNAME: "{{ hostname_i.stdout_lines[0] }}"
+    COMPOSE_PROJECT_NAME: "{{ inventory_hostname_short }}"
     CONSUL_TOKEN: "{{(inventory_hostname+environment_name+consul.get('salt', 'consul_salt')) | to_uuid}}"
