@@ -161,6 +161,7 @@
         - {key: "configs/{{environment_name}}/de/cas-app-name", value: "{{ de.description }}"}
         - {key: "configs/{{environment_name}}/de/cas-login-url", value: "/login"}
         - {key: "configs/{{environment_name}}/de/cas-uid-domain", value: "{{ cas_uid_domain }}"}
+        - {key: "configs/{{environment_name}}/de/session-timeout", value: "28800"}
         - {key: "configs/{{environment_name}}/de/authorized-groups", value: "{{ admin_groups }}"}
         - {key: "configs/{{environment_name}}/de/group-attribute-name", value: "{{ cas_group_attribute }}"}
         - {key: "configs/{{environment_name}}/de/cas-no-logout-url", value: "{{ cas_no_logout_url }}"}
