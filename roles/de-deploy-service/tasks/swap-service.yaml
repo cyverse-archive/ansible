@@ -51,6 +51,7 @@
     uri: url="http://localhost:{{consul_port}}/v1/kv/{{environment_name}}/{{service_name_short}}/color{% if consul_deployment_token and 'token' in consul_deployment_token %}?token={{consul_deployment_token.token}}{% endif %}" method=PUT body="{{other_color}}" return_content=yes
     register: color_switch
     failed_when: color_switch.content != "true"
+  run_once: true
   always:
     - name: "Remove consul ACL token"
       consul_acl:
