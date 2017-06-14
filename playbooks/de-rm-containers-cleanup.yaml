@@ -98,4 +98,4 @@
 
     - name: Remove all containers with 'etc' docker-compose project
       ignore_errors: yes
-      shell: docker rm -fv $(docker ps -qf "label=com.docker.compose.project=etc")
+      shell: docker rm -fv $(docker ps -aqf "label=com.docker.compose.project=etc")
