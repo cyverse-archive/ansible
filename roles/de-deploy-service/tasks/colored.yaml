@@ -53,11 +53,10 @@
 - block:
   - name: update python-consul
     pip: name="python-consul" state="present"
+    when: consul_token != ""
   - name: update pyhcl
     pip: name="pyhcl" state="present"
-  when: consul_token != ""
-
-- block:
+    when: consul_token != ""
   - name: Allocate a consul ACL token
     when: consul_token != ""
     consul_acl:
@@ -78,6 +77,8 @@
     args:
       warn: no
     register: service_color_check
+  - debug: msg="Color of {{service_name}} is {{service_color_check.stdout_lines[0]}}"
+  run_once: true
   always:
     - name: "Remove consul ACL token"
       consul_acl:
@@ -88,16 +89,10 @@
       when: consul_deployment_token and 'token' in consul_deployment_token
       ignore_errors: True
 
-- debug: msg="Color of {{service_name}} is {{service_color_check.stdout_lines[0]}}"
+- fail: msg="Color is not either known value."
+  when: service_color_check.stdout_lines[0] != 'green' and service_color_check.stdout_lines[0] != 'blue'
 
 - include: swap-service.yaml
   vars:
-      current_color: "green"
-      other_color: "blue"
-  when: service_color_check.stdout_lines[0] == 'green'
-
-- include: swap-service.yaml
-  vars:
-      current_color: "blue"
-      other_color: "green"
-  when: service_color_check.stdout_lines[0] == 'blue'
+      current_color: "{{ service_color_check.stdout_lines[0] }}"
+      other_color: "{% if service_color_check.stdout_lines[0] == 'green' %}blue{% else %}green{% endif %}"
