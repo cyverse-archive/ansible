@@ -12,25 +12,24 @@
   vars:
     pull_service_name: "{{restart_service_name}} {% if has_configs|default(true)   %}config_{{restart_service_name}}{% endif %} {% if has_data_container|default  (false) %}{{data_container_service_name}}_{{restart_service_name}}{% endif %}"
 
-- name: stop the {{stop_service_name}} container
-  shell: "docker-compose -f {{docker_compose_path}} stop {{stop_service_name}}"
-  register: docker_stop_v
-  changed_when: docker_stop_v.stderr.find('Stopping ') != -1
+- name: stop the {{stop_service_name}} container(s)
+  shell: "docker stop $(docker ps -qf 'label=com.docker.compose.service={{ item }}')"
+  ignore_errors: true
+  with_items: "{{ stop_service_name.split(' ') }}"
   tags:
     - docker_stop
   vars:
     stop_service_name: "{{restart_service_name}}"
 
 - name: remove the {{rm_service_name}} container (s)
-  shell: "docker-compose -f {{docker_compose_path}} rm -f -v {{rm_service_name}}"
-  register: docker_rm_v
-  changed_when: docker_rm_v.stdout.find('Going to remove ') != -1
+  shell: "docker rm -fv $(docker ps -aqf 'label=com.docker.compose.service={{ item }}')"
   ignore_errors: yes
+  with_items: "{{ rm_service_name.split(' ') }}"
   tags:
     - docker_rm
     - docker_rm_service
   vars:
-    rm_service_name: "{{restart_service_name}} {% if has_configs|default(true)   %}config_{{restart_service_name}}{% endif %} {% if has_data_container|default  (false) %}{{data_container_service_name}}_{{restart_service_name}}{% endif %}"
+    rm_service_name: "{{restart_service_name}}{% if has_configs|default(true) %} config_{{restart_service_name}}{% endif %}{% if has_data_container|default(false) %} {{data_container_service_name}}_{{restart_service_name}}{% endif %}"
 
 - name: wait for pull to be complete
   async_status: jid={{ docker_pull_v.ansible_job_id }}
