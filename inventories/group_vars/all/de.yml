@@ -3,7 +3,7 @@ de_base:
 de:
   host: "{{ groups['ui'][0] }}"
   base: "https://{{ groups['ui'][0] }}/de"
-  app_base: "https://{{ groups['ui'][0] }}"
+  app_base: "https://{% if 'ui-proxy' in groups %}{{ groups['ui-proxy'][0] }}{% else %}{{ groups['ui'][0] }}{% endif %}"
   service_name: de-ui.service
   service_name_short: ui
   compose_service: de_ui
