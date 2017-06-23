@@ -35,7 +35,7 @@ http {
                         '"request_length":'         '"$request_length",'
                         '"request_method":'         '"$request_method",'
                         '"request_time":'           '"$request_time",'
-                        '"scheme":'                 '"$scheme",'
+                        '"scheme":'                 '"$external_scheme",'
                         '"status":'                 '"$status",'
                         '"uri":'                    '"$uri",'
                         '"body_bytes_sent":'        '"$body_bytes_sent",'
@@ -90,10 +90,18 @@ http {
         ''      close;
     }
 
+    map $server_port $external_scheme {
+        8443    https
+        8444    https
+        default $scheme
+    }
+
     server {
         listen 443 ssl http2;
+{% if 'ui-proxy' in groups and groups['ui-proxy']|count > 0 %}
         listen 8443 http2 proxy_protocol;
         listen 8444 proxy_protocol;
+{% endif %}
 
         server_name {{ de.http_server.ssl.server_name }};
 
@@ -129,7 +137,7 @@ http {
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Forwarded-Proto $external_scheme;
 
             # No slash here -- we want the path part of the URI to be passed directly, including the `/anon-files/`
             proxy_pass http://kifshare;
@@ -157,7 +165,7 @@ http {
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Forwarded-Proto $external_scheme;
 
             # Here, a slash -- we want the `/dl/` part removed from the path part before being passed down
             proxy_pass http://kifshare/;
@@ -189,7 +197,7 @@ http {
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Forwarded-Proto $external_scheme;
 
             proxy_read_timeout 3600s;
 
@@ -203,7 +211,7 @@ http {
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Forwarded-Proto $external_scheme;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection $connection_upgrade;
 
