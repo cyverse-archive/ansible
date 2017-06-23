@@ -91,9 +91,9 @@ http {
     }
 
     map $server_port $external_scheme {
-        8443    https
-        8444    https
-        default $scheme
+        8443    https;
+        8444    https;
+        default $scheme;
     }
 
     server {
