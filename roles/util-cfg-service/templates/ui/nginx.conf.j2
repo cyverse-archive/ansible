@@ -100,7 +100,7 @@ http {
         listen 443 ssl http2;
 {% if 'ui-proxy' in groups and groups['ui-proxy']|count > 0 %}
         listen 8443 http2 proxy_protocol;
-        listen 8444 proxy_protocol;
+        listen 8444 ssl proxy_protocol;
 {% endif %}
 
         server_name {{ de.http_server.ssl.server_name }};
