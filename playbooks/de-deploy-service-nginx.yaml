@@ -76,7 +76,7 @@
       service_name: "{{iplant_groups.compose_service}}_nginx"
 
 - name: Redeploy jex-adapter-nginx
-hosts: jexevents:&systems
+  hosts: jexevents:&systems
   become: true
   gather_facts: false
   tags:
