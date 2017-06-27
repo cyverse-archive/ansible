@@ -6,7 +6,7 @@
 ---
 
 - name: predeploy chat notification
-  hosts: services:ui:&systems
+  hosts: apps:data-info:iplant-email:iplant-groups:jexevents:kifshare:metadata:notificationagent:permissions:saved-searches:tagger:terrain:tree-urls:user-preferences:user-sessions:ui:&systems
   become: true
   gather_facts: false
   tags:
@@ -76,7 +76,7 @@
       service_name: "{{iplant_groups.compose_service}}_nginx"
 
 - name: Redeploy jex-adapter-nginx
-  hosts: jexevents
+hosts: jexevents:&systems
   become: true
   gather_facts: false
   tags:
@@ -254,7 +254,7 @@
       service_name: "{{de.http_server.compose_service}}"
 
 - name: postdeploy chat notification
-  hosts: services:ui:&systems
+  hosts: apps:data-info:iplant-email:iplant-groups:jexevents:kifshare:metadata:notificationagent:permissions:saved-searches:tagger:terrain:tree-urls:user-preferences:user-sessions:ui:&systems
   become: true
   gather_facts: false
   tags:
