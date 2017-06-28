@@ -1,0 +1,36 @@
+---
+- name: "verify variables"
+  hosts: consul
+  gather_facts: false
+  pre_tasks:
+    - fail: msg="this playbook is only compatible with environments using Consul configs"
+      when: not use_consul_configs | bool
+    - fail: msg="the agave_enabled variable must be specified"
+      when: not agave_enabled is defined
+    - fail: msg="this playbook does not apply to environments where Agave integration is disabled"
+      when: not features.agave | bool
+
+- name: "update configs"
+  hosts: consul
+  run_once: true
+  become: true
+  gather_facts: false
+  roles:
+    - role: util-notify-chat
+      username: Consul
+      icon: ":consul:"
+      msg: "{% if agave_enabled | bool %}Enabling{% else %}Disabling{% endif %} Agave"
+    - role: de-populate-consul
+      cleanup: false
+      kv:
+        - {key: "configs/{{environment_name}}/agave/enabled", value: "{{ agave_enabled }}"}
+        - {key: "configs/{{environment_name}}/agave/jobs-enabled", value: "{{ agave_enabled }}"}
+    - role: util-notify-chat
+      username: Consul
+      icon: ":consul:"
+      msg: "Done {% if agave_enabled | bool %}Enabling{% else %}Disabling{% endif %} Agave"
+
+- name: "restart apps service"
+  include: de-apps.yml
+  vars:
+    pull_images: false
