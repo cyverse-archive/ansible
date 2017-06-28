@@ -6,6 +6,7 @@
   register: docker_pull_v
   async: 300
   poll: 0
+  when: pull_images
   tags:
     - docker_pull
     - docker_pull_service
@@ -35,6 +36,10 @@
   async_status: jid={{ docker_pull_v.ansible_job_id }}
   register: docker_pull_res
   until: docker_pull_res.finished
+  when: pull_images
+  tags:
+    - docker_pull
+    - docker_pull_service
   retries: 300
   delay: 1
 

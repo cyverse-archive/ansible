@@ -5,3 +5,4 @@ service_name_short: "{{service_name|replace('_', '-')}}"
 consul_port: 8500
 consul_token: "{% if consul is mapping and 'master_token' in consul %}{{ consul.master_token }}{% endif %}"
 data_container_service_name: "{{ data_container.compose_service }}"
+pull_images: true
