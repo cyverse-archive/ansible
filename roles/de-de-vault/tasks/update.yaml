@@ -5,3 +5,5 @@
 - name: install de-vault
   shell: docker run --rm -v /usr/local/bin:/de-vault --entrypoint "cp" discoenv/de-vault:{{docker.tag}} /go/bin/de-vault /de-vault/de-vault
   
+- name: remove de-vault image
+  shell: docker rmi discoenv/de-vault:{{docker.tag}}
