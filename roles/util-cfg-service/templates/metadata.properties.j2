@@ -5,12 +5,11 @@ metadata.app.listen-port = {{ default_service_port }}
 metadata.app.environment-name = {{ environment_name }}
 
 # Database settings.
-metadata.db.subprotocol = {{ metadata_db_vendor }}
-metadata.db.host        = {{ metadata_db_host }}
-metadata.db.port        = {{ metadata_db_port }}
-metadata.db.name        = {{ metadata_db_name }}
-metadata.db.user        = {{ metadata_db_user }}
-metadata.db.password    = {{ metadata_db_password }}
+metadata.db.host     = {{ metadata_db_host }}
+metadata.db.port     = {{ metadata_db_port }}
+metadata.db.name     = {{ metadata_db_name }}
+metadata.db.user     = {{ metadata_db_user }}
+metadata.db.password = {{ metadata_db_password }}
 
 # AMQP settings
 metadata.amqp.uri                  = {{ amqp_de_uri }}
