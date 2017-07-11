@@ -49,30 +49,6 @@ http {
     access_log /var/log/nginx/access.log json;
     error_log /var/log/nginx/error.log;
 
-{% if de.http_server.ssl.insecure_redirects is defined and de.http_server.ssl.insecure_redirects != None %}
-{% for redirect in de.http_server.ssl.insecure_redirects %}
-    server {
-        listen 80;
-        server_name {{ redirect.server_name }};
-        return 301 {{ redirect.return }};
-    }
-{% endfor %}
-{% endif %}
-
-{% if de.http_server.ssl.redirects is defined and de.http_server.ssl.redirects != None %}
-{% for redirect in de.http_server.ssl.redirects %}
-    server {
-        listen 443 ssl http2;
-        server_name {{ redirect.server_name }};
-
-        ssl_certificate {{ redirect.ssl_certificate }};
-        ssl_certificate_key {{ redirect.ssl_certificate_key }};
-
-        return 301 {{ redirect.return }};
-    }
-{% endfor %}
-{% endif %}
-
     upstream de {
 {% block de_upstream %}
         ip_hash;
@@ -221,4 +197,40 @@ http {
 {% endblock %}
         }
     }
+
+{% if de.http_server.ssl.insecure_redirects is defined and de.http_server.ssl.insecure_redirects != None %}
+{% for redirect in de.http_server.ssl.insecure_redirects %}
+    server {
+        listen 80;
+        server_name {{ redirect.server_name }};
+        return 301 {{ redirect.return }};
+    }
+{% endfor %}
+{% endif %}
+
+{% if de.http_server.ssl.redirects is defined and de.http_server.ssl.redirects != None %}
+{% for redirect in de.http_server.ssl.redirects %}
+    server {
+        listen 443 ssl http2;
+{% if 'ui-proxy' in groups and groups['ui-proxy']|count > 0 %}
+        listen 8443 http2 proxy_protocol;
+        listen 8444 ssl proxy_protocol;
+{% endif %}
+
+        server_name {{ redirect.server_name }};
+
+        ssl_certificate {{ redirect.ssl_certificate }};
+        ssl_certificate_key {{ redirect.ssl_certificate_key }};
+
+{% if 'ui-proxy' in groups and groups['ui-proxy']|count > 0 %}
+        real_ip_header proxy_protocol;
+        real_ip_recursive on;
+
+        set_real_ip_from {{ groups['ui-proxy'][0] }};
+{% endif %}
+
+        return 301 {{ redirect.return }};
+    }
+{% endfor %}
+{% endif %}
 }
