@@ -204,7 +204,7 @@
         - {key: "configs/{{environment_name}}/de/support-user", value: "siuser"}
         - {key: "configs/{{environment_name}}/de/redis-host", value: "{{ redis_host }}"}
         - {key: "configs/{{environment_name}}/de/redis-port", value: "{{ redis_port }}"}
-        - {key: "configs/{{environment_name}}/de/redis-db-number", value: "0"}
+        - {key: "configs/{{environment_name}}/de/redis-db-number", value: "{{ redis_db_number }}"}
         - {key: "configs/{{environment_name}}/de/redis-password", value: "{{ redis_password }}"}
         - {key: "configs/{{environment_name}}/jex/base", value: "{{ jex.base }}"}
         - {key: "configs/{{environment_name}}/jex/batch-group", value: "{{ jex.batch_group }}"}
@@ -220,4 +220,3 @@
       username: Consul
       icon: ":consul:"
       msg: ":heavy_check_mark: Done populating Consul K/V Store"
-
