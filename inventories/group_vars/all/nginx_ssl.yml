@@ -3,7 +3,9 @@ nginx_ssl:
   server_name:
   cert:
   cert_key:
+  cert_combined:
 # server_name: "~^[^.]+[.]example[.]org$"
 # cert: "/etc/ssl/example.crt"
 # cert_key: "/etc/ssl/example.key"
+# cert_combined: "/etc/ssl/example.combined"
 

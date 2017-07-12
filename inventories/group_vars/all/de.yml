@@ -33,6 +33,7 @@ de:
       server_name: "{{ nginx_ssl.server_name }}"
       cert: "{{ nginx_ssl.cert }}"
       cert_key: "{{ nginx_ssl.cert_key }}"
+      cert_combined: "{{ nginx_ssl.cert_combined }}"
       insecure_redirects:
         - server_name: "{{ nginx_ssl.server_name }}"
           return: "https://$host$request_uri"
@@ -41,4 +42,5 @@ de:
 #          return: "https://$basename.example.org$request_uri"
 #          ssl_certificate: "/etc/ssl/example.com.crt"
 #          ssl_certificate_key: "/etc/ssl/example.com.key"
+#          ssl_certificate_combined: "/etc/ssl/example.com.combined"
 
