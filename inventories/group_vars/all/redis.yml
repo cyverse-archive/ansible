@@ -1,0 +1,4 @@
+---
+redis_host: "{{ groups['redis'][0] }}"
+redis_port: 6379
+redis_password:

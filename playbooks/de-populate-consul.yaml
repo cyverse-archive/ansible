@@ -202,6 +202,10 @@
         - {key: "configs/{{environment_name}}/de/prod-deployment", value: "{{ prod_deployment }}"}
         - {key: "configs/{{environment_name}}/de/poll-interval", value: "{{ de.notification_poll }}"}
         - {key: "configs/{{environment_name}}/de/support-user", value: "siuser"}
+        - {key: "configs/{{environment_name}}/de/redis-host", value: "{{ redis_host }}"}
+        - {key: "configs/{{environment_name}}/de/redis-port", value: "{{ redis_port }}"}
+        - {key: "configs/{{environment_name}}/de/redis-db-number", value: "0"}
+        - {key: "configs/{{environment_name}}/de/redis-password", value: "{{ redis_password }}"}
         - {key: "configs/{{environment_name}}/jex/base", value: "{{ jex.base }}"}
         - {key: "configs/{{environment_name}}/jex/batch-group", value: "{{ jex.batch_group }}"}
         - {key: "configs/{{environment_name}}/data-info/base", value: "http://{{ data_info.host }}:{{ data_info.port }}"}
