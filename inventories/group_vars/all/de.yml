@@ -1,9 +1,9 @@
 ---
 de_base:
 de:
-  host: "{% if 'ui-proxy' in groups %}{{ groups['ui-proxy'][0] }}{% else %}{{ groups['ui'][0] }}{% endif %}"
-  base: "https://{% if 'ui-proxy' in groups %}{{ groups['ui-proxy'][0] }}{% else %}{{ groups['ui'][0] }}{% endif %}/de"
-  app_base: "https://{% if 'ui-proxy' in groups %}{{ groups['ui-proxy'][0] }}{% else %}{{ groups['ui'][0] }}{% endif %}"
+  host: "{% if 'ui-proxy' in groups and groups['ui-proxy']|count %}{{ groups['ui-proxy'][0] }}{% else %}{{ groups['ui'][0] }}{% endif %}"
+  base: "https://{% if 'ui-proxy' in groups and groups['ui-proxy']|count %}{{ groups['ui-proxy'][0] }}{% else %}{{ groups['ui'][0] }}{% endif %}/de"
+  app_base: "https://{% if 'ui-proxy' in groups and groups['ui-proxy']|count %}{{ groups['ui-proxy'][0] }}{% else %}{{ groups['ui'][0] }}{% endif %}"
   service_name: de-ui.service
   service_name_short: ui
   compose_service: de_ui
