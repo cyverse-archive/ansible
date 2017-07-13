@@ -115,6 +115,8 @@
         - {key: "configs/{{environment_name}}/info-typer/qos", value: "100"}
         - {key: "configs/{{environment_name}}/monkey/log-progress/enabled", value: "true"}
         - {key: "configs/{{environment_name}}/monkey/queue", value: "{{ monkey.amqp.queue_name }}"}
+        - {key: "configs/{{environment_name}}/kifshare/host", value: "{{ kifshare.host }}"}
+        - {key: "configs/{{environment_name}}/kifshare/port", value: "{{ kifshare.port }}"}
         - {key: "configs/{{environment_name}}/kifshare/mode", value: "{{ kifshare.mode }}"}
         - {key: "configs/{{environment_name}}/kifshare/download-buffer-size", value: "{{ kifshare.download_buffer_size }}"}
         - {key: "configs/{{environment_name}}/kifshare/footer-text", value: 'CyVerse is funded by a grant from the National Science Foundation Plant Science Cyberinfrastructure Collaborative (#DBI-0735191, #DBI-1265383).'}
@@ -216,6 +218,12 @@
         - {key: "configs/{{environment_name}}/data-info/kifshare-external-url", value: "https://{{ de.host }}/dl"}
         - {key: "configs/{{environment_name}}/data-info/type-detect-attribute", value: "ipc-filetype"}
         - {key: "configs/{{environment_name}}/templeton/amqp-queue-prefix", value: "{{ templeton.amqp.queue_prefix }}"}
+        - {key: "configs/{{environment_name}}/nginx/proxy", value: "{{ groups['ui-proxy'][0] if groups['ui-proxy']|count else ''}}"}
+        - {key: "configs/{{environment_name}}/nginx/server-name", value: "{{ de.http_server.ssl.server_name }}"}
+        - {key: "configs/{{environment_name}}/nginx/ssl/cert", value: "{{ de.http_server.ssl.cert }}"}
+        - {key: "configs/{{environment_name}}/nginx/ssl/key", value: "{{ de.http_server.ssl.cert_key }}"}
+        - {key: "configs/{{environment_name}}/nginx/insecure-redirects", value: "___ANSIBLE_IS_TERRIBLE___{% if de.http_server.ssl.insecure_redirects is defined and de.http_server.ssl.insecure_redirects is not none %}{{ de.http_server.ssl.insecure_redirects | to_json }}{% endif %}"}
+        - {key: "configs/{{environment_name}}/nginx/redirects", value: "___ANSIBLE_IS_TERRIBLE___{% if de.http_server.ssl.redirects is defined and de.http_server.ssl.redirects is not none %}{{ de.http_server.ssl.redirects | to_json }}{% endif %}"}
     - role: util-notify-chat
       username: Consul
       icon: ":consul:"

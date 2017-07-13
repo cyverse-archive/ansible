@@ -31,10 +31,10 @@
     tags:
       - cleanup
 
-  - name: "Add or update {{key}}"
+  - name: "Add or update keys and values"
     consul_kv:
       key: "{{item.key}}"
-      value: "{{ item.value | string }}"
+      value: "{{ item.value | replace('___ANSIBLE_IS_TERRIBLE___', '') | string }}"
       port: "{{consul_port}}"
       token: "{% if consul_update_token and 'token' in consul_update_token %}{{consul_update_token.token}}{% else %}{{ none }}{% endif %}"
     with_items: "{{kv}}"
