@@ -249,6 +249,7 @@
     - de-ui-nginx
   roles:
     - role: de-deploy-service
+      has_configs: false
       has_data_container: true
       deploy_use_color: false
       service_name: "{{de.http_server.compose_service}}"
