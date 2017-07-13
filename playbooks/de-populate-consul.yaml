@@ -218,7 +218,7 @@
         - {key: "configs/{{environment_name}}/data-info/kifshare-external-url", value: "https://{{ de.host }}/dl"}
         - {key: "configs/{{environment_name}}/data-info/type-detect-attribute", value: "ipc-filetype"}
         - {key: "configs/{{environment_name}}/templeton/amqp-queue-prefix", value: "{{ templeton.amqp.queue_prefix }}"}
-        - {key: "configs/{{environment_name}}/nginx/proxy", value: "{{ groups['ui-proxy'][0] if groups['ui-proxy']|count else ''}}"}
+        - {key: "configs/{{environment_name}}/nginx/proxy", value: "{{ groups['ui-proxy'][0] if 'ui-proxy' in groups and groups['ui-proxy']|count else ''}}"}
         - {key: "configs/{{environment_name}}/nginx/server-name", value: "{{ de.http_server.ssl.server_name }}"}
         - {key: "configs/{{environment_name}}/nginx/ssl/cert", value: "{{ de.http_server.ssl.cert }}"}
         - {key: "configs/{{environment_name}}/nginx/ssl/key", value: "{{ de.http_server.ssl.cert_key }}"}
