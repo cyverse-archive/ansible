@@ -53,7 +53,7 @@
 - include: playbooks/de-monkey.yml
 - include: playbooks/de-templeton-incremental.yml
 - include: playbooks/de-templeton-periodic.yml
-- include: playbooks/de-timelord.yml
+#- include: playbooks/de-timelord.yml
 ############################################
 # Cleanup steps
 ############################################
