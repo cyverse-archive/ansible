@@ -68,10 +68,15 @@
         - {key: "configs/{{environment_name}}/irods/admins", value: "{{irods.admins}}"}
         - {key: "configs/{{environment_name}}/irods/admin-users", value: "{{irods_admin_users}}"}
         - {key: "configs/{{environment_name}}/irods/bad-chars", value: "{{irods.bad_chars}}"}
+        - {key: "configs/{{environment_name}}/irods/bad-names", value: "cacheServiceTempDir"}
         - {key: "configs/{{environment_name}}/irods/max-paths-in-request", value: "{{fs_max_paths_in_request}}"}
         - {key: "configs/{{environment_name}}/irods/max-retries", value: "10"}
         - {key: "configs/{{environment_name}}/irods/retry-sleep", value: "1000"}
         - {key: "configs/{{environment_name}}/irods/use-trash", value: "true"}
+        - {key: "configs/{{environment_name}}/dc/base", value: "http://datacommons.cyverse.org/browse"}
+        - {key: "configs/{{environment_name}}/dc/data-curators-group", value: "{{ irods.data_curators_group }}"}
+        - {key: "configs/{{environment_name}}/dc/staging-dir", value: "/iplant/home/shared/commons_repo/staging"}
+        - {key: "configs/{{environment_name}}/dc/publish-dir", value: "/iplant/home/shared/commons_repo/curated"}
         - {key: "configs/{{environment_name}}/icat/host", value: "{{icat.host}}"}
         - {key: "configs/{{environment_name}}/icat/port", value: "{{icat.port}}"}
         - {key: "configs/{{environment_name}}/icat/user", value: "{{icat.user}}"}
@@ -93,6 +98,7 @@
         - {key: "configs/{{environment_name}}/porklock/tag", value: "{{docker.tag}}"}
         - {key: "configs/{{environment_name}}/smtp/host", value: "local-exim"}
         - {key: "configs/{{environment_name}}/smtp/from-address", value: "{{ email_smtp_from_address }}"}
+        - {key: "configs/{{environment_name}}/analyses/out-dir", value: "{{ apps.out_dir }}"}
         - {key: "configs/{{environment_name}}/apps/base", value: "{{apps.base}}"}
         - {key: "configs/{{environment_name}}/apps/de-callback-uri", value: "{{apps.base}}/callbacks/de-job"}
         - {key: "configs/{{environment_name}}/apps/public-workspace-id", value: "00000000-0000-0000-0000-000000000000"}
@@ -110,6 +116,41 @@
         - {key: "configs/{{environment_name}}/groups/base", value: "{{iplant_groups.base_url}}"}
         - {key: "configs/{{environment_name}}/notifications/base", value: "{{notificationagent.base}}"}
         - {key: "configs/{{environment_name}}/terrain/base", value: "{{terrain.base}}"}
+        - {key: "configs/{{environment_name}}/terrain/routes-notifications", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-apps", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-metadata", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-prefs", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-user-info", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-data", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-tree-viewer", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-session", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-collaborator", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-coge", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/routes-search", value: "true"}
+        - {key: "configs/{{environment_name}}/terrain/groups-default-search-limit", value: "50"}
+        - {key: "configs/{{environment_name}}/terrain/search-default-limit", value: "{{ search_default_limit }}"}
+        - {key: "configs/{{environment_name}}/terrain/tree-parser-base", value: "{{ tree_parser_base }}"}
+        - {key: "configs/{{environment_name}}/terrain/url-import-app", value: "1E8F719B-0452-4D39-A2F3-8714793EE3E6"}
+        - {key: "configs/{{environment_name}}/tool-request/email-dest", value: "{{ de_mail_to_addr }}"}
+        - {key: "configs/{{environment_name}}/tool-request/email-src", value: "{{ de_mail_from_addr }}"}
+        - {key: "configs/{{environment_name}}/permanent-id/base", value: "https://ezid.cdlib.org"}
+        - {key: "configs/{{environment_name}}/permanent-id/user", value: "{{ permanent_id.ezid.username }}"}
+        - {key: "configs/{{environment_name}}/permanent-id/pass", value: "{{ permanent_id.ezid.password }}"}
+        - {key: "configs/{{environment_name}}/permanent-id/shoulders-ark", value: "{{ permanent_id.ezid.shoulders.ark }}"}
+        - {key: "configs/{{environment_name}}/permanent-id/shoulders-doi", value: "{{ permanent_id.ezid.shoulders.doi }}"}
+        - {key: "configs/{{environment_name}}/permanent-id/email-dest", value: "{{ permanent_id.admin_email_addr }}"}
+        - {key: "configs/{{environment_name}}/permanent-id/email-src", value: "{{ permanent_id.email_from_addr }}"}
+        - {key: "configs/{{environment_name}}/permanent-id/attr-identifier", value: "Identifier"}
+        - {key: "configs/{{environment_name}}/permanent-id/attr-alt-identifier", value: "AlternateIdentifier"}
+        - {key: "configs/{{environment_name}}/permanent-id/attr-alt-identifier-type", value: "alternateIdentifierType"}
+        - {key: "configs/{{environment_name}}/permanent-id/attr-publication-year", value: "datacite.publicationyear"}
+        - {key: "configs/{{environment_name}}/support/email-dest", value: "{{ de_support_email_to_addr }}"}
+        - {key: "configs/{{environment_name}}/coge/base", value: "{{ coge.base_url }}"}
+        - {key: "configs/{{environment_name}}/coge/user", value: "{{ coge.user }}"}
+        - {key: "configs/{{environment_name}}/coge/data-folder-name", value: "{{ coge.data_folder_name }}"}
+        - {key: "configs/{{environment_name}}/user-preferences/base", value: "http://{{ user_preferences.host }}:{{ user_preferences.port }}"}
+        - {key: "configs/{{environment_name}}/user-sessions/base", value: "http://{{ user_sessions.host }}:{{ user_sessions.port }}"}
+        - {key: "configs/{{environment_name}}/saved-searches/base", value: "http://{{ saved_searches.host }}:{{ saved_searches.port }}"}
         - {key: "configs/{{environment_name}}/dewey/qos", value: "100"}
         - {key: "configs/{{environment_name}}/dewey/amqp-queue-name", value: "{{dewey.amqp.queue_name}}"}
         - {key: "configs/{{environment_name}}/info-typer/qos", value: "100"}
@@ -173,6 +214,11 @@
         - {key: "configs/{{environment_name}}/de/keepalive-interval", value: "90"}
         - {key: "configs/{{environment_name}}/jwt/private-key-path", value: "{{ jwt.signing_key.private }}"}
         - {key: "configs/{{environment_name}}/jwt/private-key-password", value: "{{ jwt.signing_key.password }}"}
+        - {key: "configs/{{environment_name}}/jwt/public-key-path", value: "{{ jwt.signing_key.public }}"}
+        - {key: "configs/{{environment_name}}/jwt/signing-key-algorithm", value: "{{ jwt.signing_key.algorithm }}"}
+        - {key: "configs/{{environment_name}}/jwt/accepted-keys-dir", value: "{{ jwt.accepted_keys.dir }}"}
+        - {key: "configs/{{environment_name}}/jwt/validity-window-end", value: "{{ jwt.validity_window.end }}"}
+        - {key: "configs/{{environment_name}}/jwt/wso2-header", value: "{{ jwt.wso2.header }}"}
         - {key: "configs/{{environment_name}}/de/twitter-url", value: "https://twitter.com/cyverseorg"}
         - {key: "configs/{{environment_name}}/de/facebook-url", value: "https://www.facebook.com/CyVerse.org/"}
         - {key: "configs/{{environment_name}}/de/newsletter-url", value: "http://www.cyverse.org/newsletter"}
