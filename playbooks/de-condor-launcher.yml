@@ -2,6 +2,7 @@
   hosts: jex
   become: yes
   gather_facts: false
+  any_errors_fatal: true
   tags:
     - condor-launcher
   roles:

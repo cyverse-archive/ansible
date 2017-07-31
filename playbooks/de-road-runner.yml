@@ -2,6 +2,7 @@
   hosts: condor:jex
   become: yes
   gather_facts: false
+  any_errors_fatal: true
   tags:
     - road-runner
   roles:

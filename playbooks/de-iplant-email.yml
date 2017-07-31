@@ -3,6 +3,7 @@
   hosts: iplant-email:&systems
   become: true
   gather_facts: false
+  any_errors_fatal: true
   tags:
     - services
     - colored
