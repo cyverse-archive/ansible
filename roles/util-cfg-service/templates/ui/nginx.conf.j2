@@ -51,7 +51,6 @@ http {
 
     upstream de {
 {% block de_upstream %}
-        ip_hash;
 
         server de-host:8080;
 {% endblock %}

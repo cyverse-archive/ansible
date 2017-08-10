@@ -24,7 +24,6 @@
 {% endblock %}
 
 {% block de_upstream %}
-        ip_hash;
 
 {% raw %}
 {{- with $service_query := (printf "%s.de" (env "DE_ENV")) }}
