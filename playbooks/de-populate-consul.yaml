@@ -254,6 +254,8 @@
         - {key: "configs/{{environment_name}}/de/redis-port", value: "{{ redis_port }}"}
         - {key: "configs/{{environment_name}}/de/redis-db-number", value: "{{ redis_db_number }}"}
         - {key: "configs/{{environment_name}}/de/redis-password", value: "{{ redis_password }}"}
+        - {key: "configs/{{environment_name}}/de/grouper-all-display-name", value: "All Public Users"}
+        - {key: "configs/{{environment_name}}/de/grouper-all-id", value: "GrouperAll"}
         - {key: "configs/{{environment_name}}/jex/base", value: "{{ jex.base }}"}
         - {key: "configs/{{environment_name}}/jex/batch-group", value: "{{ jex.batch_group }}"}
         - {key: "configs/{{environment_name}}/data-info/base", value: "http://{{ data_info.host }}:{{ data_info.port }}"}
