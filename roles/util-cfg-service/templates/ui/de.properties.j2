@@ -103,6 +103,7 @@ org.iplantc.services.admin.apps.categories                     = {{ terrain.base
 # Groups endpoints
 org.iplantc.services.collaboratorLists                         = {{ terrain.base }}/collaborator-lists
 org.iplantc.services.subjects                                  = {{ terrain.base }}/subjects
+org.iplantc.services.teams                                     = {{ terrain.base }}/teams
 
 #Oauth endpoints
 org.iplantc.services.oauth                                     = {{ terrain.base }}/secured/oauth
@@ -212,3 +213,10 @@ org.iplantc.discoveryenvironment.redis.host = {{ redis_host }}
 org.iplantc.discoveryenvironment.redis.port = {{ redis_port }}
 org.iplantc.discoveryenvironment.redis.db.number = {{ redis_db_number }}
 org.iplantc.discoveryenvironment.redis.password = {{ redis_password }}
+
+###############################################################################
+# Groups Settings
+###############################################################################
+org.iplantc.discoveryenvironment.groups.grouper-all-id = GrouperAll
+org.iplantc.discoveryenvironment.groups.grouper-all-display-name = All Public Users
+org.iplantc.discoveryenvironment.groups.grouper-id = {{ apps.grouper_user }}
