@@ -1,7 +1,7 @@
 ## For more detial please see
 ## http://www.cs.wisc.edu/condor/manual/v7.4/3_3Configuration.html
 
-##  Condor Config for iPlant condor cluser on DE services host.
+##  Condor Config for CyVerse condor cluser on DE services host.
 
 ##  What machine is your central manager?
 
@@ -48,9 +48,9 @@ NEGOTIATOR_INTERVAL = 20
 
 TRUST_UID_DOMAIN = TRUE
 
-#################################
-## Added for iPlant Collaborative
-#################################
+####################
+## Added for CyVerse
+####################
 CONDOR_ADMIN    = {{ condor.admin }}
 UID_DOMAIN      = {{ condor.uid_domain }}
 FILESYSTEM_DOMAIN = {{ condor.filesystem_domain }}

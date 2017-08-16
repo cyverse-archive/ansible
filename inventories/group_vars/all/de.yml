@@ -7,7 +7,7 @@ de:
   service_name: de-ui.service
   service_name_short: ui
   compose_service: de_ui
-  service_description: DE UI; iPlant Discovery Environment user interface
+  service_description: DE UI; CyVerse Discovery Environment user interface
   image_name: de
   container_name: de_ui
   log_driver: "{{ docker.log_driver }}"

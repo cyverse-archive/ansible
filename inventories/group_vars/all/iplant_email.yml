@@ -6,7 +6,7 @@ iplant_email:
   service_name: iplant-email.service
   service_name_short: iplant-email
   compose_service: iplant_email
-  service_description: iPlant Email service
+  service_description: CyVerse Email service
   image_name: iplant-email
   container_name: iplant-email
   properties_file: iplant-email.properties
