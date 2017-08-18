@@ -43,4 +43,3 @@ de:
 #          ssl_certificate: "/etc/ssl/example.com.crt"
 #          ssl_certificate_key: "/etc/ssl/example.com.key"
 #          ssl_certificate_combined: "/etc/ssl/example.com.combined"
-

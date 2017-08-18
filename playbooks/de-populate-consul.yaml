@@ -272,6 +272,11 @@
         - {key: "configs/{{environment_name}}/nginx/ssl/key", value: "{{ de.http_server.ssl.cert_key }}"}
         - {key: "configs/{{environment_name}}/nginx/insecure-redirects", value: "___ANSIBLE_IS_TERRIBLE___{% if de.http_server.ssl.insecure_redirects is defined and de.http_server.ssl.insecure_redirects is not none %}{{ de.http_server.ssl.insecure_redirects | to_json }}{% endif %}"}
         - {key: "configs/{{environment_name}}/nginx/redirects", value: "___ANSIBLE_IS_TERRIBLE___{% if de.http_server.ssl.redirects is defined and de.http_server.ssl.redirects is not none %}{{ de.http_server.ssl.redirects | to_json }}{% endif %}"}
+        - {key: "configs/{{environment_name}}/intercom/enabled", value: "{{ intercom_enabled }}"}
+        - {key: "configs/{{environment_name}}/intercom/app-id", value: "{{ app_id }}"}
+        - {key: "configs/{{environment_name}}/intercom/company-id", value: "{{ company_id }}"}
+        - {key: "configs/{{environment_name}}/intercom/company-name", value: "{{ company_name }}"}
+
     - role: util-notify-chat
       username: Consul
       icon: ":consul:"
