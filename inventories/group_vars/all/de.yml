@@ -13,7 +13,6 @@ de:
   log_driver: "{{ docker.log_driver }}"
   log_file: de-ui.log
   context_menu_enabled: false
-  intercom_enabled: true
   description: the CyVerse Discovery Environment
   empty_url: empty
   app_name: de
@@ -44,4 +43,3 @@ de:
 #          ssl_certificate: "/etc/ssl/example.com.crt"
 #          ssl_certificate_key: "/etc/ssl/example.com.key"
 #          ssl_certificate_combined: "/etc/ssl/example.com.combined"
-
